@@ -1,7 +1,7 @@
 package com.ajudaqui.vem_pro_culto_api.domain;
 
 
-import com.ajudaqui.vem_pro_culto_api.domain.enums.TipoTelefone;
+import com.ajudaqui.vem_pro_culto_api.domain.enums.ETipoTelefone;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,6 +33,6 @@ public class Telefone {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
-    private TipoTelefone tipo; 
+    private ETipoTelefone tipo; 
 
 }

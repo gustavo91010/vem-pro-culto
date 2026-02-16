@@ -2,6 +2,8 @@ package com.ajudaqui.vem_pro_culto_api.domain;
 
 import java.time.LocalDateTime;
 
+import com.ajudaqui.vem_pro_culto_api.domain.enums.EAtividadeTipo;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +31,10 @@ public class Atividade {
 
   @Column(name = "data_hora", nullable = false)
   private LocalDateTime dataHora;
+
+  @Enumerated(EnumType.STRING)
+  @Column(nullable = false, length = 20)
+  private EAtividadeTipo tipo;
 
   @ManyToOne
   @JoinColumn(name = "igreja_id")
