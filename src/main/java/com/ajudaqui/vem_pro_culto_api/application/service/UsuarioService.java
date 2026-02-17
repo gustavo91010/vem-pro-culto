@@ -1,11 +1,16 @@
 package com.ajudaqui.vem_pro_culto_api.application.service;
 
+import java.util.List;
+
+import com.ajudaqui.vem_pro_culto_api.application.service.dto.UsuarioDTO;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.Usuario;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
 public interface UsuarioService {
 
-  public Usuario registro(Usuario usuario);
+  public Usuario registro(UsuarioDTO dto);
+
+  List<Usuario> buscarTodos();
 
   public UsuarioResponse atualizar(Usuario usuario);
 

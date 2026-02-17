@@ -1,19 +1,21 @@
 package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 
+import java.util.List;
+
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
+import com.ajudaqui.vem_pro_culto_api.application.service.dto.UsuarioDTO;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.Usuario;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.UsuarioRepository;
 
 import org.springframework.stereotype.Service;
 
-@Service
-public class UsuarioServiceImp implements UsuarioService{
+import lombok.RequiredArgsConstructor;
 
-  @Override
-  public Usuario registro(Usuario usuario) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'registro'");
-  }
+@Service
+@RequiredArgsConstructor
+public class UsuarioServiceImp implements UsuarioService {
+  private final UsuarioRepository usuarioRepository;
 
   @Override
   public UsuarioResponse atualizar(Usuario usuario) {
@@ -27,5 +29,14 @@ public class UsuarioServiceImp implements UsuarioService{
     throw new UnsupportedOperationException("Unimplemented method 'desatvarConta'");
   }
 
-  
+  @Override
+  public Usuario registro(UsuarioDTO dto) {
+    return usuarioRepository.registro(new Usuario(dto));
+  }
+
+  @Override
+  public List<Usuario> buscarTodos() {
+    return usuarioRepository.buscarTodos();
+  }
+
 }

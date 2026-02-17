@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.domain.entity;
+package com.ajudaqui.vem_pro_culto_api.domain.entity.igreja;
 
 import java.time.LocalDateTime;
 import java.util.List;

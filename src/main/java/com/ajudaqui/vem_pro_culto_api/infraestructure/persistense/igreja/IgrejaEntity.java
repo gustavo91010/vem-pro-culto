@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense;
+package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja;
 
 import java.time.LocalDateTime;
 import java.util.List;
