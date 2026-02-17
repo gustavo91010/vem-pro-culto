@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.domain;
+package com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado;
 
 import java.math.BigDecimal;
 
@@ -8,17 +8,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "endereco")
+@Embeddable
 public class Endereco {
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
 
   private String logradouro;
   private String numero;

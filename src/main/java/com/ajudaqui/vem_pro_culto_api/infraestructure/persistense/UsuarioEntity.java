@@ -1,7 +1,9 @@
-package com.ajudaqui.vem_pro_culto_api.domain;
+package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.*;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -13,16 +15,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "usuario")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+@Table(name = "usuario")
+public class UsuarioEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "usuario", nullable = false, updatable = false)
+
   private Long id;
 
   @Column(name = "nome", nullable = false, length = 100)
@@ -42,11 +45,15 @@ public class Usuario {
   @Column(name = "registrado_em", nullable = false, updatable = false)
   private LocalDateTime registradoEm;
 
-  @OneToMany
-  @JoinTable(name = "usuario_telefone", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "telefone_id"))
+  @ElementCollection
+  @CollectionTable(name = "usuario_endereco", joinColumns = @JoinColumn(name = "usuario_id"))
+  private List<Endereco> endereco;
+
+  @ElementCollection
+  @CollectionTable(name = "usuario_telefone", joinColumns = @JoinColumn(name = "usuario_id"))
   private List<Telefone> telefone;
 
-  @OneToMany
-  @JoinTable(name = "usuario_rede_social", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rede_social_id"))
+  @ElementCollection
+  @CollectionTable(name = "usuario_rede_social", joinColumns = @JoinColumn(name = "usuario_id"))
   private List<RedeSocial> redesSociais;
 }

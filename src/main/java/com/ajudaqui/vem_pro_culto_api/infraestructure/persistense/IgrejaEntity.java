@@ -1,7 +1,11 @@
-package com.ajudaqui.vem_pro_culto_api.domain;
+package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.Endereco;
+import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.RedeSocial;
+import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.Telefone;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -18,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "igreja")
-public class Igreja {
+public class IgrejaEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,20 +41,20 @@ public class Igreja {
   @Column(name = "senha", nullable = false, length = 50)
   private String senha;
 
-  @OneToMany
-  @JoinTable(name = "igreja_telefone", joinColumns = @JoinColumn(name = "igreja_id"), inverseJoinColumns = @JoinColumn(name = "telefone_id"))
+  @ElementCollection
+  @CollectionTable(name = "igreja_endereco", joinColumns = @JoinColumn(name = "igreja_id"))
+  private List<Endereco> endereco;
+
+  @ElementCollection
+  @CollectionTable(name = "igreja_telefone", joinColumns = @JoinColumn(name = "igreja_id"))
   private List<Telefone> telefone;
 
-  @OneToMany
-  @JoinTable(name = "igreja_rede_social", joinColumns = @JoinColumn(name = "igreja_id"), inverseJoinColumns = @JoinColumn(name = "rede_social_id"))
+  @ElementCollection
+  @CollectionTable(name = "igreja_rede_social", joinColumns = @JoinColumn(name = "igreja_id"))
   private List<RedeSocial> redesSociais;
 
   @Column(name = "cnpj", nullable = true, length = 14)
   private String cnpj;
-
-  @ManyToOne(optional = false)
-  @JoinColumn(name = "endereco_id", nullable = false)
-  private Endereco endereco;
 
   @UpdateTimestamp
   @Column(name = "atualizado_em", nullable = false)

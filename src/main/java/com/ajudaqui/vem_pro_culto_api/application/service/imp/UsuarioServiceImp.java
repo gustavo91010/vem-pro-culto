@@ -2,7 +2,7 @@ package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
-import com.ajudaqui.vem_pro_culto_api.domain.Usuario;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.Usuario;
 
 import org.springframework.stereotype.Service;
 

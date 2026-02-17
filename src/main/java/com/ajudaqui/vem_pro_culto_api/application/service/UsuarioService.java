@@ -1,7 +1,7 @@
 package com.ajudaqui.vem_pro_culto_api.application.service;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
-import com.ajudaqui.vem_pro_culto_api.domain.Usuario;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.Usuario;
 
 public interface UsuarioService {
 

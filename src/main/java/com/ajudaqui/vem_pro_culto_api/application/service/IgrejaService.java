@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.IgrejaResponse;
-import com.ajudaqui.vem_pro_culto_api.domain.Igreja;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.Igreja;
 
 
 public interface IgrejaService {
