@@ -3,7 +3,7 @@ package com.ajudaqui.vem_pro_culto_api.web.controller;
 import java.util.List;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
-import com.ajudaqui.vem_pro_culto_api.application.service.dto.UsuarioDTO;
+import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class UsuarioController {
   private final UsuarioService usuarioService;
 
   @PostMapping
-  public Usuario registro(@RequestBody UsuarioDTO dto) {
+  public Usuario registro(@RequestBody UsuarioRequest dto) {
     return usuarioService.registro(dto);
   }
 

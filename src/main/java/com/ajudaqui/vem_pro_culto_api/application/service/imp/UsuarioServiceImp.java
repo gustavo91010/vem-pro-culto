@@ -4,7 +4,11 @@ import java.util.List;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.UsuarioDTO;
+import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Endereco;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.RedeSocial;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Telefone;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.UsuarioRepository;
 
@@ -30,8 +34,17 @@ public class UsuarioServiceImp implements UsuarioService {
   }
 
   @Override
-  public Usuario registro(UsuarioDTO dto) {
-    return usuarioRepository.registro(new Usuario(dto));
+  public Usuario registro(UsuarioRequest request) {
+
+    Usuario usuario = Usuario.builder()
+        .nome(request.getNome())
+        .email(request.getEmail())
+        .senha(request.getSenha())
+        .telefone(request.getTelefone())
+        .endereco(request.getEndereco())
+        .redesSociais(request.getRedesSociais())
+        .build();
+    return usuarioRepository.registro(usuario);
   }
 
   @Override
