@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado;
+package com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.telefone;
 
 
 import com.ajudaqui.vem_pro_culto_api.domain.enums.ETipoTelefone;
@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class Telefone {
+public class TelefoneComp {
 
     @Column(nullable = false, length = 20)
     private String numero;

@@ -23,7 +23,7 @@ public class Usuario {
   private String senha;
   private LocalDateTime atualizadoEm;
   private LocalDateTime registradoEm;
-  private List<Endereco> endereco;
+  private Endereco endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
 
@@ -32,8 +32,8 @@ public class Usuario {
     setNome(dto.getNome());
     setEmail(dto.getEmail());
     this.senha = dto.getSenha();
-    this.atualizadoEm = LocalDateTime.now();
-    this.registradoEm = LocalDateTime.now();
+    // this.atualizadoEm = LocalDateTime.now();
+    // this.registradoEm = LocalDateTime.now();
   }
 
   public Usuario(String nome, String email, String senha) {
@@ -41,8 +41,8 @@ public class Usuario {
     setNome(nome);
     setEmail(email);
     this.senha = senha;
-    this.atualizadoEm = LocalDateTime.now();
-    this.registradoEm = LocalDateTime.now();
+    // this.atualizadoEm = LocalDateTime.now();
+    // this.registradoEm = LocalDateTime.now();
   }
 
   public void setEmail(String email) {

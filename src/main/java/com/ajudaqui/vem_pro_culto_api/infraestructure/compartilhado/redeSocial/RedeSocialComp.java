@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado;
+package com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.redeSocial;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class RedeSocial {
+public class RedeSocialComp {
 
   @Column(name = "url", nullable = false)
   private String url;

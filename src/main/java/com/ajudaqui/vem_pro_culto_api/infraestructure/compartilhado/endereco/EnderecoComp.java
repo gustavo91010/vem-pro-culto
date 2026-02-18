@@ -1,19 +1,17 @@
-package com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado;
+package com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.endereco;
 
 import java.math.BigDecimal;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class Endereco {
+public class EnderecoComp {
 
   private String logradouro;
   private String numero;
