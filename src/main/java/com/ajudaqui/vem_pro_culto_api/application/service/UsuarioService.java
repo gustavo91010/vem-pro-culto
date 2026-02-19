@@ -19,4 +19,6 @@ public interface UsuarioService {
 
   public boolean desatvarConta(Long usuarioId);
 
+  Usuario findByEmail(String email);
+
 }

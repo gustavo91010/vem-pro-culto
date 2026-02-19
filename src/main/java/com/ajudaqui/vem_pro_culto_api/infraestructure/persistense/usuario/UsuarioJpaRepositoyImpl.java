@@ -37,4 +37,11 @@ public class UsuarioJpaRepositoyImpl implements UsuarioRepository {
 
   }
 
+  @Override
+  public Usuario findByEmail(String email) {
+    return repository.findByEmail(email)
+        .map(mapper::toModel)
+        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
+  }
+
 }

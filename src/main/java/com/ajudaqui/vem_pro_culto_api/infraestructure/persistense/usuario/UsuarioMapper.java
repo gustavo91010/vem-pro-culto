@@ -1,12 +1,9 @@
 package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario;
 
 import java.util.List;
-import java.util.ListResourceBundle;
-
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.endereco.EnderecoMapper;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.redeSocial.RedeSocialMapper;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.telefone.TelefoneComp;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.telefone.TelefoneMapper;
 
 import org.springframework.stereotype.Component;

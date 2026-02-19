@@ -10,4 +10,6 @@ public interface UsuarioRepository {
   public Usuario save(Usuario usuario);
 
   public Usuario findById(Long usuarioId);
+
+  public Usuario findByEmail(String email);
 }

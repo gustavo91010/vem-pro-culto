@@ -5,13 +5,9 @@ import java.util.List;
 import java.util.UUID;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
-import com.ajudaqui.vem_pro_culto_api.application.service.dto.UsuarioDTO;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Endereco;
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.RedeSocial;
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Telefone;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.UsuarioRepository;
 
@@ -35,8 +31,9 @@ public class UsuarioServiceImp implements UsuarioService {
 
   @Override
   public UsuarioResponse registro(UsuarioRequest request) {
-    //TODO falta fazer a verificação de email já regstrado
-    //find by email
+    if (findByEmail(request.getEmail()) != null) {
+      throw new IllegalArgumentException("Email já registrado");
+    }
 
     Usuario usuario = Usuario.builder()
         .nome(request.getNome())
@@ -57,6 +54,11 @@ public class UsuarioServiceImp implements UsuarioService {
     return usuarioRepository.buscarTodos().stream()
         .map(UsuarioResponse::new)
         .toList();
+  }
+
+  @Override
+  public Usuario findByEmail(String email) {
+    return usuarioRepository.findByEmail(email);
   }
 
   @Override
