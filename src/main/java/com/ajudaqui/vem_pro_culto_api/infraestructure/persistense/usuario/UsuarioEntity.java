@@ -2,6 +2,7 @@ package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.endereco.EnderecoComp;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.redeSocial.RedeSocialComp;
@@ -10,21 +11,8 @@ import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.telefone.Tel
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Getter
@@ -44,11 +32,17 @@ public class UsuarioEntity {
   @Column(name = "nome", nullable = false, length = 100)
   private String nome;
 
-  @Column(name = "email", nullable = false, length = 100)
+  @Column(name = "email", nullable = false, length = 100, unique = true)
   private String email;
 
   @Column(name = "senha", nullable = false, length = 50)
   private String senha;
+
+  @Column(name = "ativo")
+  private Boolean ativo;
+
+  @Column(name = "auth_token", nullable = false)
+  private UUID authToken;
 
   @UpdateTimestamp
   @Column(name = "atualizado_em", nullable = false)
@@ -60,10 +54,6 @@ public class UsuarioEntity {
 
   @Embedded
   private EnderecoComp endereco;
-  // @ElementCollection
-  // @CollectionTable(name = "usuario_endereco", joinColumns = @JoinColumn(name =
-  // "usuario_id"))
-  // private List<EnderecoComp> endereco;
 
   @ElementCollection
   @CollectionTable(name = "usuario_telefone", joinColumns = @JoinColumn(name = "usuario_id"))

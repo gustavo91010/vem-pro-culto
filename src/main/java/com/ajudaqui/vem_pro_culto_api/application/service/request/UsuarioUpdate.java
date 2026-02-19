@@ -11,15 +11,12 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class UsuarioRequest {
+public class UsuarioUpdate {
 
   
   private String nome;
   private String email;
-  private String senha;
-  private String authToken;
   private Endereco endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
-
 }

@@ -1,6 +1,7 @@
 package com.ajudaqui.vem_pro_culto_api.domain.entity.usuario;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 import java.util.List;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.UsuarioDTO;
@@ -21,6 +22,8 @@ public class Usuario {
   private String nome;
   private String email;
   private String senha;
+  private Boolean ativo;
+  private UUID authToken;
   private LocalDateTime atualizadoEm;
   private LocalDateTime registradoEm;
   private Endereco endereco;
@@ -31,16 +34,20 @@ public class Usuario {
 
     setNome(dto.getNome());
     setEmail(dto.getEmail());
+    setAuthToken(dto.getAuthToken());
     this.senha = dto.getSenha();
+    this.ativo = true;
     // this.atualizadoEm = LocalDateTime.now();
     // this.registradoEm = LocalDateTime.now();
   }
 
-  public Usuario(String nome, String email, String senha) {
+  public Usuario(String nome, String email, String senha, String authToken) {
 
     setNome(nome);
     setEmail(email);
+    setAuthToken(authToken);
     this.senha = senha;
+    this.ativo = true;
     // this.atualizadoEm = LocalDateTime.now();
     // this.registradoEm = LocalDateTime.now();
   }
@@ -57,5 +64,13 @@ public class Usuario {
       throw new IllegalArgumentException("Nome obrigatório");
 
     this.nome = nome;
+  }
+
+  public void setAuthToken(String authToken){
+
+    if (authToken == null || authToken.isBlank())
+      throw new IllegalArgumentException("AuthToken é obrigatório");
+
+    this.authToken = UUID.fromString(authToken);
   }
 }

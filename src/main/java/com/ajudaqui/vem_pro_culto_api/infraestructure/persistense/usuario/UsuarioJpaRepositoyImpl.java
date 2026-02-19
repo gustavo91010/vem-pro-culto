@@ -16,17 +16,25 @@ public class UsuarioJpaRepositoyImpl implements UsuarioRepository {
   private final UsuarioMapper mapper;
 
   @Override
-  public Usuario registro(Usuario usuario) {
+  public List<Usuario> buscarTodos() {
+    return repository.findAll().stream()
+        .map(mapper::toModel)
+        .toList();
+  }
+
+  @Override
+  public Usuario save(Usuario usuario) {
     UsuarioEntity entity = repository.save(mapper.toEntity(usuario));
 
     return mapper.toModel(entity);
   }
 
   @Override
-  public List<Usuario> buscarTodos() {
-    return repository.findAll().stream()
+  public Usuario findById(Long usuarioId) {
+    return repository.findById(usuarioId)
         .map(mapper::toModel)
-        .toList();
+        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
+
   }
 
 }

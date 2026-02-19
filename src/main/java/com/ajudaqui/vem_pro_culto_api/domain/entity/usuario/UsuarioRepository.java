@@ -4,7 +4,10 @@ import java.util.List;
 
 public interface UsuarioRepository {
 
-  public Usuario registro(Usuario usuario);
 
   public List<Usuario> buscarTodos();
+
+  public Usuario save(Usuario usuario);
+
+  public Usuario findById(Long usuarioId);
 }

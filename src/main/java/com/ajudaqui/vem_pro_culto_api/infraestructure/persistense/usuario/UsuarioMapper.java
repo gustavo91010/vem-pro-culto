@@ -26,6 +26,8 @@ public class UsuarioMapper {
         .nome(usuario.getNome())
         .email(usuario.getEmail())
         .senha(usuario.getSenha())
+        .authToken(usuario.getAuthToken())
+        .ativo(usuario.getAtivo())
         .telefone(
 
             usuario.getTelefone() == null
@@ -50,6 +52,8 @@ public class UsuarioMapper {
     return Usuario.builder()
         .id(entity.getId())
         .nome(entity.getNome())
+        .authToken(entity.getAuthToken())
+        .ativo(entity.getAtivo())
         .email(entity.getEmail())
         .senha(entity.getSenha())
         .telefone(entity.getTelefone() == null
