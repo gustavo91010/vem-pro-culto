@@ -21,17 +21,9 @@ public class UsuarioServiceImp implements UsuarioService {
   private final UsuarioRepository usuarioRepository;
 
   @Override
-  public boolean desatvarConta(Long usuarioId) {
-
-    var usuario = usuarioRepository.findById(usuarioId);
-    usuario.setAtualizadoEm(LocalDateTime.now()); // Será que preciso disso mesmo?
-    usuario.setAtivo(false);
-    return !usuarioRepository.save(usuario).getAtivo();
-  }
-
-  @Override
   public UsuarioResponse registro(UsuarioRequest request) {
-    if (findByEmail(request.getEmail()) != null) {
+
+    if (usuarioRepository.findByEmail(request.getEmail()).isPresent()) {
       throw new IllegalArgumentException("Email já registrado");
     }
 
@@ -58,26 +50,64 @@ public class UsuarioServiceImp implements UsuarioService {
 
   @Override
   public Usuario findByEmail(String email) {
-    return usuarioRepository.findByEmail(email);
+    return usuarioRepository.findByEmail(email)
+        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
   }
 
   @Override
   public Usuario findById(Long usuarioId) {
-    return usuarioRepository.findById(usuarioId);
+    return usuarioRepository.findById(usuarioId)
+        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
+  }
+
+  // @Override
+  // public UsuarioResponse atualizar(Long usuarioId, UsuarioUpdate usuario) {
+  //   Usuario user = findById(usuarioId);
+  //   user.setNome(usuario.getNome());
+  //   user.setEmail(usuario.getEmail());
+  //   user.setTelefone(usuario.getTelefone());
+  //   user.setEndereco(usuario.getEndereco());
+  //   user.setRedesSociais(usuario.getRedesSociais());
+  //   user.setAtualizadoEm(LocalDateTime.now());
+  //   // Será queprecisa mesmo ou aquela anotação resolve??
+
+  //   return new UsuarioResponse(usuarioRepository.save(user));
+  // }
+
+  @Override
+  public UsuarioResponse findByAuthToken(String authToken) {
+    Usuario usuario = usuarioRepository.findByAuthToken(fromUUID(authToken))
+        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
+    return new UsuarioResponse(usuario);
+  }
+
+  private UUID fromUUID(String text) {
+    try {
+      return UUID.fromString(text);
+    } catch (IllegalArgumentException e) {
+      throw new IllegalArgumentException("AuthToken inválido.");
+    }
   }
 
   @Override
-  public UsuarioResponse atualizar(Long usuarioId, UsuarioUpdate usuario) {
+  public boolean alternarStatus(Long usuarioId) {
+
+    var usuario = findById(usuarioId);
+    usuario.setAtivo(!usuario.getAtivo());
+    return usuarioRepository.update(usuarioId, usuario).getAtivo();
+  }
+
+  @Override
+  public UsuarioResponse update(Long usuarioId, UsuarioUpdate usuario) {
     Usuario user = findById(usuarioId);
     user.setNome(usuario.getNome());
     user.setEmail(usuario.getEmail());
-    user.setTelefone(usuario.getTelefone());
-    user.setEndereco(usuario.getEndereco());
-    user.setRedesSociais(usuario.getRedesSociais());
-    user.setAtualizadoEm(LocalDateTime.now());
+    // user.setTelefone(usuario.getTelefone());
+    // user.setEndereco(usuario.getEndereco());
+    // user.setRedesSociais(usuario.getRedesSociais());
+    // user.setAtualizadoEm(LocalDateTime.now());
     // Será queprecisa mesmo ou aquela anotação resolve??
 
-    return new UsuarioResponse(usuarioRepository.save(user));
+    return new UsuarioResponse(usuarioRepository.update(usuarioId, user));
   }
-
 }

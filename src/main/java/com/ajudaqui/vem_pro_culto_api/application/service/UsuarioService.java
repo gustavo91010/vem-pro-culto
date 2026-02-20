@@ -13,12 +13,14 @@ public interface UsuarioService {
 
   List<UsuarioResponse> buscarTodos();
 
+  public UsuarioResponse findByAuthToken(String authToken);
+
   public Usuario findById(Long usuarioId);
 
-  public UsuarioResponse atualizar(Long usuarioId, UsuarioUpdate usuario);
+  public UsuarioResponse update(Long usuarioId, UsuarioUpdate usuario);
 
-  public boolean desatvarConta(Long usuarioId);
+  public boolean alternarStatus(Long usuarioId);
 
-  Usuario findByEmail(String email);
+  public Usuario findByEmail(String email);
 
 }
