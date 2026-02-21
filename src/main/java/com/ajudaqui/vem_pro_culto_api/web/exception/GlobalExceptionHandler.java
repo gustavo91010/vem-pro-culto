@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.web.eception;
+package com.ajudaqui.vem_pro_culto_api.web.exception;
 
 import org.apache.coyote.BadRequestException;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;

@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.web.eception;
+package com.ajudaqui.vem_pro_culto_api.web.exception;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -29,11 +29,4 @@ public class ErrorDetails {
     this.developerMessage = Arrays.asList(ex.getClass().getName(), ex.toString());
   }
 
-  // ErrorDetails errorDetails = ErrorDetails.builder()
-  // .timestamp(LocalDateTime.now())
-  // .status(HttpStatus.BAD_REQUEST.value())
-  // .message(ex.getMessage())
-  // .details(ex.getLocalizedMessage())
-  // .developerMessage(Arrays.asList(ex.getClass().getName(), ex.toString()))
-  // .build();
 }
