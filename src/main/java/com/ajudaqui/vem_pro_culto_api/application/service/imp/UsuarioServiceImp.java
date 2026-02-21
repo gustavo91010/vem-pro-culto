@@ -1,6 +1,5 @@
 package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -60,19 +59,6 @@ public class UsuarioServiceImp implements UsuarioService {
         .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
   }
 
-  // @Override
-  // public UsuarioResponse atualizar(Long usuarioId, UsuarioUpdate usuario) {
-  //   Usuario user = findById(usuarioId);
-  //   user.setNome(usuario.getNome());
-  //   user.setEmail(usuario.getEmail());
-  //   user.setTelefone(usuario.getTelefone());
-  //   user.setEndereco(usuario.getEndereco());
-  //   user.setRedesSociais(usuario.getRedesSociais());
-  //   user.setAtualizadoEm(LocalDateTime.now());
-  //   // Será queprecisa mesmo ou aquela anotação resolve??
-
-  //   return new UsuarioResponse(usuarioRepository.save(user));
-  // }
 
   @Override
   public UsuarioResponse findByAuthToken(String authToken) {
@@ -81,33 +67,37 @@ public class UsuarioServiceImp implements UsuarioService {
     return new UsuarioResponse(usuario);
   }
 
-  private UUID fromUUID(String text) {
-    try {
-      return UUID.fromString(text);
-    } catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException("AuthToken inválido.");
-    }
-  }
-
   @Override
-  public boolean alternarStatus(Long usuarioId) {
+  public boolean alternarStatus(String authToken) {
 
-    var usuario = findById(usuarioId);
+    Usuario usuario = getByToken(authToken);
     usuario.setAtivo(!usuario.getAtivo());
-    return usuarioRepository.update(usuarioId, usuario).getAtivo();
+    return usuarioRepository.update(usuario.getId(), usuario).getAtivo();
   }
 
   @Override
-  public UsuarioResponse update(Long usuarioId, UsuarioUpdate usuario) {
-    Usuario user = findById(usuarioId);
+  public UsuarioResponse update(String authToken, UsuarioUpdate usuario) {
+    Usuario user = getByToken(authToken);
     user.setNome(usuario.getNome());
-    user.setEmail(usuario.getEmail());
     // user.setTelefone(usuario.getTelefone());
     // user.setEndereco(usuario.getEndereco());
     // user.setRedesSociais(usuario.getRedesSociais());
     // user.setAtualizadoEm(LocalDateTime.now());
     // Será queprecisa mesmo ou aquela anotação resolve??
 
-    return new UsuarioResponse(usuarioRepository.update(usuarioId, user));
+    return new UsuarioResponse(usuarioRepository.update(user.getId(), user));
+  }
+
+  private Usuario getByToken(String authToken) {
+    return usuarioRepository.findByAuthToken(fromUUID(authToken))
+        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
+  }
+
+  private UUID fromUUID(String text) {
+    try {
+      return UUID.fromString(text);
+    } catch (IllegalArgumentException e) {
+      throw new IllegalArgumentException("AuthToken inválido.");
+    }
   }
 }

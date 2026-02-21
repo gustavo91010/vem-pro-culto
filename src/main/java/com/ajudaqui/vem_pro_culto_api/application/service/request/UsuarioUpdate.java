@@ -15,7 +15,6 @@ public class UsuarioUpdate {
 
   
   private String nome;
-  private String email;
   private Endereco endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;

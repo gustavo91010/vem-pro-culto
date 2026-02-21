@@ -1,6 +1,7 @@
 package com.ajudaqui.vem_pro_culto_api.application.service.response;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Endereco;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.RedeSocial;
@@ -12,8 +13,7 @@ import lombok.Getter;
 @Getter
 public class UsuarioResponse {
 
-
-  private Long id;
+  private UUID authToken;
   private String nome;
   private String email;
   private Boolean ativo;
@@ -21,15 +21,14 @@ public class UsuarioResponse {
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
 
-    public UsuarioResponse(Usuario usuario) {
-      this.id = usuario.getId();
-      this.nome = usuario.getNome();
-      this.email = usuario.getEmail();
-      this.ativo = usuario.getAtivo();
-      this.endereco = usuario.getEndereco();
-      this.telefone = usuario.getTelefone();
-      this.redesSociais = usuario.getRedesSociais();
-    }
+  public UsuarioResponse(Usuario usuario) {
+    this.authToken = usuario.getAuthToken();
+    this.nome = usuario.getNome();
+    this.email = usuario.getEmail();
+    this.ativo = usuario.getAtivo();
+    this.endereco = usuario.getEndereco();
+    this.telefone = usuario.getTelefone();
+    this.redesSociais = usuario.getRedesSociais();
+  }
 
 }
-

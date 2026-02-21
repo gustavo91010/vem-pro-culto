@@ -17,9 +17,9 @@ public interface UsuarioService {
 
   public Usuario findById(Long usuarioId);
 
-  public UsuarioResponse update(Long usuarioId, UsuarioUpdate usuario);
+  public UsuarioResponse update(String authToken, UsuarioUpdate usuario);
 
-  public boolean alternarStatus(Long usuarioId);
+  public boolean alternarStatus(String authToken);
 
   public Usuario findByEmail(String email);
 

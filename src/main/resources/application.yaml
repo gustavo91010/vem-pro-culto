@@ -1,3 +1,6 @@
 spring:
   application:
     name: vem-pro-culto-api
+logging:
+  level:
+    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: ERROR

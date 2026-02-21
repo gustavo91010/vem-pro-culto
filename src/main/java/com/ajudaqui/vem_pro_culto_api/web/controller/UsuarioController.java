@@ -5,6 +5,7 @@ import java.util.List;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
+import com.ajudaqui.vem_pro_culto_api.application.service.response.ResponseMessage;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
 
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class UsuarioController {
   }
 
   @GetMapping("/{authToken}")
-  public ResponseEntity<UsuarioResponse> findByAuthToken(String authToken) {
+  public ResponseEntity<UsuarioResponse> findByAuthToken(@PathVariable String authToken) {
     return ResponseEntity.ok(usuarioService.findByAuthToken(authToken));
   }
 
@@ -34,22 +35,19 @@ public class UsuarioController {
     return ResponseEntity.ok(usuarioService.buscarTodos());
   }
 
-  @PutMapping("/atualizar/{usuarioId}")
-  public ResponseEntity<UsuarioResponse> atualizar(
-      @PathVariable Long usuarioId,
+  @PutMapping("/atualizar/{authToken}")
+  public ResponseEntity<ResponseMessage> atualizar(
+      @PathVariable String authToken,
       @RequestBody UsuarioUpdate usuario) {
+    usuarioService.update(authToken, usuario);
+    return ResponseEntity.ok(new ResponseMessage("Usuário atualizado com sucesso."));
 
-    return ResponseEntity.ok()
-        .header("X-Mensagem", "Usuário atualizado com sucesso")
-        .body(usuarioService.update(usuarioId, usuario));
   }
 
-  @PatchMapping("/alternarStatus/{usuarioId}")
-  public ResponseEntity<String> desativarConta(@PathVariable Long usuarioId) {
-    usuarioService.alternarStatus(usuarioId);
+  @PatchMapping("/alternar-status/{authToken}")
+  public ResponseEntity<ResponseMessage> desativarConta(@PathVariable String authToken) {
+    usuarioService.alternarStatus(authToken);
 
-    return ResponseEntity
-        .ok()
-        .header("mensagem", "Usuário desativado com sucesso.").build();
+    return ResponseEntity.ok(new ResponseMessage("Usuário atualizado com sucesso."));
   }
 }
