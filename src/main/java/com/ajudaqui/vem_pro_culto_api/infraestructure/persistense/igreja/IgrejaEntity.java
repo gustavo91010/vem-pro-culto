@@ -46,7 +46,7 @@ public class IgrejaEntity {
   @Column(name = "ativo")
   private Boolean ativo;
 
-  @Column(name = "cnpj", nullable = true, length = 14, unique = true)
+  @Column(name = "cnpj", nullable = true, length = 14)
   private String cnpj;
 
   @UpdateTimestamp

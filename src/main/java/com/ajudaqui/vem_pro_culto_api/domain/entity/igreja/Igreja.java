@@ -7,7 +7,6 @@ import java.util.Set;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,15 +23,14 @@ public class Igreja {
   private String email;
   private String cnpj;
   private Boolean ativo;
-  private Set<IgrejaUsuario> usuarios; 
+  private Set<IgrejaUsuario> usuarios;
   private Endereco endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
   private LocalDateTime atualizadoEm;
   private LocalDateTime registradoEm;
 
-  public Igreja(IgrejaRequest request, Usuario usuario) {
-    setUsuario(usuario);
+  public Igreja(IgrejaRequest request) {
     setRazaoSocial(request.getRazaoSocial());
     this.nomeFantasia = request.getNomeFantasia();
     this.email = request.getEmail();
@@ -50,13 +48,6 @@ public class Igreja {
     if (razaoSocial == null || razaoSocial.isEmpty())
       throw new IllegalArgumentException("Razão Social inválido");
     this.razaoSocial = razaoSocial;
-  }
-
-  public void setUsuario(Usuario usuario) {
-    if (usuario == null)
-      throw new IllegalArgumentException("Usuário inválido");
-
-    this.usuario = usuario;
   }
 
 }

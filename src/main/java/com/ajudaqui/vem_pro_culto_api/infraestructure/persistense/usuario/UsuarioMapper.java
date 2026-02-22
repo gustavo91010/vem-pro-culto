@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 @Component
+@AllArgsConstructor
 public class UsuarioMapper {
 
   public UsuarioEntity toEntity(Usuario usuario) {

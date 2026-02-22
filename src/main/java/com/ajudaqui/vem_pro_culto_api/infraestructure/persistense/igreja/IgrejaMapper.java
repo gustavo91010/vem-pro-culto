@@ -1,6 +1,5 @@
 package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,13 +15,13 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Component
 public class IgrejaMapper {
-  private IgrejaUsuarioMapper mapper;
+  // private IgrejaUsuarioMapper mapper;
 
   public IgrejaEntity toEntity(Igreja igreja) {
-    Set<IgrejaUsuarioEntity> usuarios = igreja.getUsuarios() == null ? Set.of()
-        : igreja.getUsuarios().stream()
-            .map(mapper::toEntity)
-            .collect(Collectors.toSet());
+  //   Set<IgrejaUsuarioEntity> usuarios = igreja.getUsuarios() == null ? Set.of()
+  //       : igreja.getUsuarios().stream()
+  //           .map(mapper::toEntity)
+  //           .collect(Collectors.toSet());
 
     return IgrejaEntity.builder()
         .id(igreja.getId())
@@ -31,7 +30,7 @@ public class IgrejaMapper {
         .email(igreja.getEmail())
         .cnpj(igreja.getCnpj())
         .ativo(igreja.getAtivo())
-        .usuarios(usuarios)
+        // .usuarios(usuarios)
         .endereco(igreja.getEndereco())
         .redesSociais(igreja.getRedesSociais())
         .telefone(igreja.getTelefone())
@@ -43,11 +42,11 @@ public class IgrejaMapper {
 
   public Igreja toModel(IgrejaEntity entity) {
 
-    Set<IgrejaUsuario> usuarios = entity.getUsuarios() == null ? Set.of()
-        : entity.getUsuarios()
-            .stream()
-            .map(mapper::toModel)
-            .collect(Collectors.toSet());
+    // Set<IgrejaUsuario> usuarios = entity.getUsuarios() == null ? Set.of()
+    //     : entity.getUsuarios()
+    //         .stream()
+    //         .map(mapper::toModel)
+    //         .collect(Collectors.toSet());
 
     return Igreja.builder()
         .id(entity.getId())
@@ -56,7 +55,7 @@ public class IgrejaMapper {
         .email(entity.getEmail())
         .cnpj(entity.getCnpj())
         .ativo(entity.getAtivo())
-        .usuarios(usuarios)
+        // .usuarios(usuarios)
         .endereco(entity.getEndereco())
         .redesSociais(entity.getRedesSociais())
         .telefone(entity.getTelefone())

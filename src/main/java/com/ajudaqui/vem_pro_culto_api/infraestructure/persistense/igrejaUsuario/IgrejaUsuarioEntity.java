@@ -1,6 +1,6 @@
 package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario;
 
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Papel;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja.IgrejaEntity;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario.UsuarioEntity;
 
@@ -29,5 +29,5 @@ public class IgrejaUsuarioEntity {
   private UsuarioEntity usuario;
 
   @Enumerated(EnumType.STRING)
-  private Papel papel;
+  private EPapel papel;
 }

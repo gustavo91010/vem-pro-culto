@@ -11,14 +11,17 @@ import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.IgrejaRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuarioRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
 public class IgrejaServiceImp implements IgrejaService {
   private IgrejaRepository repository;
   private UsuarioService usuarioService;
+  private IgrejaUsuarioRepository igrejaUsuarioRepository;
 
   @Override
   public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {
@@ -29,9 +32,12 @@ public class IgrejaServiceImp implements IgrejaService {
     if (findByEmail(igrejaRequest.getEmail()).isPresent())
       throw new IllegalArgumentException("Email já registrado");
 
-    var usuario = usuarioService.findByAuthToken(requestedToken);
-    Igreja igreja = new Igreja(igrejaRequest, usuario);
-    return repository.save(igreja);
+    Usuario usuario = usuarioService.findByAuthToken(requestedToken);
+    var igreja = repository.save(new Igreja(igrejaRequest));
+
+    var igrejaUsuario = new IgrejaUsuario(igreja, usuario, EPapel.DONO);
+    igrejaUsuarioRepository.save(igrejaUsuario);
+    return igreja;
   }
 
   @Override
@@ -46,15 +52,17 @@ public class IgrejaServiceImp implements IgrejaService {
 
   @Override
   public Igreja buscarPorId(Long id) {
-    return repository.buscarPorIr(id);
+    return repository.buscarPorIr(id)
+        .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
+
   }
 
   @Override
   public Igreja atualizarIgreja(String authToken, Long igrejaId, IgrejaUpdate dto) {
     Usuario requested = usuarioService.findByAuthToken(authToken);
-    Set<IgrejaUsuario> asads = requested.getIgrejas();
+    Set<IgrejaUsuario> usuarios = requested.getIgrejas();
 
-    boolean temPermissao = asads.stream()
+    boolean temPermissao = usuarios.stream()
         .anyMatch(i -> i.getIgreja().getId().equals(igrejaId));
     if (!temPermissao)
       throw new UnauthorizedException("Solicitação não autorizada");

@@ -15,7 +15,7 @@ public interface IgrejaRepository {
 
     List<Igreja> buscarPorNomeFantasia(String nomeFantasia);
 
-    Igreja buscarPorIr(Long id);
+    Optional<Igreja> buscarPorIr(Long id);
 
   
 }
