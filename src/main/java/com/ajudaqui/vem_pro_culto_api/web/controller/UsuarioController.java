@@ -27,7 +27,7 @@ public class UsuarioController {
 
   @GetMapping("/{authToken}")
   public ResponseEntity<UsuarioResponse> findByAuthToken(@PathVariable String authToken) {
-    return ResponseEntity.ok(usuarioService.findByAuthToken(authToken));
+    return ResponseEntity.ok(new UsuarioResponse(usuarioService.findByAuthToken(authToken)));
   }
 
   @GetMapping("/todos")

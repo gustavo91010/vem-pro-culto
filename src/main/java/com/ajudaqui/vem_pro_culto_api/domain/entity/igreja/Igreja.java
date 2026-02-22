@@ -3,23 +3,58 @@ package com.ajudaqui.vem_pro_culto_api.domain.entity.igreja;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.*;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
+@AllArgsConstructor
 public class Igreja {
 
   private Long id;
+  private Usuario usuario;
   private String nomeFantasia;
   private String razaoSocial;
   private String email;
-  private String senha;
+  private String cnpj;
+  private Boolean ativo;
   private List<Endereco> endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
-  private String cnpj;
   private LocalDateTime atualizadoEm;
   private LocalDateTime registradoEm;
+
+  public Igreja(IgrejaRequest request, Usuario usuario) {
+    setUsuario(usuario);
+    setRazaoSocial(request.getRazaoSocial());
+    this.nomeFantasia = request.getNomeFantasia();
+    this.email = request.getEmail();
+    this.cnpj = request.getCnpj();
+    this.endereco = request.getEndereco();
+    this.telefone = request.getTelefone();
+    this.redesSociais = request.getRedesSociais();
+  }
+
+  public Igreja() {
+  }
+
+  public void setRazaoSocial(String razaoSocial) {
+
+    if (razaoSocial == null || razaoSocial.isEmpty())
+      throw new IllegalArgumentException("Razão Social inválido");
+    this.razaoSocial = razaoSocial;
+  }
+
+  public void setUsuario(Usuario usuario) {
+    if (usuario == null)
+      throw new IllegalArgumentException("Usuário inválido");
+
+    this.usuario = usuario;
+  }
 
 }

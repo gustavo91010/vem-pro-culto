@@ -59,12 +59,11 @@ public class UsuarioServiceImp implements UsuarioService {
         .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
   }
 
-
   @Override
-  public UsuarioResponse findByAuthToken(String authToken) {
+  public Usuario findByAuthToken(String authToken) {
     Usuario usuario = usuarioRepository.findByAuthToken(fromUUID(authToken))
         .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
-    return new UsuarioResponse(usuario);
+    return usuario;
   }
 
   @Override

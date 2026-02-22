@@ -13,7 +13,7 @@ public interface UsuarioService {
 
   List<UsuarioResponse> buscarTodos();
 
-  public UsuarioResponse findByAuthToken(String authToken);
+  public Usuario findByAuthToken(String authToken);
 
   public Usuario findById(Long usuarioId);
 

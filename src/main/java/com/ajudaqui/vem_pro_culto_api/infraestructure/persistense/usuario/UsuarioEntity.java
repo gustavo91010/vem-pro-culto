@@ -2,11 +2,14 @@ package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.endereco.EnderecoComp;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.redeSocial.RedeSocialComp;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.telefone.TelefoneComp;
+import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja.IgrejaEntity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -43,6 +46,11 @@ public class UsuarioEntity {
 
   @Column(name = "auth_token", nullable = false)
   private UUID authToken;
+
+  @OneToMany(mappedBy = "igreja")
+  private Set<IgrejaUsuario> usuarios;
+  // @OneToMany(mappedBy = "usuario")
+  // private List<IgrejaEntity> igrejas;
 
   @UpdateTimestamp
   @Column(name = "atualizado_em", nullable = false)
