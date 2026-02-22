@@ -1,5 +1,6 @@
 package com.ajudaqui.vem_pro_culto_api.domain.entity.igreja;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface IgrejaRepository {
@@ -9,6 +10,12 @@ public interface IgrejaRepository {
     Optional<Igreja> findByRazaoSocial(String razaoSocial);
 
     Igreja save(Igreja model);
+
+    List<Igreja> buscarTodas();
+
+    List<Igreja> buscarPorNomeFantasia(String nomeFantasia);
+
+    Igreja buscarPorIr(Long id);
 
   
 }

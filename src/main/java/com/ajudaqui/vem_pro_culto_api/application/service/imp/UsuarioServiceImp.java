@@ -6,6 +6,7 @@ import java.util.UUID;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
+import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.UsuarioRepository;
@@ -67,11 +68,13 @@ public class UsuarioServiceImp implements UsuarioService {
   }
 
   @Override
-  public boolean alternarStatus(String authToken) {
+  public StatusResponse alternarStatus(String authToken) {
 
     Usuario usuario = getByToken(authToken);
-    usuario.setAtivo(!usuario.getAtivo());
-    return usuarioRepository.update(usuario.getId(), usuario).getAtivo();
+    boolean newStatus = !usuario.getAtivo();
+    usuario.setAtivo(newStatus);
+    usuarioRepository.save(usuario);
+    return new StatusResponse(newStatus, "Mudança de status realizda com sucesso.");
   }
 
   @Override

@@ -4,23 +4,20 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.endereco.EnderecoComp;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.redeSocial.RedeSocialComp;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.compartilhado.telefone.TelefoneComp;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario.UsuarioEntity;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Endereco;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.RedeSocial;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Telefone;
+import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario.IgrejaUsuarioEntity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
+@Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "igreja")
@@ -40,13 +37,11 @@ public class IgrejaEntity {
   @Column(name = "email", nullable = false, unique = true, length = 100)
   private String email;
 
-  @OneToMany(mappedBy = "igreja")
-  private Set<IgrejaUsuario> usuarios; // @ManyToOne
-  // @JoinColumn(name = "usuario_id")
-  // private UsuarioEntity usuario;
+  @OneToMany(mappedBy = "igreja", cascade = CascadeType.ALL, orphanRemoval = true)
+  private Set<IgrejaUsuarioEntity> usuarios; // @ManyToOne
 
   @Embedded
-  private EnderecoComp endereco;
+  private Endereco endereco;
 
   @Column(name = "ativo")
   private Boolean ativo;
@@ -64,10 +59,10 @@ public class IgrejaEntity {
 
   @ElementCollection
   @CollectionTable(name = "igreja_telefone", joinColumns = @JoinColumn(name = "igreja_id"))
-  private List<TelefoneComp> telefone;
+  private List<Telefone> telefone;
 
   @ElementCollection
   @CollectionTable(name = "igreja_rede_social", joinColumns = @JoinColumn(name = "igreja_id"))
-  private List<RedeSocialComp> redesSociais;
+  private List<RedeSocial> redesSociais;
 
 }

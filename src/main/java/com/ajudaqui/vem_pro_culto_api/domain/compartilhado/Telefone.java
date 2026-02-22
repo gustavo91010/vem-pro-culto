@@ -2,9 +2,11 @@ package com.ajudaqui.vem_pro_culto_api.domain.compartilhado;
 
 import com.ajudaqui.vem_pro_culto_api.domain.enums.ETipoTelefone;
 
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@Embeddable
 @Getter
 @AllArgsConstructor
 public class Telefone {

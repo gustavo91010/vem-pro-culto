@@ -3,9 +3,11 @@ package com.ajudaqui.vem_pro_culto_api.domain.entity.usuario;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import java.util.List;
+import java.util.Set;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.UsuarioDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.*;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,6 +29,7 @@ public class Usuario {
   private LocalDateTime atualizadoEm;
   private LocalDateTime registradoEm;
   private Endereco endereco;
+  private Set<IgrejaUsuario> igrejas; 
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
 

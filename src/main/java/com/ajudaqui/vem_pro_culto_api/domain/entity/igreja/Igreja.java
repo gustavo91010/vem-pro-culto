@@ -2,9 +2,11 @@ package com.ajudaqui.vem_pro_culto_api.domain.entity.igreja;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.*;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
 import lombok.AllArgsConstructor;
@@ -17,13 +19,13 @@ import lombok.Data;
 public class Igreja {
 
   private Long id;
-  private Usuario usuario;
   private String nomeFantasia;
   private String razaoSocial;
   private String email;
   private String cnpj;
   private Boolean ativo;
-  private List<Endereco> endereco;
+  private Set<IgrejaUsuario> usuarios; 
+  private Endereco endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
   private LocalDateTime atualizadoEm;
