@@ -36,6 +36,7 @@ public class UsuarioController {
   }
 
   @PutMapping("/atualizar/{authToken}")
+  // @PreAuthorize("hasRole('ROLE_MODERATOR')")
   public ResponseEntity<ResponseMessage> atualizar(
       @PathVariable String authToken,
       @RequestBody UsuarioUpdate usuario) {
@@ -45,6 +46,7 @@ public class UsuarioController {
   }
 
   @PatchMapping("/alternar-status/{authToken}")
+  // @PreAuthorize("hasRole('ROLE_ADMIN')")
   public ResponseEntity<ResponseMessage> desativarConta(@PathVariable String authToken) {
     usuarioService.alternarStatus(authToken);
 
