@@ -1,27 +1,27 @@
 package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
-import com.ajudaqui.vem_pro_culto_api.application.exception.NotFoundException;
-import com.ajudaqui.vem_pro_culto_api.application.exception.UnauthorizedException;
-import com.ajudaqui.vem_pro_culto_api.application.service.IgrejaService;
-import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
+import com.ajudaqui.vem_pro_culto_api.application.exception.*;
+import com.ajudaqui.vem_pro_culto_api.application.service.*;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.IgrejaRepository;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuarioRepository;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.*;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
+import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
 public class IgrejaServiceImp implements IgrejaService {
-  private IgrejaRepository repository;
-  private UsuarioService usuarioService;
-  private IgrejaUsuarioRepository igrejaUsuarioRepository;
+  private final IgrejaRepository repository;
+  private final UsuarioService usuarioService;
+  private final IgrejaUsuarioRepository igrejaUsuarioRepository;
 
   @Override
   public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {
@@ -36,7 +36,7 @@ public class IgrejaServiceImp implements IgrejaService {
     var igreja = repository.save(new Igreja(igrejaRequest));
 
     var igrejaUsuario = new IgrejaUsuario(igreja, usuario, EPapel.DONO);
-    igrejaUsuarioRepository.save(igrejaUsuario);
+    // igrejaUsuarioRepository.save(igrejaUsuario);
     return igreja;
   }
 

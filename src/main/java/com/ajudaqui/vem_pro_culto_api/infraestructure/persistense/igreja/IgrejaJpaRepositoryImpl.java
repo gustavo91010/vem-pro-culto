@@ -6,8 +6,19 @@ import java.util.Optional;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.IgrejaRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+import lombok.RequiredArgsConstructor;
+
+@Component
+// @RequiredArgsConstructor
 public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
-  private IgrejaJpaRepository repository;
+  @Autowired
+  private IgrejaSpringDataRepository repository;
+  @Autowired
+  @Lazy
   private IgrejaMapper mapper;
 
   @Override
@@ -38,7 +49,7 @@ public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
 
   @Override
   public List<Igreja> buscarPorNomeFantasia(String nomeFantasia) {
-    return repository.buscarPorNomeFantasia(nomeFantasia).stream()
+    return repository.findByNomeFantasia(nomeFantasia).stream()
         .map(mapper::toModel)
         .toList();
   }

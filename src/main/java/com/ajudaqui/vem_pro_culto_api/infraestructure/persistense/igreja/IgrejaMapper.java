@@ -1,18 +1,9 @@
 package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario.IgrejaUsuarioEntity;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario.IgrejaUsuarioMapper;
 
 import org.springframework.stereotype.Component;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 @Component
 public class IgrejaMapper {
   // private IgrejaUsuarioMapper mapper;

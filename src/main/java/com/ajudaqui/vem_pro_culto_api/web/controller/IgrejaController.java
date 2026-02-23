@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/igreja")
 public class IgrejaController {
 
-  private IgrejaService igrejaService;
+  private final IgrejaService igrejaService;
 
   @PostMapping
   public ResponseEntity<?> registro(
@@ -77,7 +77,7 @@ public class IgrejaController {
   }
 
   // @PreAuthorize("hasRole('ROLE_ADMIN')")
-  @PostMapping("/igrejaId/{igrejaId}")
+  @PostMapping("/id/{igrejaId}")
   public ResponseEntity<?> atualizarIgreja(
       @RequestHeader("Authorization") String authToken,
       @RequestParam Long igrejaId, @RequestBody IgrejaUpdate igrejaDTO) {
@@ -87,7 +87,7 @@ public class IgrejaController {
   }
 
   // @PreAuthorize("hasRole('ROLE_MODERATOR')")
-  @PostMapping("/igrejaId/{igrejaId}")
+  @PostMapping("/alternar-status/{igrejaId}")
   public ResponseEntity<?> alternarStatus(
       @RequestHeader("Authorization") String authToken,
       @RequestParam Long igrejaId) {
