@@ -17,6 +17,7 @@ public class IgrejaResponse {
   private String razaoSocial;
   private String email;
   private String cnpj;
+  private boolean ativo;
   private Endereco endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
@@ -28,6 +29,7 @@ public class IgrejaResponse {
     this.nomeFantasia = igreja.getNomeFantasia();
     this.email = igreja.getEmail();
     this.cnpj = igreja.getCnpj();
+    this.ativo = igreja.getAtivo();
     this.endereco = igreja.getEndereco();
     this.telefone = igreja.getTelefone();
     this.redesSociais = igreja.getRedesSociais();

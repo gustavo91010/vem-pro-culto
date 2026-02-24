@@ -11,8 +11,8 @@ import lombok.AllArgsConstructor;
 @Component
 @AllArgsConstructor
 public class IgrejaUsuarioMapper {
-  private IgrejaMapper igrejaMapper;
-  private UsuarioMapper usuarioMapper;
+  private final IgrejaMapper igrejaMapper;
+  private final UsuarioMapper usuarioMapper;
 
   public IgrejaUsuarioEntity toEntity(IgrejaUsuario model) {
 

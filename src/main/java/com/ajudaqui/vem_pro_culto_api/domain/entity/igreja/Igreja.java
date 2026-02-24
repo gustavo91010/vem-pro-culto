@@ -36,6 +36,7 @@ public class Igreja {
     this.email = request.getEmail();
     this.cnpj = request.getCnpj();
     this.endereco = request.getEndereco();
+    this.ativo =false;
     this.telefone = request.getTelefone();
     this.redesSociais = request.getRedesSociais();
   }

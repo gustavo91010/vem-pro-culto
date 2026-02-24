@@ -36,7 +36,7 @@ public class IgrejaServiceImp implements IgrejaService {
     var igreja = repository.save(new Igreja(igrejaRequest));
 
     var igrejaUsuario = new IgrejaUsuario(igreja, usuario, EPapel.DONO);
-    // igrejaUsuarioRepository.save(igrejaUsuario);
+    igrejaUsuarioRepository.save(igrejaUsuario);
     return igreja;
   }
 

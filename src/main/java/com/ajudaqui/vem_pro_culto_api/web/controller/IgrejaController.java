@@ -87,10 +87,10 @@ public class IgrejaController {
   }
 
   // @PreAuthorize("hasRole('ROLE_MODERATOR')")
-  @PostMapping("/alternar-status/{igrejaId}")
+  @PatchMapping("/alternar-status/{igrejaId}")
   public ResponseEntity<?> alternarStatus(
       @RequestHeader("Authorization") String authToken,
-      @RequestParam Long igrejaId) {
+      @PathVariable("igrejaId") Long igrejaId) {
 
     return ResponseEntity.ok(igrejaService.alternarStatus(igrejaId));
   }
