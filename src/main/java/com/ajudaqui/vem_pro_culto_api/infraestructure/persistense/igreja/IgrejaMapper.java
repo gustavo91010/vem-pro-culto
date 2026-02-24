@@ -7,7 +7,6 @@ import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario.IgrejaUsuarioEntity;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario.IgrejaUsuarioMapper;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario.UsuarioMapper;
 
 import org.springframework.stereotype.Component;
 
@@ -54,6 +53,7 @@ public class IgrejaMapper {
         : entity.getUsuarios().stream()
             .map(mapper::toModel)
             .collect(Collectors.toSet());
+
     return Igreja.builder()
         .id(entity.getId())
         .nomeFantasia(entity.getNomeFantasia())
