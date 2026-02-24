@@ -11,16 +11,21 @@ import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario.Usuari
 
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
+
 @Component
+@AllArgsConstructor
 public class IgrejaMapper {
 
-  private IgrejaUsuarioMapper mapper;
-  // private  UsuarioMapper usuarioMapper;
+  private final IgrejaUsuarioMapper mapper;
 
   public IgrejaEntity toEntity(Igreja igreja) {
-Set<IgrejaUsuarioEntity> usuarios = igreja.getUsuarios().stream()
-  .map(mapper::toEntity)
-  .collect(Collectors.toSet());
+    Set<IgrejaUsuarioEntity> usuarios = isNullOrEmpty(igreja.getUsuarios())
+        ? Set.of()
+        : igreja.getUsuarios().stream()
+            .map(mapper::toEntity)
+            .collect(Collectors.toSet());
+
     return IgrejaEntity.builder()
         .id(igreja.getId())
         .nomeFantasia(igreja.getNomeFantasia())
@@ -38,32 +43,32 @@ Set<IgrejaUsuarioEntity> usuarios = igreja.getUsuarios().stream()
 
   }
 
-  private Set<IgrejaUsuarioEntity> usuariosToEntity(Set<IgrejaUsuario> usuarios) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'usuariosToEntity'");
+  private boolean isNullOrEmpty(Set<?> usuarios) {
+    return usuarios == null || usuarios.isEmpty();
   }
 
   public Igreja toModel(IgrejaEntity entity) {
 
+    Set<IgrejaUsuario> usuarios = isNullOrEmpty(entity.getUsuarios())
+        ? Set.of()
+        : entity.getUsuarios().stream()
+            .map(mapper::toModel)
+            .collect(Collectors.toSet());
     return Igreja.builder()
         .id(entity.getId())
         .nomeFantasia(entity.getNomeFantasia())
         .razaoSocial(entity.getRazaoSocial())
         .email(entity.getEmail())
-        .usuarios(usuariosToModel(entity.getUsuarios()))
+        .usuarios(usuarios)
         .cnpj(entity.getCnpj())
         .ativo(entity.getAtivo())
+        .usuarios(usuarios)
         .endereco(entity.getEndereco())
         .redesSociais(entity.getRedesSociais())
         .telefone(entity.getTelefone())
         .atualizadoEm(entity.getAtualizadoEm())
         .registradoEm(entity.getRegistradoEm())
         .build();
-  }
-
-  private Set<IgrejaUsuario> usuariosToModel(Set<IgrejaUsuarioEntity> usuarios) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'usuariosToModel'");
   }
 
 }

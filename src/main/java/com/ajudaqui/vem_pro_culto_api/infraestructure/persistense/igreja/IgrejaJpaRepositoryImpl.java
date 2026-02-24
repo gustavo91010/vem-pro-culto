@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import lombok.RequiredArgsConstructor;
 
 @Component
-// @RequiredArgsConstructor
+@RequiredArgsConstructor
 public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
   @Autowired
   private IgrejaSpringDataRepository repository;

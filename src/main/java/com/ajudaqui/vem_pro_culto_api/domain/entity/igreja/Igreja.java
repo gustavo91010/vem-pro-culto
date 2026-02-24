@@ -7,6 +7,7 @@ import java.util.Set;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class Igreja {
   private String email;
   private String cnpj;
   private Boolean ativo;
+  @JsonIgnore
   private Set<IgrejaUsuario> usuarios;
   private Endereco endereco;
   private List<Telefone> telefone;

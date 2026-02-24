@@ -8,6 +8,7 @@ import java.util.Set;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.UsuarioDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +30,7 @@ public class Usuario {
   private LocalDateTime atualizadoEm;
   private LocalDateTime registradoEm;
   private Endereco endereco;
+  @JsonIgnore
   private Set<IgrejaUsuario> igrejas; 
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;

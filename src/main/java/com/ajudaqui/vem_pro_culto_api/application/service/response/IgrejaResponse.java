@@ -23,6 +23,11 @@ public class IgrejaResponse {
   private List<RedeSocial> redesSociais;
 
   public IgrejaResponse(Igreja igreja) {
+    igreja.getUsuarios().forEach(i -> {
+      System.out.printf("A igreja id %d tem o relaciodnament de %s com o usuario id %d\n",
+          i.getIgreja().getId(), i.getPapel().name(), i.getUsuario().getId());
+    });
+    System.out.println();
     this.id = igreja.getId();
     this.nomeFantasia = igreja.getNomeFantasia();
     this.razaoSocial = igreja.getRazaoSocial();
