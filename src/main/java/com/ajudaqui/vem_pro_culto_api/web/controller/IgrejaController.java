@@ -32,10 +32,9 @@ public class IgrejaController {
 
   @GetMapping("/todos")
   public ResponseEntity<List<?>> buscarTodos(@RequestHeader("Authorization") String requestedToken) {
-    List<IgrejaResponse> igrejas = igrejaService.buscarTodas().stream()
+    return ResponseEntity.ok(igrejaService.buscarTodas().stream()
         .map(IgrejaResponse::new)
-        .toList();
-    return ResponseEntity.ok(igrejas);
+        .toList());
   }
 
   @GetMapping("/nome-fantasia/{nomeFantasia}")
@@ -43,10 +42,9 @@ public class IgrejaController {
       @RequestHeader("Authorization") String requestedToken,
       @RequestParam String nomeFantasia) {
 
-    List<IgrejaResponse> igrejas = igrejaService.buscarPorNomeFantasia(nomeFantasia).stream()
+    return ResponseEntity.ok(igrejaService.buscarPorNomeFantasia(nomeFantasia).stream()
         .map(IgrejaResponse::new)
-        .toList();
-    return ResponseEntity.ok(igrejas);
+        .toList());
   }
 
   @GetMapping("/razao-social/{razaoSocial}")
