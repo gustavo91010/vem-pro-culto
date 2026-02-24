@@ -60,11 +60,8 @@ public class IgrejaServiceImp implements IgrejaService {
   @Override
   public Igreja atualizarIgreja(String authToken, Long igrejaId, IgrejaUpdate dto) {
     Usuario requested = usuarioService.findByAuthToken(authToken);
-    Set<IgrejaUsuario> usuarios = requested.getIgrejas();
 
-    boolean temPermissao = usuarios.stream()
-        .anyMatch(i -> i.getIgreja().getId().equals(igrejaId));
-    if (!temPermissao)
+    if (!temPermissao(requested.getIgrejas(), igrejaId))
       throw new UnauthorizedException("Solicitação não autorizada");
     Igreja igreja = buscarPorId(igrejaId);
 
@@ -89,6 +86,11 @@ public class IgrejaServiceImp implements IgrejaService {
     return repository.save(igreja);
   }
 
+  private boolean temPermissao(Set<IgrejaUsuario> usuarios, Long igrejaId) {
+    return usuarios.stream()
+        .anyMatch(i -> i.getIgreja().getId().equals(igrejaId));
+  }
+
   @Override
   public Igreja buscarPorRazaoSocial(String razaoSocial) {
     return findByRazaoSocial(razaoSocial)
@@ -110,7 +112,12 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public StatusResponse alternarStatus(Long igrejaId) {
+  public StatusResponse alternarStatus(String authToken, Long igrejaId) {
+    Usuario requested = usuarioService.findByAuthToken(authToken);
+
+    if (!temPermissao(requested.getIgrejas(), igrejaId))
+      throw new UnauthorizedException("Solicitação não autorizada");
+
     var igreja = buscarPorId(igrejaId);
     boolean newStatus = !igreja.getAtivo();
     igreja.setAtivo(newStatus);

@@ -92,6 +92,6 @@ public class IgrejaController {
       @RequestHeader("Authorization") String authToken,
       @PathVariable("igrejaId") Long igrejaId) {
 
-    return ResponseEntity.ok(igrejaService.alternarStatus(igrejaId));
+    return ResponseEntity.ok(igrejaService.alternarStatus(authToken, igrejaId));
   }
 }

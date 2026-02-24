@@ -23,5 +23,5 @@ public interface IgrejaService {
 
   public Igreja atualizarIgreja(String authToken, Long igrejaId, IgrejaUpdate igrejaDTO);
 
-  StatusResponse alternarStatus(Long igrejaId);
+  StatusResponse alternarStatus(String authToken, Long igrejaId);
 }

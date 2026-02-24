@@ -11,6 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 public class IgrejaUsuario {
 
+  public static Object getUsuarios;
   private Long id;
   private Igreja igreja;
 
