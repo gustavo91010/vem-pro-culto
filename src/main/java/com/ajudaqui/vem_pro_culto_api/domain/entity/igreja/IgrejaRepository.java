@@ -3,6 +3,10 @@ package com.ajudaqui.vem_pro_culto_api.domain.entity.igreja;
 import java.util.List;
 import java.util.Optional;
 
+import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaDTO;
+
+import org.springframework.data.jpa.domain.Specification;
+
 public interface IgrejaRepository {
 
     Optional<Igreja> findByEmail(String email);
@@ -11,11 +15,10 @@ public interface IgrejaRepository {
 
     Igreja save(Igreja model);
 
-    List<Igreja> buscarTodas();
+    List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto );
 
     List<Igreja> buscarPorNomeFantasia(String nomeFantasia);
 
     Optional<Igreja> buscarPorIr(Long id);
 
-  
 }

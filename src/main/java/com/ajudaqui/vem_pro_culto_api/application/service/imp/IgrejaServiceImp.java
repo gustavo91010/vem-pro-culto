@@ -4,7 +4,7 @@ import java.util.*;
 
 import com.ajudaqui.vem_pro_culto_api.application.exception.*;
 import com.ajudaqui.vem_pro_culto_api.application.service.*;
-import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
+import com.ajudaqui.vem_pro_culto_api.application.service.dto.*;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
@@ -41,8 +41,9 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public List<Igreja> buscarTodas() {
-    return repository.buscarTodas();
+  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
+
+    return repository.buscarTodas(dto);
   }
 
   @Override
@@ -61,7 +62,7 @@ public class IgrejaServiceImp implements IgrejaService {
   public Igreja atualizarIgreja(String authToken, Long igrejaId, IgrejaUpdate dto) {
     Usuario requested = usuarioService.findByAuthToken(authToken);
 
-    if (!temPermissao(requested.getIgrejas(), igrejaId))
+    if (!temPermissao(requested.getIgrejas(), igrejaId, EPapel.DONO))
       throw new UnauthorizedException("Solicitação não autorizada");
     Igreja igreja = buscarPorId(igrejaId);
 
@@ -86,7 +87,7 @@ public class IgrejaServiceImp implements IgrejaService {
     return repository.save(igreja);
   }
 
-  private boolean temPermissao(Set<IgrejaUsuario> usuarios, Long igrejaId) {
+  private boolean temPermissao(Set<IgrejaUsuario> usuarios, Long igrejaId, EPapel papel) {
     return usuarios.stream()
         .anyMatch(i -> i.getIgreja().getId().equals(igrejaId));
   }
@@ -115,7 +116,7 @@ public class IgrejaServiceImp implements IgrejaService {
   public StatusResponse alternarStatus(String authToken, Long igrejaId) {
     Usuario requested = usuarioService.findByAuthToken(authToken);
 
-    if (!temPermissao(requested.getIgrejas(), igrejaId))
+    if (!temPermissao(requested.getIgrejas(), igrejaId, EPapel.DONO))
       throw new UnauthorizedException("Solicitação não autorizada");
 
     var igreja = buscarPorId(igrejaId);

@@ -3,9 +3,11 @@ package com.ajudaqui.vem_pro_culto_api.web.controller;
 import java.util.List;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.IgrejaService;
+import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.IgrejaResponse;
+import com.ajudaqui.vem_pro_culto_api.application.service.response.IgrejaServiceList;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
 
@@ -31,30 +33,13 @@ public class IgrejaController {
   }
 
   @GetMapping("/todos")
-  public ResponseEntity<List<?>> buscarTodos(@RequestHeader("Authorization") String requestedToken) {
-    return ResponseEntity.ok(igrejaService.buscarTodas().stream()
-        .map(IgrejaResponse::new)
-        .toList());
-  }
-
-  @GetMapping("/nome-fantasia/{nomeFantasia}")
-  public ResponseEntity<List<?>> buscarPorNomeFantasia(
+  public ResponseEntity<IgrejaServiceList> buscarTodos(
       @RequestHeader("Authorization") String requestedToken,
-      @RequestParam String nomeFantasia) {
-
-    return ResponseEntity.ok(igrejaService.buscarPorNomeFantasia(nomeFantasia).stream()
-        .map(IgrejaResponse::new)
-        .toList());
+      @RequestBody FiltroBuscaIgrejaDTO dto) {
+    var igrejas = igrejaService.buscarTodas(dto);
+    return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
 
-  @GetMapping("/razao-social/{razaoSocial}")
-  public ResponseEntity<?> buscarPorRazaoSocial(
-      @RequestHeader("Authorization") String requestedToken,
-      @RequestParam String razaoSocial) {
-
-    Igreja igreja = igrejaService.buscarPorRazaoSocial(razaoSocial);
-    return ResponseEntity.ok(new IgrejaResponse(igreja));
-  }
 
   @GetMapping("/email/{email}")
   public ResponseEntity<?> buscarPorEmail(
@@ -75,10 +60,11 @@ public class IgrejaController {
   }
 
   // @PreAuthorize("hasRole('ROLE_ADMIN')")
-  @PostMapping("/id/{igrejaId}")
+  @PutMapping("/atualizar/{igrejaId}")
   public ResponseEntity<?> atualizarIgreja(
       @RequestHeader("Authorization") String authToken,
-      @RequestParam Long igrejaId, @RequestBody IgrejaUpdate igrejaDTO) {
+      @PathVariable("igrejaId") Long igrejaId,
+      @RequestBody IgrejaUpdate igrejaDTO) {
 
     Igreja igreja = igrejaService.atualizarIgreja(authToken, igrejaId, igrejaDTO);
     return ResponseEntity.ok(new IgrejaResponse(igreja));
