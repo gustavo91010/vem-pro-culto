@@ -59,6 +59,7 @@ public class IgrejaController {
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
 
+  // A role de quem cadastrou a aigreja
   // @PreAuthorize("hasRole('ROLE_ADMIN')")
   @PutMapping("/atualizar/{igrejaId}")
   public ResponseEntity<?> atualizarIgreja(
@@ -70,6 +71,7 @@ public class IgrejaController {
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
 
+  // A role do dono da aplicacao
   // @PreAuthorize("hasRole('ROLE_MODERATOR')")
   @PatchMapping("/alternar-status/{igrejaId}")
   public ResponseEntity<?> alternarStatus(

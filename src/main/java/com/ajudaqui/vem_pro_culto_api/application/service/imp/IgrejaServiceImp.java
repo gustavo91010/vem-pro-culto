@@ -89,7 +89,8 @@ public class IgrejaServiceImp implements IgrejaService {
 
   private boolean temPermissao(Set<IgrejaUsuario> usuarios, Long igrejaId, EPapel papel) {
     return usuarios.stream()
-        .anyMatch(i -> i.getIgreja().getId().equals(igrejaId));
+        .anyMatch(i -> i.getIgreja().getId().equals(igrejaId)
+            && i.getPapel().equals(papel));
   }
 
   @Override
@@ -114,12 +115,8 @@ public class IgrejaServiceImp implements IgrejaService {
 
   @Override
   public StatusResponse alternarStatus(String authToken, Long igrejaId) {
-    Usuario requested = usuarioService.findByAuthToken(authToken);
-
-    if (!temPermissao(requested.getIgrejas(), igrejaId, EPapel.DONO))
-      throw new UnauthorizedException("Solicitação não autorizada");
-
     var igreja = buscarPorId(igrejaId);
+
     boolean newStatus = !igreja.getAtivo();
     igreja.setAtivo(newStatus);
     repository.save(igreja);
