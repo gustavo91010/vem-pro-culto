@@ -12,12 +12,10 @@ import lombok.*;
 @Builder
 public class Atividade {
 
-  private Igreja igreja;
+  private Long igrejaId;
   private EAtividadeTipo tipo;
   private String descricao;
   private LocalDateTime horario;
-  private LocalDateTime registradoEm;
-  private boolean ativo;
 
 
   

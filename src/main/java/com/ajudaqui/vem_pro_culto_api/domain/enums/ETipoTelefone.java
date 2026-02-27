@@ -1,6 +1,6 @@
 package com.ajudaqui.vem_pro_culto_api.domain.enums;
 
-import com.ajudaqui.vem_pro_culto_api.domain.exception.TipoTelefoneInvalidoException;
+import com.ajudaqui.vem_pro_culto_api.application.exception.TipoInvalidoExceptione;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public enum ETipoTelefone {
@@ -13,6 +13,6 @@ public enum ETipoTelefone {
         return tipo;
       }
     }
-    throw new TipoTelefoneInvalidoException("Tipo de telefone inválido: " + value);
+    throw new TipoInvalidoExceptione("Tipo de telefone inválido: " + value);
   }
 }
