@@ -3,14 +3,14 @@ spring:
     name: vem-pro-culto-api
 
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/banco_local
+    url: jdbc:postgresql://127.0.0.1:5432/vem_pro_culto
     username: admin
     password: 123456
 
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true
+    show-sql: true # colocar como false deposi paga esconder os logs do banco
     properties:
       hibernate:
         format_sql: true

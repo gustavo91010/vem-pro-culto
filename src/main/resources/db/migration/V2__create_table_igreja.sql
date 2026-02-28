@@ -1,7 +1,7 @@
 CREATE TABLE igreja (
     id BIGSERIAL PRIMARY KEY,
     nome_fantasia VARCHAR(100),
-    rezao_social VARCHAR(100) NOT NULL UNIQUE,
+    razao_social VARCHAR(100) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     ativo BOOLEAN,
     cnpj VARCHAR(14),
