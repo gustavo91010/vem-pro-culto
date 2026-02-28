@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
+import com.ajudaqui.vem_pro_culto_api.application.exception.NotFoundException;
 import com.ajudaqui.vem_pro_culto_api.application.exception.UnauthorizedException;
 import com.ajudaqui.vem_pro_culto_api.application.service.AtividadeService;
-import com.ajudaqui.vem_pro_culto_api.application.service.IgrejaService;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.AtividadeDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.*;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.*;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.Atividade;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.AtividadeRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
 
 import org.springframework.stereotype.Service;
@@ -34,8 +34,11 @@ public class AtividadeServiceImp implements AtividadeService {
     return save(dto.toModel());
   }
 
-  private Atividade save(Atividade model) {
-    return repository.save(model);
+  @Override
+  public Atividade buscarPorId(Long atividadeId) {
+
+    return repository.findById(atividadeId)
+        .orElseThrow(() -> new RuntimeException("Atividade não localizado."));
   }
 
   @Override
@@ -43,7 +46,12 @@ public class AtividadeServiceImp implements AtividadeService {
     if (dataFim == null || dataFim.isBlank())
       dataFim = dataInicio;
 
-    return repository.buscarAtividades(igrejaId, LocalDate.parse(dataInicio), LocalDate.parse(dataFim));
+    // TODO validar o formato da data no contrller
+    List<Atividade> buscarAtividades = repository.buscarAtividades(igrejaId, LocalDate.parse(dataInicio),
+        LocalDate.parse(dataFim));
+    if (buscarAtividades.isEmpty())
+      throw new NotFoundException("Atividade não localizada.");
+    return buscarAtividades;
   }
 
   @Override
@@ -61,11 +69,8 @@ public class AtividadeServiceImp implements AtividadeService {
     repository.delete(atividadeId);
   }
 
-  @Override
-  public Atividade buscarPorId(Long atividadeId) {
-
-    return repository.findById(atividadeId)
-        .orElseThrow(() -> new RuntimeException("Atividade não localizado."));
+  private Atividade save(Atividade model) {
+    return repository.save(model);
   }
 
   private boolean isOwner(Set<IgrejaUsuario> igrejas, Long igrejaId) {

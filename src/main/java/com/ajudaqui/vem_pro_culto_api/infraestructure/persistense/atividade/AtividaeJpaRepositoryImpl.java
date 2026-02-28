@@ -7,37 +7,37 @@ import java.util.Optional;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.Atividade;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.AtividadeRepository;
 
+import org.springframework.stereotype.Component;
+
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public class AtividaeJpaRepositoryImpl implements AtividadeRepository {
-  private AtividaeSpringDataRepository repository;
+  private final AtividaeSpringDataRepository repository;
+  private final AtividadeMapper mapper;
 
   @Override
   public Atividade save(Atividade model) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'save'");
+    AtividadeEntity entity = repository.save(mapper.toEntity(model));
+    return mapper.toModel(entity);
   }
 
   @Override
-  public List<Atividade> buscarAtividades(Long igrejaId, LocalDate localDate, LocalDate localDate2) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'buscarAtividades'");
+  public List<Atividade> buscarAtividades(Long igrejaId, LocalDate dataInicio, LocalDate dataFim) {
+    return repository.buscarAtividades(igrejaId, dataInicio, dataFim).stream()
+        .map(mapper::toModel).toList();
   }
 
   @Override
   public void delete(Long atividadeId) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'delete'");
-  }
-
-  @Override
-  public Atividade buscarPorId(Long atividadeId) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+    repository.deleteById(atividadeId);
   }
 
   @Override
   public Optional<Atividade> findById(Long atividadeId) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    return repository.findById(atividadeId)
+        .map(mapper::toModel);
   }
 
 }

@@ -2,6 +2,12 @@ package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.atividade;
 
 import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.Atividade;
 
+import org.springframework.stereotype.Component;
+
+import lombok.AllArgsConstructor;
+
+@Component
+@AllArgsConstructor
 public class AtividadeMapper {
 
   public Atividade toModel(AtividadeEntity entity) {
