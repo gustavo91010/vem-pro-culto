@@ -2,10 +2,11 @@ package com.ajudaqui.vem_pro_culto_api.domain.entity.atividade;
 
 import java.time.LocalDateTime;
 
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
 import com.ajudaqui.vem_pro_culto_api.domain.enums.EAtividadeTipo;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
