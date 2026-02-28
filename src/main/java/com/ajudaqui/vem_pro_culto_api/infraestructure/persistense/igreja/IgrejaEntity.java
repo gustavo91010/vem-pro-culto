@@ -32,7 +32,7 @@ public class IgrejaEntity {
   @Column(name = "nome_fantasia", nullable = true, length = 100)
   private String nomeFantasia;
 
-  @Column(name = "rezao_social", nullable = false, unique = true, length = 100)
+  @Column(name = "razao_social", nullable = false, unique = true, length = 100)
   private String razaoSocial;
 
   @Column(name = "email", nullable = false, unique = true, length = 100)
