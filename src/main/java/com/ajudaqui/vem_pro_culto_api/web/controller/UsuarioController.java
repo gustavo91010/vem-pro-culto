@@ -9,20 +9,30 @@ import com.ajudaqui.vem_pro_culto_api.application.service.response.ResponseMessa
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/usuarios")
+@RequestMapping({"/usuarios", ""})
 public class UsuarioController {
 
   private final UsuarioService usuarioService;
 
-  @PostMapping
-  public ResponseEntity<UsuarioResponse> registro(@RequestBody UsuarioRequest dto) {
-    return ResponseEntity.ok(usuarioService.registro(dto));
+  @PostMapping({"/users/register", "/register"})
+  public ResponseEntity<UsuarioResponse> registro(
+      @RequestHeader("Authorization") String authApp,
+      @RequestBody UsuarioRequest dto) {
+    return ResponseEntity.ok(usuarioService.registro(authApp, dto));
   }
 
   @GetMapping("/{authToken}")

@@ -10,7 +10,7 @@ import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
 public interface UsuarioService {
 
-  public UsuarioResponse registro(UsuarioRequest dto);
+  public UsuarioResponse registro(String authApp, UsuarioRequest request);
 
   List<UsuarioResponse> buscarTodos();
 
