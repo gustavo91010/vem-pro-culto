@@ -50,6 +50,12 @@ public class AtividadeController {
     return ResponseEntity.ok(new AtividadeResponseList(atividades));
   }
 
+  @GetMapping("/listar")
+  public ResponseEntity<AtividadeResponseList> listarTodas() {
+    List<Atividade> atividades = atividadeService.listarTodas();
+    return ResponseEntity.ok(new AtividadeResponseList(atividades));
+  }
+
   @DeleteMapping()
   public ResponseEntity<ResponseMessage> excluir(
       @RequestHeader("Authorization") String authToken,

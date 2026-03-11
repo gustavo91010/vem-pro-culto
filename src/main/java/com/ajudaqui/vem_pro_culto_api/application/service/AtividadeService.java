@@ -15,5 +15,7 @@ public interface AtividadeService {
 
     Atividade buscarPorId(Long atividadeId);
 
-  
+    List<Atividade> listarTodas();
+
+
 }

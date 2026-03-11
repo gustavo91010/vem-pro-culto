@@ -1,0 +1,2 @@
+ALTER TABLE igreja ADD COLUMN descricao VARCHAR(500);
+ALTER TABLE igreja ADD COLUMN imagem_url VARCHAR(255);

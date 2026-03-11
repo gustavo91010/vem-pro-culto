@@ -10,11 +10,17 @@ import lombok.Data;
 @Data
 public class AtividadeResponse {
 
+  private Long id;
+  private Long igrejaId;
+  private String nomeIgreja;
   private EAtividadeTipo tipo;
   private String descricao;
   private LocalDateTime horario;
 
   public AtividadeResponse(Atividade atividade) {
+    this.id = atividade.getId();
+    this.igrejaId = atividade.getIgrejaId();
+    this.nomeIgreja = atividade.getNomeIgreja();
     this.tipo = atividade.getTipo();
     this.descricao = atividade.getDescricao();
     this.horario = atividade.getHorario();

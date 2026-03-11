@@ -13,7 +13,9 @@ import lombok.Setter;
 @Builder
 public class Atividade {
 
+  private Long id;
   private Long igrejaId;
+  private String nomeIgreja;
   private EAtividadeTipo tipo;
   private String descricao;
   private LocalDateTime horario;

@@ -23,6 +23,8 @@ public class Igreja {
   private String razaoSocial;
   private String email;
   private String cnpj;
+  private String descricao;
+  private String imagemUrl;
   private Boolean ativo;
   @JsonIgnore
   private Set<IgrejaUsuario> usuarios;
@@ -37,8 +39,10 @@ public class Igreja {
     this.nomeFantasia = request.getNomeFantasia();
     this.email = request.getEmail();
     this.cnpj = request.getCnpj();
+    this.descricao = request.getDescricao();
+    this.imagemUrl = request.getImagemUrl();
     this.endereco = request.getEndereco();
-    this.ativo =false;
+    this.ativo = false;
     this.telefone = request.getTelefone();
     this.redesSociais = request.getRedesSociais();
   }

@@ -13,6 +13,7 @@ public class AtividadeMapper {
   public Atividade toModel(AtividadeEntity entity) {
 
     return Atividade.builder()
+        .id(entity.getId())
         .igrejaId(entity.getIgrejaId())
         .descricao(entity.getDescricao())
         .tipo(entity.getTipo())

@@ -84,6 +84,12 @@ public class IgrejaServiceImp implements IgrejaService {
     if (dto.getRedesSociais() != null && !dto.getRedesSociais().isEmpty())
       igreja.setRedesSociais(dto.getRedesSociais());
 
+    if (dto.getDescricao() != null && !dto.getDescricao().isBlank())
+      igreja.setDescricao(dto.getDescricao());
+
+    if (dto.getImagemUrl() != null && !dto.getImagemUrl().isBlank())
+      igreja.setImagemUrl(dto.getImagemUrl());
+
     return repository.save(igreja);
   }
 
