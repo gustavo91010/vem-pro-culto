@@ -16,7 +16,6 @@ public class UsuarioRequest {
   
   private String nome;
   private String email;
-  private String senha;
   private String authToken;
   private Endereco endereco;
   private List<Telefone> telefone;

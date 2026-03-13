@@ -11,7 +11,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true # colocar como false deposi paga esconder os logs do banco
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
@@ -20,6 +20,9 @@ spring:
     enabled: true
     locations: classpath:db/migration
     baseline-on-migrate: true
+
+server:
+  port: 8084
 
 logging:
   level:
