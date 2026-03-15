@@ -11,7 +11,6 @@ import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioRespon
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.UsuarioRepository;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -21,14 +20,8 @@ import lombok.RequiredArgsConstructor;
 public class UsuarioServiceImp implements UsuarioService {
   private final UsuarioRepository usuarioRepository;
 
-  @Value("${spring.application.auth_app}")
-  private String authInternal;
-
   @Override
-  public UsuarioResponse registro(String authApp, UsuarioRequest request) {
-    if (!authInternal.equals(authApp))
-      throw new IllegalArgumentException("Solicitação não autorizada!");
-
+  public UsuarioResponse registro(UsuarioRequest request) {
 
     Usuario usuario = Usuario.builder()
         .authToken(UUID.fromString(request.getAuthToken()))

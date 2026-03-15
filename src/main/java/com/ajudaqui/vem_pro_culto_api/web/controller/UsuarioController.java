@@ -23,16 +23,21 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping({"/usuarios", ""})
+@RequestMapping("/usuarios")
 public class UsuarioController {
 
   private final UsuarioService usuarioService;
 
-  @PostMapping({"/users/register", "/register"})
+  // @PostMapping({"/register"})
+  // public ResponseEntity<UsuarioResponse> registro(
+  //     @RequestHeader("Authorization") String authApp,
+  //     @RequestBody UsuarioRequest dto) {
+  //   return ResponseEntity.ok(usuarioService.registro(authApp, dto));
+  // }
+  @PostMapping({"/register"})
   public ResponseEntity<UsuarioResponse> registro(
-      @RequestHeader("Authorization") String authApp,
       @RequestBody UsuarioRequest dto) {
-    return ResponseEntity.ok(usuarioService.registro(authApp, dto));
+    return ResponseEntity.ok(usuarioService.registro( dto));
   }
 
   @GetMapping("/{authToken}")
