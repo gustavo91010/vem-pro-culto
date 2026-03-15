@@ -10,6 +10,5 @@ public interface UsuarioRepository {
   public Usuario save(Usuario usuario);
   public Usuario update(Long usuarioId, Usuario usuario);
   public Optional<Usuario> findById(Long usuarioId);
-  public Optional<Usuario> findByEmail(String email);
   public Optional<Usuario> findByAuthToken(UUID uuid);
 }

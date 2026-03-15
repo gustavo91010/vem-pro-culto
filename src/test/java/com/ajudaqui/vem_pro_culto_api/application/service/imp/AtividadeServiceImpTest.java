@@ -62,8 +62,6 @@ class AtividadeServiceImpTest {
 
         usuario = Usuario.builder()
                 .id(1L)
-                .nome("Admin")
-                .email("admin@email.com")
                 .authToken(UUID.randomUUID())
                 .ativo(true)
                 .build();

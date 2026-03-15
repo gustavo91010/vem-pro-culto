@@ -40,12 +40,6 @@ public class UsuarioJpaRepositoyImpl implements UsuarioRepository {
   }
 
   @Override
-  public Optional<Usuario> findByEmail(String email) {
-    return repository.findByEmail(email)
-        .map(mapper::toModel);
-  }
-
-  @Override
   public Optional<Usuario> findByAuthToken(UUID authToken) {
     return repository.findByAuthToken(authToken)
         .map(mapper::toModel);
@@ -55,8 +49,6 @@ public class UsuarioJpaRepositoyImpl implements UsuarioRepository {
   public Usuario update(Long usuarioId, Usuario usuario) {
     UsuarioEntity user = repository.findById(usuarioId)
         .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
-    user.setNome(usuario.getNome());
-    user.setEmail(usuario.getEmail());
     user.setAtivo(usuario.getAtivo());
     user.setAuthToken(usuario.getAuthToken());
     // user.setTelefone(usuario.getTelefone());

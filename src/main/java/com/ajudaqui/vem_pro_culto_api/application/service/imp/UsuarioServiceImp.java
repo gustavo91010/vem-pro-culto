@@ -29,13 +29,8 @@ public class UsuarioServiceImp implements UsuarioService {
     if (!authInternal.equals(authApp))
       throw new IllegalArgumentException("Solicitação não autorizada!");
 
-    if (usuarioRepository.findByEmail(request.getEmail()).isPresent()) {
-      throw new IllegalArgumentException("Email já registrado");
-    }
 
     Usuario usuario = Usuario.builder()
-        .nome(request.getNome())
-        .email(request.getEmail())
         .authToken(UUID.fromString(request.getAuthToken()))
         .ativo(true)
         .telefone(request.getTelefone())
@@ -51,12 +46,6 @@ public class UsuarioServiceImp implements UsuarioService {
     return usuarioRepository.buscarTodos().stream()
         .map(UsuarioResponse::new)
         .toList();
-  }
-
-  @Override
-  public Usuario findByEmail(String email) {
-    return usuarioRepository.findByEmail(email)
-        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
   }
 
   @Override
@@ -85,12 +74,9 @@ public class UsuarioServiceImp implements UsuarioService {
   @Override
   public UsuarioResponse update(String authToken, UsuarioUpdate usuario) {
     Usuario user = getByToken(authToken);
-    user.setNome(usuario.getNome());
     // user.setTelefone(usuario.getTelefone());
     // user.setEndereco(usuario.getEndereco());
     // user.setRedesSociais(usuario.getRedesSociais());
-    // user.setAtualizadoEm(LocalDateTime.now());
-    // Será queprecisa mesmo ou aquela anotação resolve??
 
     return new UsuarioResponse(usuarioRepository.update(user.getId(), user));
   }

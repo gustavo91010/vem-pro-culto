@@ -1,8 +1,5 @@
 CREATE TABLE usuario (
     usuario BIGSERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(50) NOT NULL,
     ativo BOOLEAN,
     auth_token UUID NOT NULL,
     atualizado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

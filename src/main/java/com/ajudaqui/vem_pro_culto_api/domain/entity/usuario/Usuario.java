@@ -22,56 +22,29 @@ import lombok.Setter;
 public class Usuario {
 
   private Long id;
-  private String nome;
-  private String email;
-  private String senha;
   private Boolean ativo;
   private UUID authToken;
   private LocalDateTime atualizadoEm;
   private LocalDateTime registradoEm;
   private Endereco endereco;
   @JsonIgnore
-  private Set<IgrejaUsuario> igrejas; 
+  private Set<IgrejaUsuario> igrejas;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
 
   public Usuario(UsuarioDTO dto) {
 
-    setNome(dto.getNome());
-    setEmail(dto.getEmail());
     setAuthToken(dto.getAuthToken());
-    this.senha = dto.getSenha();
     this.ativo = true;
-    // this.atualizadoEm = LocalDateTime.now();
-    // this.registradoEm = LocalDateTime.now();
   }
 
-  public Usuario(String nome, String email, String senha, String authToken) {
+  public Usuario(String authToken) {
 
-    setNome(nome);
-    setEmail(email);
     setAuthToken(authToken);
-    this.senha = senha;
     this.ativo = true;
-    // this.atualizadoEm = LocalDateTime.now();
-    // this.registradoEm = LocalDateTime.now();
   }
 
-  public void setEmail(String email) {
-    if (email == null || !email.contains("@"))
-      throw new IllegalArgumentException("Email inválido");
-
-    this.email = email;
-  }
-
-  public void setNome(String nome) {
-    if (nome == null || nome.isBlank())
-      throw new IllegalArgumentException("Nome obrigatório");
-
-    this.nome = nome;
-  }
-
-  public void setAuthToken(String authToken){
+  public void setAuthToken(String authToken) {
 
     if (authToken == null || authToken.isBlank())
       throw new IllegalArgumentException("AuthToken é obrigatório");

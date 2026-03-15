@@ -14,8 +14,6 @@ import lombok.Getter;
 public class UsuarioResponse {
 
   private UUID authToken;
-  private String nome;
-  private String email;
   private Boolean ativo;
   private Endereco endereco;
   private List<Telefone> telefone;
@@ -23,8 +21,6 @@ public class UsuarioResponse {
 
   public UsuarioResponse(Usuario usuario) {
     this.authToken = usuario.getAuthToken();
-    this.nome = usuario.getNome();
-    this.email = usuario.getEmail();
     this.ativo = usuario.getAtivo();
     this.endereco = usuario.getEndereco();
     this.telefone = usuario.getTelefone();

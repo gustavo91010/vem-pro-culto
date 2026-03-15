@@ -22,6 +22,4 @@ public interface UsuarioService {
 
   public StatusResponse alternarStatus(String authToken);
 
-  public Usuario findByEmail(String email);
-
 }

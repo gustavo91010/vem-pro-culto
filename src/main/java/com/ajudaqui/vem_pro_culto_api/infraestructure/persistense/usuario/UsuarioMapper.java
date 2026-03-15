@@ -28,9 +28,6 @@ public class UsuarioMapper {
 
     return UsuarioEntity.builder()
         .id(model.getId())
-        .nome(model.getNome())
-        .email(model.getEmail())
-        .senha(model.getSenha())
         .authToken(model.getAuthToken())
         .ativo(model.getAtivo())
         .igrejas(igrejas)
@@ -58,11 +55,8 @@ public class UsuarioMapper {
 
     return Usuario.builder()
         .id(entity.getId())
-        .nome(entity.getNome())
         .authToken(entity.getAuthToken())
         .ativo(entity.getAtivo())
-        .email(entity.getEmail())
-        .senha(entity.getSenha())
         .igrejas(igrejas)
         .endereco(entity.getEndereco())
         .telefone(
