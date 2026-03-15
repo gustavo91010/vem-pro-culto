@@ -36,7 +36,6 @@ public class UsuarioServiceImp implements UsuarioService {
     Usuario usuario = Usuario.builder()
         .nome(request.getNome())
         .email(request.getEmail())
-        .senha(request.getSenha())
         .authToken(UUID.fromString(request.getAuthToken()))
         .ativo(true)
         .telefone(request.getTelefone())

@@ -34,7 +34,6 @@ public class IgrejaController {
 
   @GetMapping("/todos")
   public ResponseEntity<IgrejaServiceList> buscarTodos(
-      @RequestHeader("Authorization") String requestedToken,
       @RequestBody FiltroBuscaIgrejaDTO dto) {
     var igrejas = igrejaService.buscarTodas(dto);
     return ResponseEntity.ok(new IgrejaServiceList(igrejas));

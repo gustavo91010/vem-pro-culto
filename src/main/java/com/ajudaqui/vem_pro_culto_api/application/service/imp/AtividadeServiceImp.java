@@ -69,13 +69,19 @@ public class AtividadeServiceImp implements AtividadeService {
     repository.delete(atividadeId);
   }
 
+  @Override
+  public List<Atividade> listarTodas() {
+    // TODO: implementar busca de todas as atividades com nomeIgreja
+    throw new UnsupportedOperationException("Método ainda não implementado");
+  }
+
   private Atividade save(Atividade model) {
     return repository.save(model);
   }
 
   private boolean isOwner(Set<IgrejaUsuario> igrejas, Long igrejaId) {
     return igrejas.stream()
-        .anyMatch(i -> i.getId().equals(igrejaId)
+        .anyMatch(i -> i.getIgreja().getId().equals(igrejaId)
             && i.getPapel().equals(EPapel.DONO));
   }
 
