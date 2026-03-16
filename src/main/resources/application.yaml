@@ -11,7 +11,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true # colocar como false deposi paga esconder os logs do banco
+    show-sql: false # colocar como false deposi paga esconder os logs do banco
     properties:
       hibernate:
         format_sql: true

@@ -46,6 +46,11 @@ public class UsuarioJpaRepositoyImpl implements UsuarioRepository {
   }
 
   @Override
+  public Boolean isRegistered(UUID authToken) {
+    return repository.isRegistered(authToken);
+  }
+
+  @Override
   public Usuario update(Long usuarioId, Usuario usuario) {
     UsuarioEntity user = repository.findById(usuarioId)
         .orElseThrow(() -> new RuntimeException("Usuário não localizado."));

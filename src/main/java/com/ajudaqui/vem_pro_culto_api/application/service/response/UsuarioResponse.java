@@ -8,9 +8,9 @@ import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.RedeSocial;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Telefone;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class UsuarioResponse {
 
   private UUID authToken;

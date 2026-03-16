@@ -11,4 +11,5 @@ public interface UsuarioRepository {
   public Usuario update(Long usuarioId, Usuario usuario);
   public Optional<Usuario> findById(Long usuarioId);
   public Optional<Usuario> findByAuthToken(UUID uuid);
+  Boolean isRegistered(UUID authToken);
 }

@@ -23,8 +23,15 @@ public class UsuarioServiceImp implements UsuarioService {
   @Override
   public UsuarioResponse registro(UsuarioRequest request) {
 
+    UUID authToken = fromUUID(request.getAuthToken());
+
+    System.out.println("authToken "+authToken);
+    System.out.println("ja ta registrado?? "+usuarioRepository.isRegistered(authToken));
+    if (usuarioRepository.isRegistered(authToken))
+      throw new IllegalArgumentException("Usuario já registrado");
+
     Usuario usuario = Usuario.builder()
-        .authToken(UUID.fromString(request.getAuthToken()))
+        .authToken(authToken)
         .ativo(true)
         .telefone(request.getTelefone())
         .endereco(request.getEndereco())
