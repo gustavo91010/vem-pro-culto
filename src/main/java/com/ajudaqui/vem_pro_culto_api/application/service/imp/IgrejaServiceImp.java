@@ -7,10 +7,10 @@ import com.ajudaqui.vem_pro_culto_api.application.service.*;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.*;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
+import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 
 import org.springframework.stereotype.Service;
 

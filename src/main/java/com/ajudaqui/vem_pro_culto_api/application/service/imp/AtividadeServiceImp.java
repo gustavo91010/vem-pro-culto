@@ -9,10 +9,10 @@ import com.ajudaqui.vem_pro_culto_api.application.exception.UnauthorizedExceptio
 import com.ajudaqui.vem_pro_culto_api.application.service.AtividadeService;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.AtividadeDTO;
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.Atividade;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.AtividadeRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
+import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 
 import org.springframework.stereotype.Service;
 

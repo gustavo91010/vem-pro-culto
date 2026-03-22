@@ -102,6 +102,10 @@ public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
             return criteriaBuilder.like(
                 root.get("endereco").get("cep"),
                 "%" + value + "%");
+          case "usuarioId":
+            return criteriaBuilder.equal(
+                root.join("usuarios").get("usuario").get("id"),
+                Long.parseLong(value));
           default:
             throw new IllegalArgumentException("Campo de filtro inválido: " + key);
         }

@@ -25,8 +25,8 @@ public class UsuarioServiceImp implements UsuarioService {
 
     UUID authToken = fromUUID(request.getAuthToken());
 
-    System.out.println("authToken "+authToken);
-    System.out.println("ja ta registrado?? "+usuarioRepository.isRegistered(authToken));
+    System.out.println("authToken " + authToken);
+    System.out.println("ja ta registrado?? " + usuarioRepository.isRegistered(authToken));
     if (usuarioRepository.isRegistered(authToken))
       throw new IllegalArgumentException("Usuario já registrado");
 
@@ -87,10 +87,14 @@ public class UsuarioServiceImp implements UsuarioService {
   }
 
   private UUID fromUUID(String text) {
+    if (text == null) return null;
+    if (text.startsWith("Bearer ")) {
+      text = text.substring(7);
+    }
     try {
       return UUID.fromString(text);
     } catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException("AuthToken inválido.");
+      throw new IllegalArgumentException("AuthToken inválido: '" + text + "'. O sistema espera um UUID válido.");
     }
   }
 }

@@ -13,6 +13,7 @@ import lombok.Data;
 @Data
 public class UsuarioResponse {
 
+  private Long id;
   private UUID authToken;
   private Boolean ativo;
   private Endereco endereco;
@@ -20,6 +21,7 @@ public class UsuarioResponse {
   private List<RedeSocial> redesSociais;
 
   public UsuarioResponse(Usuario usuario) {
+    this.id = usuario.getId();
     this.authToken = usuario.getAuthToken();
     this.ativo = usuario.getAtivo();
     this.endereco = usuario.getEndereco();
