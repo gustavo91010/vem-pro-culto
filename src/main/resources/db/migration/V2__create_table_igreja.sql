@@ -1,4 +1,4 @@
-CREATE TABLE igreja (
+CREATE TABLE IF NOT EXISTS igreja (
     id BIGSERIAL PRIMARY KEY,
     nome_fantasia VARCHAR(100),
     razao_social VARCHAR(100) NOT NULL UNIQUE,
@@ -22,7 +22,7 @@ CREATE TABLE igreja (
 );
 
 -- Telefones
-CREATE TABLE igreja_telefone (
+CREATE TABLE IF NOT EXISTS igreja_telefone (
     igreja_id BIGINT NOT NULL,
     numero VARCHAR(50),
     tipo VARCHAR(50),
@@ -34,7 +34,7 @@ CREATE TABLE igreja_telefone (
 );
 
 -- Redes sociais
-CREATE TABLE igreja_rede_social (
+CREATE TABLE IF NOT EXISTS igreja_rede_social (
     igreja_id BIGINT NOT NULL,
     url VARCHAR(255),
     tipo VARCHAR(100),
