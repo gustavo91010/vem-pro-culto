@@ -40,9 +40,15 @@ public class IgrejaController {
   }
 
 
+  @GetMapping("/razao-social/{razaoSocial}")
+  public ResponseEntity<?> buscarPorRazaoSocial(
+      @RequestParam String razaoSocial) {
+
+    Igreja igreja = igrejaService.buscarPorRazaoSocial(razaoSocial);
+    return ResponseEntity.ok(new IgrejaResponse(igreja));
+  }
   @GetMapping("/email/{email}")
   public ResponseEntity<?> buscarPorEmail(
-      @RequestHeader("Authorization") String requestedToken,
       @RequestParam String email) {
 
     Igreja igreja = igrejaService.buscarPorEmail(email);
@@ -51,7 +57,6 @@ public class IgrejaController {
 
   @GetMapping("/id/{igrejaId}")
   public ResponseEntity<?> buscarPorId(
-      @RequestHeader("Authorization") String requestedToken,
       @RequestParam Long igrejaId) {
 
     Igreja igreja = igrejaService.buscarPorId(igrejaId);

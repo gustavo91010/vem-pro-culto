@@ -43,7 +43,9 @@ public class IgrejaServiceImp implements IgrejaService {
   @Override
   public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
 
-    return repository.buscarTodas(dto);
+    return repository.buscarTodas(dto).stream()
+        .filter(Igreja::getAtivo)
+        .toList();
   }
 
   @Override
@@ -54,6 +56,8 @@ public class IgrejaServiceImp implements IgrejaService {
   @Override
   public Igreja buscarPorId(Long id) {
     return repository.buscarPorIr(id)
+        .filter(Igreja::getAtivo)
+
         .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
 
   }
@@ -102,6 +106,7 @@ public class IgrejaServiceImp implements IgrejaService {
   @Override
   public Igreja buscarPorRazaoSocial(String razaoSocial) {
     return findByRazaoSocial(razaoSocial)
+        .filter(Igreja::getAtivo)
         .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
   }
 
@@ -112,6 +117,8 @@ public class IgrejaServiceImp implements IgrejaService {
   @Override
   public Igreja buscarPorEmail(String email) {
     return findByEmail(email)
+
+        .filter(Igreja::getAtivo)
         .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
   }
 
