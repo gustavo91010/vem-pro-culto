@@ -42,13 +42,12 @@ public class AtividadeServiceImp implements AtividadeService {
   }
 
   @Override
-  public List<Atividade> buscarAtividades(Long igrejaId, String dataInicio, String dataFim) {
-    if (dataFim == null || dataFim.isBlank())
+  public List<Atividade> buscarAtividades(Long igrejaId, LocalDate dataInicio, LocalDate dataFim) {
+    if (dataFim == null)
       dataFim = dataInicio;
 
-    // TODO validar o formato da data no contrller
-    List<Atividade> buscarAtividades = repository.buscarAtividades(igrejaId, LocalDate.parse(dataInicio),
-        LocalDate.parse(dataFim));
+    List<Atividade> buscarAtividades = repository.buscarAtividades(igrejaId, dataInicio,
+        dataFim);
     if (buscarAtividades.isEmpty())
       throw new NotFoundException("Atividade não localizada.");
     return buscarAtividades;

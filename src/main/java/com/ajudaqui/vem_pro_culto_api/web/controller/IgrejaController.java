@@ -34,8 +34,8 @@ public class IgrejaController {
 
   @GetMapping("/todos")
   public ResponseEntity<IgrejaServiceList> buscarTodos(
-      @RequestHeader("Authorization") String requestedToken,
-      @RequestBody FiltroBuscaIgrejaDTO dto) {
+      @RequestHeader(value = "Authorization", required = false) String requestedToken,
+      @ModelAttribute FiltroBuscaIgrejaDTO dto) {
     var igrejas = igrejaService.buscarTodas(dto);
     return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
@@ -43,7 +43,7 @@ public class IgrejaController {
 
   @GetMapping("/email/{email}")
   public ResponseEntity<?> buscarPorEmail(
-      @RequestHeader("Authorization") String requestedToken,
+      @RequestHeader(value = "Authorization", required = false) String requestedToken,
       @RequestParam String email) {
 
     Igreja igreja = igrejaService.buscarPorEmail(email);
@@ -52,7 +52,7 @@ public class IgrejaController {
 
   @GetMapping("/id/{igrejaId}")
   public ResponseEntity<?> buscarPorId(
-      @RequestHeader("Authorization") String requestedToken,
+      @RequestHeader(value = "Authorization", required = false) String requestedToken,
       @RequestParam Long igrejaId) {
 
     Igreja igreja = igrejaService.buscarPorId(igrejaId);

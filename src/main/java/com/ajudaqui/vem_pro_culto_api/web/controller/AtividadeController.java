@@ -1,5 +1,6 @@
 package com.ajudaqui.vem_pro_culto_api.web.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.AtividadeService;
@@ -34,7 +35,7 @@ public class AtividadeController {
 
   @GetMapping("/id/{atividadeId}")
   public ResponseEntity<AtividadeResponse> buscarPorId(
-      @RequestHeader("Authorization") String authToken,
+      @RequestHeader(value = "Authorization", required = false) String authToken,
       @PathVariable Long atividadeId) {
     Atividade atividades = atividadeService.buscarPorId(atividadeId);
     return ResponseEntity.ok(new AtividadeResponse(atividades));
@@ -42,10 +43,10 @@ public class AtividadeController {
 
   @GetMapping("/todos")
   public ResponseEntity<AtividadeResponseList> buscarTodos(
-      @RequestHeader("Authorization") String authToken,
-      @RequestParam(value = "igrejaId") Long igrejaId,
-      @RequestParam(value = "dataInicio") @DateTimeFormat(pattern = "dd-MM-yyyy") String dataInicio,
-      @RequestParam(value = "dataFim", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") String dataFim) {
+      @RequestHeader(value = "Authorization", required = false) String authToken,
+      @RequestParam(value = "igrejaId", required = false) Long igrejaId,
+      @RequestParam(value = "dataInicio") @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dataInicio,
+      @RequestParam(value = "dataFim", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dataFim) {
     List<Atividade> atividades = atividadeService.buscarAtividades(igrejaId, dataInicio, dataFim);
     return ResponseEntity.ok(new AtividadeResponseList(atividades));
   }
