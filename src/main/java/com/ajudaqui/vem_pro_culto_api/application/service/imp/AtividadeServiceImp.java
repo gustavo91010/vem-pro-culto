@@ -11,6 +11,7 @@ import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.AtividadeDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.Atividade;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.AtividadeRepository;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.IgrejaRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
 import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 
@@ -23,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class AtividadeServiceImp implements AtividadeService {
   private final AtividadeRepository repository;
   private final UsuarioService usuarioService;
+  private final IgrejaRepository igrejaRepository;
 
   @Override
   public Atividade registro(String authToken, AtividadeDTO dto) {
@@ -71,8 +73,12 @@ public class AtividadeServiceImp implements AtividadeService {
 
   @Override
   public List<Atividade> listarTodas() {
-    // TODO: implementar busca de todas as atividades com nomeIgreja
-    throw new UnsupportedOperationException("Método ainda não implementado");
+    List<Atividade> atividades = repository.findAll();
+    atividades.forEach(a -> {
+      igrejaRepository.buscarPorIr(a.getIgrejaId())
+          .ifPresent(igreja -> a.setNomeIgreja(igreja.getNomeFantasia()));
+    });
+    return atividades;
   }
 
   private Atividade save(Atividade model) {

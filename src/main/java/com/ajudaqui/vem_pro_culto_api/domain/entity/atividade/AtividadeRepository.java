@@ -10,6 +10,7 @@ public interface AtividadeRepository {
     List<Atividade> buscarAtividades(Long igrejaId, LocalDate localDate, LocalDate localDate2);
     void delete(Long atividadeId);
     Optional<Atividade> findById(Long atividadeId);
+    List<Atividade> findAll();
 
   
 }

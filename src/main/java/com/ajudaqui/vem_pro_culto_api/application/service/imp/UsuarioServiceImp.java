@@ -3,6 +3,7 @@ package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 import java.util.List;
 import java.util.UUID;
 
+import com.ajudaqui.vem_pro_culto_api.application.config.JwtUtils;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
@@ -19,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UsuarioServiceImp implements UsuarioService {
   private final UsuarioRepository usuarioRepository;
+  private final JwtUtils jwtUtils;
 
   @Override
   public UsuarioResponse registro(UsuarioRequest request) {
@@ -91,10 +93,21 @@ public class UsuarioServiceImp implements UsuarioService {
     if (text.startsWith("Bearer ")) {
       text = text.substring(7);
     }
+
+    // Se contiver pontos, provavelmente é um JWT da Auth
+    if (text.contains(".")) {
+      try {
+        text = jwtUtils.getAccessToken(text);
+      } catch (Exception e) {
+        System.err.println("Erro ao extrair access_token do JWT: " + e.getMessage());
+        // Se falhar a extração, tenta o texto original (pode ser um UUID puro)
+      }
+    }
+
     try {
       return UUID.fromString(text);
     } catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException("AuthToken inválido: '" + text + "'. O sistema espera um UUID válido.");
+      throw new IllegalArgumentException("AuthToken inválido: '" + text + "'. O sistema espera um UUID ou JWT válido.");
     }
   }
 }

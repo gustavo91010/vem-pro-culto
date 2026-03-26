@@ -40,4 +40,10 @@ public class AtividaeJpaRepositoryImpl implements AtividadeRepository {
         .map(mapper::toModel);
   }
 
+  @Override
+  public List<Atividade> findAll() {
+    return repository.findAll().stream()
+        .map(mapper::toModel).toList();
+  }
+
 }
