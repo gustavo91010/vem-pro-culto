@@ -2,6 +2,7 @@ package com.ajudaqui.vem_pro_culto_api.web.controller;
 
 import java.util.List;
 
+import com.ajudaqui.vem_pro_culto_api.application.config.JwtUtils;
 import com.ajudaqui.vem_pro_culto_api.application.service.IgrejaService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
@@ -22,23 +23,25 @@ import lombok.RequiredArgsConstructor;
 public class IgrejaController {
 
   private final IgrejaService igrejaService;
+  private final JwtUtils jwtUtils;
 
   @PostMapping
   public ResponseEntity<?> registro(
-      @RequestHeader("Authorization") String requestedToken,
+      @RequestHeader("Authorization") String jwtToken,
       @RequestBody IgrejaRequest request) {
 
-    Igreja igreja = igrejaService.registro(requestedToken, request);
+    jwtToken = jwtUtils.getAccessToken(jwtToken);
+    Igreja igreja = igrejaService.registro(jwtToken, request);
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
 
   @GetMapping("/todos")
   public ResponseEntity<IgrejaServiceList> buscarTodos(
-      @ModelAttribute FiltroBuscaIgrejaDTO dto) {
-    var igrejas = igrejaService.buscarTodas(dto);
+      @ModelAttribute FiltroBuscaIgrejaDTO dto,
+      @RequestParam(required = false) Boolean isActive) {
+    var igrejas = igrejaService.buscarTodas(dto, isActive);
     return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
-
 
   @GetMapping("/razao-social/{razaoSocial}")
   public ResponseEntity<?> buscarPorRazaoSocial(
@@ -47,6 +50,7 @@ public class IgrejaController {
     Igreja igreja = igrejaService.buscarPorRazaoSocial(razaoSocial);
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
+
   @GetMapping("/email/{email}")
   public ResponseEntity<?> buscarPorEmail(
       @RequestParam String email) {
@@ -57,14 +61,13 @@ public class IgrejaController {
 
   @GetMapping("/id/{igrejaId}")
   public ResponseEntity<?> buscarPorId(
-      @RequestParam Long igrejaId) {
+      @PathVariable Long igrejaId,
+      @RequestParam(required = false, defaultValue = "true") Boolean isActive) {
 
-    Igreja igreja = igrejaService.buscarPorId(igrejaId);
+    Igreja igreja = igrejaService.buscarPorId(igrejaId, isActive);
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
 
-  // A role de quem cadastrou a aigreja
-  // @PreAuthorize("hasRole('ROLE_ADMIN')")
   @PutMapping("/atualizar/{igrejaId}")
   public ResponseEntity<?> atualizarIgreja(
       @RequestHeader("Authorization") String authToken,
@@ -75,8 +78,6 @@ public class IgrejaController {
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
 
-  // A role do dono da aplicacao
-  // @PreAuthorize("hasRole('ROLE_MODERATOR')")
   @PatchMapping("/alternar-status/{igrejaId}")
   public ResponseEntity<?> alternarStatus(
       @RequestHeader("Authorization") String authToken,

@@ -28,12 +28,6 @@ public class UsuarioController {
 
   private final UsuarioService usuarioService;
 
-  // @PostMapping({"/register"})
-  // public ResponseEntity<UsuarioResponse> registro(
-  //     @RequestHeader("Authorization") String authApp,
-  //     @RequestBody UsuarioRequest dto) {
-  //   return ResponseEntity.ok(usuarioService.registro(authApp, dto));
-  // }
   @PostMapping({"/register"})
   public ResponseEntity<UsuarioResponse> registro(
       @RequestBody UsuarioRequest dto) {
@@ -51,7 +45,6 @@ public class UsuarioController {
   }
 
   @PutMapping("/atualizar/{authToken}")
-  // @PreAuthorize("hasRole('ROLE_MODERATOR')")
   public ResponseEntity<ResponseMessage> atualizar(
       @PathVariable String authToken,
       @RequestBody UsuarioUpdate usuario) {
@@ -61,7 +54,6 @@ public class UsuarioController {
   }
 
   @PatchMapping("/alternar-status/{authToken}")
-  // @PreAuthorize("hasRole('ROLE_ADMIN')")
   public ResponseEntity<ResponseMessage> desativarConta(@PathVariable String authToken) {
     usuarioService.alternarStatus(authToken);
 

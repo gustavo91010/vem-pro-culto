@@ -82,6 +82,7 @@ public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
           case "nomeFantasia":
             return criteriaBuilder.like(root.get("nomeFantasia"), "%" + value + "%");
           case "logradouro":
+          case "rua":
             return criteriaBuilder.like(
                 root.get("endereco").get("logradouro"),
                 "%" + value + "%");

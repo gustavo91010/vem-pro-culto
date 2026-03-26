@@ -41,9 +41,16 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
+  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto, Boolean isActive) {
 
-    return repository.buscarTodas(dto).stream()
+    List<Igreja> igrejas = repository.buscarTodas(dto);
+
+    if (isActive != null)
+      return igrejas.stream()
+          .filter(i -> i.getAtivo().equals(isActive))
+          .toList();
+
+    return igrejas.stream()
         .filter(Igreja::getAtivo)
         .toList();
   }
@@ -54,11 +61,11 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public Igreja buscarPorId(Long id) {
+  public Igreja buscarPorId(Long id, Boolean isActive) {
     return repository.buscarPorIr(id)
-        .filter(Igreja::getAtivo)
+        .filter(i -> i.getAtivo().equals(isActive))
 
-        .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
 
   }
 
@@ -68,7 +75,7 @@ public class IgrejaServiceImp implements IgrejaService {
 
     if (!temPermissao(requested.getIgrejas(), igrejaId, EPapel.DONO))
       throw new UnauthorizedException("Solicitação não autorizada");
-    Igreja igreja = buscarPorId(igrejaId);
+    Igreja igreja = buscarPorId(igrejaId, true);
 
     if (dto.getNomeFantasia() != null && !dto.getNomeFantasia().isBlank())
       igreja.setNomeFantasia(dto.getNomeFantasia());
@@ -107,7 +114,7 @@ public class IgrejaServiceImp implements IgrejaService {
   public Igreja buscarPorRazaoSocial(String razaoSocial) {
     return findByRazaoSocial(razaoSocial)
         .filter(Igreja::getAtivo)
-        .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
   }
 
   private Optional<Igreja> findByRazaoSocial(String razaoSocial) {
@@ -119,7 +126,7 @@ public class IgrejaServiceImp implements IgrejaService {
     return findByEmail(email)
 
         .filter(Igreja::getAtivo)
-        .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
   }
 
   private Optional<Igreja> findByEmail(String email) {
@@ -128,7 +135,8 @@ public class IgrejaServiceImp implements IgrejaService {
 
   @Override
   public StatusResponse alternarStatus(String authToken, Long igrejaId) {
-    var igreja = buscarPorId(igrejaId);
+    var igreja = repository.buscarPorIr(igrejaId)
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
 
     boolean newStatus = !igreja.getAtivo();
     igreja.setAtivo(newStatus);
