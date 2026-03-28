@@ -2,6 +2,7 @@ package com.ajudaqui.vem_pro_culto_api.domain.entity.igreja;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaDTO;
 
@@ -13,5 +14,6 @@ public interface IgrejaRepository {
     List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto );
     List<Igreja> buscarPorNomeFantasia(String nomeFantasia);
     Optional<Igreja> buscarPorIr(Long id);
+    List<Igreja> listarIgrejasDoUsuario(UUID fromString);
 
 }

@@ -3,7 +3,7 @@ package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 import java.util.List;
 import java.util.UUID;
 
-import com.ajudaqui.vem_pro_culto_api.application.config.JwtUtils;
+import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
@@ -97,10 +97,12 @@ public class UsuarioServiceImp implements UsuarioService {
     // Se contiver pontos, provavelmente é um JWT da Auth
     if (text.contains(".")) {
       try {
+        System.out.println("Tentando extrair access_token do JWT: " + text);
         text = jwtUtils.getAccessToken(text);
+        System.out.println("UUID extraído com sucesso: " + text);
       } catch (Exception e) {
-        System.err.println("Erro ao extrair access_token do JWT: " + e.getMessage());
-        // Se falhar a extração, tenta o texto original (pode ser um UUID puro)
+        System.err.println("ERRO CRÍTICO NA EXTRAÇÃO DO JWT: " + e.getMessage());
+        e.printStackTrace();
       }
     }
 

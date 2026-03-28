@@ -28,6 +28,10 @@ public class AtividadeController {
       @RequestHeader("Authorization") String authToken,
       @RequestBody AtividadeDTO dto) {
 
+    if (authToken != null && authToken.contains(".") && !authToken.startsWith("Bearer ")) {
+      authToken = "Bearer " + authToken;
+    }
+
     Atividade atividade = atividadeService.registro(authToken, dto);
     return ResponseEntity.ok(new AtividadeResponse(atividade));
   }

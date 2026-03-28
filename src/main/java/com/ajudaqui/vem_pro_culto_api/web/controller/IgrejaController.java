@@ -2,15 +2,14 @@ package com.ajudaqui.vem_pro_culto_api.web.controller;
 
 import java.util.List;
 
-import com.ajudaqui.vem_pro_culto_api.application.config.JwtUtils;
 import com.ajudaqui.vem_pro_culto_api.application.service.IgrejaService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.IgrejaResponse;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.IgrejaServiceList;
-import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
+import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +32,14 @@ public class IgrejaController {
     jwtToken = jwtUtils.getAccessToken(jwtToken);
     Igreja igreja = igrejaService.registro(jwtToken, request);
     return ResponseEntity.ok(new IgrejaResponse(igreja));
+  }
+
+  @GetMapping("/do-usuario")
+  public ResponseEntity<IgrejaServiceList> minhas(
+      @RequestHeader("Authorization") String authToken) {
+    authToken = jwtUtils.getAccessToken(authToken);
+    List<Igreja> igrejas = igrejaService.listarIgrejasDoUsuario(authToken);
+    return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
 
   @GetMapping("/todos")

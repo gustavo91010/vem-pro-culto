@@ -116,4 +116,9 @@ public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
     return repository.findAll(specification).stream().map(mapper::toModel).toList();
   }
 
+  @Override
+  public List<Igreja> listarIgrejasDoUsuario(UUID authToken) {
+    return repository.listarIgrejasDoUsuario(authToken);
+  }
+
 }

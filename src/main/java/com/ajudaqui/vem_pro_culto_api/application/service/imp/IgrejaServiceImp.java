@@ -41,6 +41,12 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
+  public List<Igreja> listarIgrejasDoUsuario( String authToken) {
+
+    return repository.listarIgrejasDoUsuario(UUID.fromString(authToken));
+  }
+
+  @Override
   public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto, Boolean isActive) {
 
     List<Igreja> igrejas = repository.buscarTodas(dto);

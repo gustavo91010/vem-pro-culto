@@ -41,6 +41,7 @@ public class UsuarioJpaRepositoyImpl implements UsuarioRepository {
 
   @Override
   public Optional<Usuario> findByAuthToken(UUID authToken) {
+    System.out.println("authToken "+authToken);
     return repository.findByAuthToken(authToken)
         .map(mapper::toModel);
   }
