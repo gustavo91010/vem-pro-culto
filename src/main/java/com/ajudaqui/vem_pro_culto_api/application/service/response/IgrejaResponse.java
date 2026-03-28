@@ -6,6 +6,7 @@ import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Endereco;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.RedeSocial;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Telefone;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
+import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 
 import lombok.Data;
 
@@ -21,6 +22,7 @@ public class IgrejaResponse {
   private String imagemUrl;
   private boolean ativo;
   private Endereco endereco;
+  private List<EPapel> papels;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;
 
@@ -42,6 +44,7 @@ public class IgrejaResponse {
     this.endereco = igreja.getEndereco();
     this.telefone = igreja.getTelefone();
     this.redesSociais = igreja.getRedesSociais();
+    this.papels= igreja.ge
   }
 
 }

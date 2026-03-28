@@ -27,6 +27,6 @@ public interface IgrejaSpringDataRepository
       JOIN usuario u ON u.usuario = iu.usuario_id
       WHERE u.auth_token = :authToken
         """, nativeQuery = true)
-  List<Igreja> listarIgrejasDoUsuario(UUID authToken);
+  List<IgrejaEntity> listarIgrejasDoUsuario(UUID authToken);
 
 }
