@@ -6,6 +6,7 @@ import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.RelacaoComIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
 public interface UsuarioService {
@@ -21,5 +22,7 @@ public interface UsuarioService {
   public UsuarioResponse update(String authToken, UsuarioUpdate usuario);
 
   public StatusResponse alternarStatus(String authToken);
+
+  public List<RelacaoComIgrejaDTO> relacaoIgreja(String authToken);
 
 }

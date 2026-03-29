@@ -9,6 +9,8 @@ import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.RelacaoComIgrejaDTO;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuarioRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.UsuarioRepository;
 
@@ -19,6 +21,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class UsuarioServiceImp implements UsuarioService {
+
+  private final IgrejaUsuarioRepository igrejaUsuarioRepository;
   private final UsuarioRepository usuarioRepository;
   private final JwtUtils jwtUtils;
 
@@ -89,7 +93,8 @@ public class UsuarioServiceImp implements UsuarioService {
   }
 
   private UUID fromUUID(String text) {
-    if (text == null) return null;
+    if (text == null)
+      return null;
     if (text.startsWith("Bearer ")) {
       text = text.substring(7);
     }
@@ -111,5 +116,10 @@ public class UsuarioServiceImp implements UsuarioService {
     } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException("AuthToken inválido: '" + text + "'. O sistema espera um UUID ou JWT válido.");
     }
+  }
+
+  @Override
+  public List<RelacaoComIgrejaDTO> relacaoIgreja(String authToken) {
+    return igrejaUsuarioRepository.relacaoComIgrejas(fromUUID(authToken));
   }
 }

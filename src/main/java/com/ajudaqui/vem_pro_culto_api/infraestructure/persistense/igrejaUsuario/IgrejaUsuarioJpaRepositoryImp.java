@@ -1,5 +1,9 @@
 package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario;
 
+import java.util.List;
+import java.util.UUID;
+
+import com.ajudaqui.vem_pro_culto_api.domain.dto.RelacaoComIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuarioRepository;
 
@@ -12,6 +16,11 @@ import lombok.RequiredArgsConstructor;
 public class IgrejaUsuarioJpaRepositoryImp implements IgrejaUsuarioRepository {
   private final IgrejaUsuarioJpaRepository repository;
   private final IgrejaUsuarioMapper mapper;
+
+  public List<RelacaoComIgrejaDTO> relacaoComIgrejas(UUID authToken) {
+
+    return repository.relacaoComIgrejas(authToken);
+  }
 
   public IgrejaUsuario save(IgrejaUsuario model) {
 

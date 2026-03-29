@@ -7,6 +7,7 @@ import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.ResponseMessage;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
+import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +19,21 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
+  private final JwtUtils jwtUtils;
   private final UsuarioService usuarioService;
 
-  @PostMapping({"/register"})
+  @PostMapping({ "/register" })
   public ResponseEntity<UsuarioResponse> registro(
       @RequestBody UsuarioRequest dto) {
-    return ResponseEntity.ok(usuarioService.registro( dto));
+    return ResponseEntity.ok(usuarioService.registro(dto));
+  }
+
+  @GetMapping("/relacao-igreja")
+  public ResponseEntity<?> igrejas(
+      @RequestHeader("Authorization") String jwtToken) {
+
+    String authToken = jwtUtils.getAccessToken(jwtToken);
+    return ResponseEntity.ok(usuarioService.relacaoIgreja(authToken));
   }
 
   @GetMapping("/{authToken}")
