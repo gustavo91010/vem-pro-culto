@@ -36,8 +36,14 @@ public class UsuarioController {
     return ResponseEntity.ok(usuarioService.relacaoIgreja(authToken));
   }
 
-  @GetMapping("/{authToken}")
-  public ResponseEntity<UsuarioResponse> findByAuthToken(@PathVariable String authToken) {
+  /**
+   * Endpoint complexo: Usado para buscar o usuario logado.
+   * Mudança para RequestHeader para seguir o padrao JWT do front.
+   */
+  @GetMapping("/me")
+  public ResponseEntity<UsuarioResponse> getUsuarioLogado(
+      @RequestHeader("Authorization") String jwtToken) {
+    String authToken = jwtUtils.getAccessToken(jwtToken);
     return ResponseEntity.ok(new UsuarioResponse(usuarioService.findByAuthToken(authToken)));
   }
 
@@ -46,19 +52,27 @@ public class UsuarioController {
     return ResponseEntity.ok(usuarioService.buscarTodos());
   }
 
-  @PutMapping("/atualizar/{authToken}")
+  @PutMapping("/atualizar")
   public ResponseEntity<ResponseMessage> atualizar(
-      @PathVariable String authToken,
+      @RequestHeader("Authorization") String jwtToken,
       @RequestBody UsuarioUpdate usuario) {
+    String authToken = jwtUtils.getAccessToken(jwtToken);
     usuarioService.update(authToken, usuario);
     return ResponseEntity.ok(new ResponseMessage("Usuário atualizado com sucesso."));
-
   }
 
-  @PatchMapping("/alternar-status/{authToken}")
-  public ResponseEntity<ResponseMessage> desativarConta(@PathVariable String authToken) {
+  @PatchMapping("/alternar-status")
+  public ResponseEntity<ResponseMessage> desativarConta(
+      @RequestHeader("Authorization") String jwtToken) {
+    String authToken = jwtUtils.getAccessToken(jwtToken);
     usuarioService.alternarStatus(authToken);
-
     return ResponseEntity.ok(new ResponseMessage("Usuário atualizado com sucesso."));
+  }
+
+  // Mantendo o antigo temporariamente para nao quebrar o front antes da atualizacao
+  @Deprecated
+  @GetMapping("/{authToken}")
+  public ResponseEntity<UsuarioResponse> findByAuthToken(@PathVariable String authToken) {
+    return ResponseEntity.ok(new UsuarioResponse(usuarioService.findByAuthToken(authToken)));
   }
 }

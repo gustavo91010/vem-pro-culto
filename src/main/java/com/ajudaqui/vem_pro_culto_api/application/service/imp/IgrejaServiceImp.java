@@ -156,4 +156,20 @@ public class IgrejaServiceImp implements IgrejaService {
     repository.save(igreja);
     return new StatusResponse(newStatus, "Mudança de status realizda com sucesso.");
   }
+
+  @Override
+  public void vincularUsuario(String authToken, Long igrejaId) {
+    Usuario usuario = usuarioService.findByAuthToken(authToken);
+    Igreja igreja = repository.buscarPorIr(igrejaId)
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
+
+    boolean jaExiste = usuario.getIgrejas().stream()
+        .anyMatch(iu -> iu.getIgreja().getId().equals(igrejaId));
+
+    if (jaExiste) {
+      throw new IllegalArgumentException("Você já segue esta igreja.");
+    }
+
+    igrejaUsuarioRepository.save(new IgrejaUsuario(igreja, usuario, EPapel.FAVORITO));
+  }
 }

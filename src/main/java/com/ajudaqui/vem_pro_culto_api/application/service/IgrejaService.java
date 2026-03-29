@@ -27,4 +27,6 @@ public interface IgrejaService {
   StatusResponse alternarStatus(String authToken, Long igrejaId);
 
   List<Igreja> listarIgrejasDoUsuario(String authToken, boolean isModerador);
+
+  public void vincularUsuario(String authToken, Long igrejaId);
 }

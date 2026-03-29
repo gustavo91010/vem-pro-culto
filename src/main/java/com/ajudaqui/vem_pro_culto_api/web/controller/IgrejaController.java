@@ -76,6 +76,16 @@ public class IgrejaController {
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
 
+  @PostMapping("/vincular/{igrejaId}")
+  public ResponseEntity<?> vincular(
+      @RequestHeader("Authorization") String authToken,
+      @PathVariable Long igrejaId) {
+
+    authToken = jwtUtils.getAccessToken(authToken);
+    igrejaService.vincularUsuario(authToken, igrejaId);
+    return ResponseEntity.ok().build();
+  }
+
   @PutMapping("/atualizar/{igrejaId}")
   public ResponseEntity<?> atualizarIgreja(
       @RequestHeader("Authorization") String authToken,
@@ -88,9 +98,10 @@ public class IgrejaController {
 
   @PatchMapping("/alternar-status/{igrejaId}")
   public ResponseEntity<?> alternarStatus(
-      @RequestHeader("Authorization") String authToken,
+      @RequestHeader("Authorization") String jwtToken,
       @PathVariable("igrejaId") Long igrejaId) {
 
+    String authToken = jwtUtils.getAccessToken(jwtToken);
     return ResponseEntity.ok(igrejaService.alternarStatus(authToken, igrejaId));
   }
 }
