@@ -64,6 +64,13 @@ public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
   }
 
   @Override
+  public List<Igreja> buscarTodas() {
+    return repository.findAll().stream()
+        .map(mapper::toModel)
+        .toList();
+  }
+
+  @Override
   public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
 
     Map<String, String> filters = dto.toFilterMap();

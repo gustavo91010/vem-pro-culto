@@ -2,13 +2,18 @@ package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 
 import java.util.*;
 
-import com.ajudaqui.vem_pro_culto_api.application.exception.*;
-import com.ajudaqui.vem_pro_culto_api.application.service.*;
-import com.ajudaqui.vem_pro_culto_api.application.service.dto.*;
+import com.ajudaqui.vem_pro_culto_api.application.exception.NotFoundException;
+import com.ajudaqui.vem_pro_culto_api.application.exception.UnauthorizedException;
+import com.ajudaqui.vem_pro_culto_api.application.service.IgrejaService;
+import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
+import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaDTO;
+import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.*;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.*;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.IgrejaRepository;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuarioRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 
@@ -41,8 +46,10 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public List<Igreja> listarIgrejasDoUsuario( String authToken) {
+  public List<Igreja> listarIgrejasDoUsuario(String authToken, boolean isModerador) {
 
+    if (isModerador)
+      return repository.buscarTodas();
     return repository.listarIgrejasDoUsuario(UUID.fromString(authToken));
   }
 

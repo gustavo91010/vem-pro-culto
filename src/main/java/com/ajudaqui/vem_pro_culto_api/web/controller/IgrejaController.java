@@ -37,16 +37,17 @@ public class IgrejaController {
   @GetMapping("/do-usuario")
   public ResponseEntity<IgrejaServiceList> minhas(
       @RequestHeader("Authorization") String authToken) {
+
+    boolean isModerador = jwtUtils.isModerador(authToken);
     authToken = jwtUtils.getAccessToken(authToken);
-    List<Igreja> igrejas = igrejaService.listarIgrejasDoUsuario(authToken);
+    List<Igreja> igrejas = igrejaService.listarIgrejasDoUsuario(authToken, isModerador);
     return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
 
   @GetMapping("/todos")
   public ResponseEntity<IgrejaServiceList> buscarTodos(
-      @ModelAttribute FiltroBuscaIgrejaDTO dto,
-      @RequestParam(required = false) Boolean isActive) {
-    var igrejas = igrejaService.buscarTodas(dto, isActive);
+      @ModelAttribute FiltroBuscaIgrejaDTO dto) {
+    var igrejas = igrejaService.buscarTodas(dto, true);
     return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
 

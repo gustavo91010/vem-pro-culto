@@ -12,6 +12,7 @@ public interface IgrejaRepository {
     Optional<Igreja> findByRazaoSocial(String razaoSocial);
     Igreja save(Igreja model);
     List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto );
+    List<Igreja> buscarTodas();
     List<Igreja> buscarPorNomeFantasia(String nomeFantasia);
     Optional<Igreja> buscarPorIr(Long id);
     List<Igreja> listarIgrejasDoUsuario(UUID fromString);
