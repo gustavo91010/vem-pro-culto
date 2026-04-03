@@ -26,7 +26,6 @@ public class AuthController {
       @RequestBody UsuarioRequest dto) {
 
     UsuarioResponse ususario = authService.register(authApp, dto);
-    System.out.println(ususario.toString());
     return ResponseEntity.ok(ususario);
   }
 }

@@ -5,11 +5,9 @@ import java.time.LocalDateTime;
 import com.ajudaqui.vem_pro_culto_api.domain.enums.EAtividadeTipo;
 
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @Builder
 public class Atividade {
 

@@ -48,7 +48,6 @@ public class AtividadeServiceImp implements AtividadeService {
     if (dataFim == null || dataFim.isBlank())
       dataFim = dataInicio;
 
-    // TODO validar o formato da data no contrller
     List<Atividade> buscarAtividades = repository.buscarAtividades(igrejaId, LocalDate.parse(dataInicio),
         LocalDate.parse(dataFim));
     if (buscarAtividades.isEmpty())
@@ -73,12 +72,7 @@ public class AtividadeServiceImp implements AtividadeService {
 
   @Override
   public List<Atividade> listarTodas() {
-    List<Atividade> atividades = repository.findAll();
-    atividades.forEach(a -> {
-      igrejaRepository.buscarPorIr(a.getIgrejaId())
-          .ifPresent(igreja -> a.setNomeIgreja(igreja.getNomeFantasia()));
-    });
-    return atividades;
+    return repository.buscarAtividadesComIgrejaAtiva();
   }
 
   private Atividade save(Atividade model) {

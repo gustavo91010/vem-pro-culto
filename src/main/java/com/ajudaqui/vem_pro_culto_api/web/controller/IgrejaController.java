@@ -46,14 +46,15 @@ public class IgrejaController {
 
   @GetMapping("/todos")
   public ResponseEntity<IgrejaServiceList> buscarTodos(
-      @ModelAttribute FiltroBuscaIgrejaDTO dto) {
-    var igrejas = igrejaService.buscarTodas(dto, true);
+      @ModelAttribute FiltroBuscaIgrejaDTO dto,
+      @RequestParam(required = false) Boolean ativo) {
+    var igrejas = igrejaService.buscarTodas(dto, ativo);
     return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
 
   @GetMapping("/razao-social/{razaoSocial}")
   public ResponseEntity<?> buscarPorRazaoSocial(
-      @RequestParam String razaoSocial) {
+      @PathVariable String razaoSocial) {
 
     Igreja igreja = igrejaService.buscarPorRazaoSocial(razaoSocial);
     return ResponseEntity.ok(new IgrejaResponse(igreja));
@@ -61,7 +62,7 @@ public class IgrejaController {
 
   @GetMapping("/email/{email}")
   public ResponseEntity<?> buscarPorEmail(
-      @RequestParam String email) {
+      @PathVariable String email) {
 
     Igreja igreja = igrejaService.buscarPorEmail(email);
     return ResponseEntity.ok(new IgrejaResponse(igreja));

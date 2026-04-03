@@ -63,9 +63,7 @@ public class IgrejaServiceImp implements IgrejaService {
           .filter(i -> i.getAtivo().equals(isActive))
           .toList();
 
-    return igrejas.stream()
-        .filter(Igreja::getAtivo)
-        .toList();
+    return igrejas;
   }
 
   @Override

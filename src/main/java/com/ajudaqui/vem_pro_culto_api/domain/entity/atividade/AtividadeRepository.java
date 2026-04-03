@@ -6,11 +6,16 @@ import java.util.Optional;
 
 public interface AtividadeRepository {
 
-    Atividade save(Atividade model);
-    List<Atividade> buscarAtividades(Long igrejaId, LocalDate localDate, LocalDate localDate2);
-    void delete(Long atividadeId);
-    Optional<Atividade> findById(Long atividadeId);
-    List<Atividade> findAll();
+  Atividade save(Atividade model);
 
-  
+  List<Atividade> buscarAtividades(Long igrejaId, LocalDate localDate, LocalDate localDate2);
+
+  void delete(Long atividadeId);
+
+  Optional<Atividade> findById(Long atividadeId);
+
+  List<Atividade> findAll();
+
+  List<Atividade> buscarAtividadesComIgrejaAtiva();
+
 }

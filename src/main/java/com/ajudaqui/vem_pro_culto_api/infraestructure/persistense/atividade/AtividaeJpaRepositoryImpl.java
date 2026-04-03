@@ -46,4 +46,10 @@ public class AtividaeJpaRepositoryImpl implements AtividadeRepository {
         .map(mapper::toModel).toList();
   }
 
+  @Override
+  public List<Atividade> buscarAtividadesComIgrejaAtiva() {
+     var listaAtividades=repository.buscarAtividadesComIgrejaAtiva();
+     return mapper.fromView(listaAtividades);
+  }
+
 }

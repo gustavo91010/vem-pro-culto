@@ -31,8 +31,6 @@ public class UsuarioServiceImp implements UsuarioService {
 
     UUID authToken = fromUUID(request.getAuthToken());
 
-    System.out.println("authToken " + authToken);
-    System.out.println("ja ta registrado?? " + usuarioRepository.isRegistered(authToken));
     if (usuarioRepository.isRegistered(authToken))
       throw new IllegalArgumentException("Usuario já registrado");
 
@@ -102,11 +100,8 @@ public class UsuarioServiceImp implements UsuarioService {
     // Se contiver pontos, provavelmente é um JWT da Auth
     if (text.contains(".")) {
       try {
-        System.out.println("Tentando extrair access_token do JWT: " + text);
         text = jwtUtils.getAccessToken(text);
-        System.out.println("UUID extraído com sucesso: " + text);
       } catch (Exception e) {
-        System.err.println("ERRO CRÍTICO NA EXTRAÇÃO DO JWT: " + e.getMessage());
         e.printStackTrace();
       }
     }

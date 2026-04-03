@@ -53,4 +53,9 @@ public class JwtUtils {
 
   }
 
+  public String getEmail(String jwtToken) {
+    return getSecretKeyByJwt(jwtToken)
+        .get("sub", String.class);
+  }
+
 }

@@ -12,6 +12,12 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class RequestLoggingInterceptor implements HandlerInterceptor {
 
+  private JwtUtils jwtUtils;
+
+  public RequestLoggingInterceptor(JwtUtils jwtUtils) {
+    this.jwtUtils = jwtUtils;
+  }
+
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
       throws Exception {
@@ -22,7 +28,9 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
 
       if (request.getHeader("Authorization") != null) {
         String token = request.getHeader("Authorization");
-        authHeader = "| token: " + (token.contains("Bearer") ? "JWT" : token);
+
+        // authHeader = "| token: " + (token.contains("Bearer") ? "JWT" : token);
+        authHeader = jwtUtils.getEmail(token);
       }
 
       HandlerMethod method = (HandlerMethod) handler;
