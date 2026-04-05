@@ -16,7 +16,7 @@ public interface IgrejaService {
 
   public List<Igreja> buscarPorNomeFantasia(String nomeFantasia);
 
-  public Igreja buscarPorRazaoSocial(String razaoSocial);
+  public Igreja buscarPorRazaoSocial(String razaoSocial, String jwtToken);
 
   public Igreja buscarPorEmail(String email);
 
@@ -28,5 +28,5 @@ public interface IgrejaService {
 
   List<Igreja> listarIgrejasDoUsuario(String authToken, boolean isModerador);
 
-  public void vincularUsuario(String authToken, Long igrejaId);
+  public Boolean vincularUsuario(String authToken, Long igrejaId);
 }

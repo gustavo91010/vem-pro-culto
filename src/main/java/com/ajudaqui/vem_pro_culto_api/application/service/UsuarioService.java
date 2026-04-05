@@ -25,4 +25,6 @@ public interface UsuarioService {
 
   public List<RelacaoComIgrejaDTO> relacaoIgreja(String authToken);
 
+  public UsuarioResponse me(String authToken);
+
 }

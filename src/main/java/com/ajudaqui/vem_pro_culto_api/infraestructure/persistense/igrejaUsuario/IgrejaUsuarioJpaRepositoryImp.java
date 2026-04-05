@@ -29,4 +29,8 @@ public class IgrejaUsuarioJpaRepositoryImp implements IgrejaUsuarioRepository {
     return mapper.toModel(igrejaUsuario);
   }
 
+  @Override
+  public int removerVinculo(Long usuarioId, Long igrejaId, String papel) {
+    return repository.removerVinculo(usuarioId, igrejaId, papel);
+  }
 }

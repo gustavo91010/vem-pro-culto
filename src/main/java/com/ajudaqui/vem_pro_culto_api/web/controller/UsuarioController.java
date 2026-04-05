@@ -44,7 +44,8 @@ public class UsuarioController {
   public ResponseEntity<UsuarioResponse> getUsuarioLogado(
       @RequestHeader("Authorization") String jwtToken) {
     String authToken = jwtUtils.getAccessToken(jwtToken);
-    return ResponseEntity.ok(new UsuarioResponse(usuarioService.findByAuthToken(authToken)));
+    System.out.println(usuarioService.me(authToken));
+    return ResponseEntity.ok(usuarioService.me(authToken));
   }
 
   @GetMapping("/todos")

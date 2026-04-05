@@ -116,7 +116,16 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public Igreja buscarPorRazaoSocial(String razaoSocial) {
+  public Igreja buscarPorRazaoSocial(String razaoSocial, String jwtToken) {
+
+    // if (jwtToken != null && !jwtToken.isBlank()) {
+    //   System.out.println("entroi num foi??? "+jwtToken);
+    //   return repository.listarIgrejasDoUsuario(UUID.fromString(jwtToken)).stream()
+    //       .filter(i -> razaoSocial.equals(i.getRazaoSocial()))
+    //       .findFirst()
+    //       .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
+
+    // }
     return findByRazaoSocial(razaoSocial)
         .filter(Igreja::getAtivo)
         .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
@@ -150,19 +159,31 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public void vincularUsuario(String authToken, Long igrejaId) {
+  public Boolean vincularUsuario(String authToken, Long igrejaId) {
+    boolean jaExiste = usuarioService.relacaoIgreja(authToken).stream()
+        .filter(i -> i.getIgrejaId().equals(igrejaId)
+            && i.getPapel().equals(EPapel.FAVORITO.name()))
+        .findFirst()
+        .isPresent();
+
     Usuario usuario = usuarioService.findByAuthToken(authToken);
-    Igreja igreja = repository.buscarPorIr(igrejaId)
-        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
-
-    boolean jaExiste = usuario.getIgrejas().stream()
-        .anyMatch(iu -> iu.getIgreja().getId().equals(igrejaId));
-
+    System.out.println("exite?? " + jaExiste);
     if (jaExiste) {
-      throw new IllegalArgumentException("Você já segue esta igreja.");
+      removerVinculo(usuario.getId(), igrejaId, EPapel.FAVORITO.name());
+      return false;
     }
 
-    igrejaUsuarioRepository.save(new IgrejaUsuario(igreja, usuario, EPapel.FAVORITO));
+    Igreja igreja = repository.buscarPorIr(igrejaId)
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
+    System.out.println("criando novo vinduli igreja / usuario " + igreja.getId() + " usaurio " + usuario.getId());
+    igrejaUsuarioRepository.save(new IgrejaUsuario(igreja, usuario,
+        EPapel.FAVORITO));
+    return true;
+  }
+
+  private int removerVinculo(Long usuarioId, Long igrejaId, String papel) {
+    System.out.printf("removendo vinculo usuario %d, igreja %d, papel %s\n\n", usuarioId, igrejaId, papel);
+    return igrejaUsuarioRepository.removerVinculo(usuarioId, igrejaId, papel);
   }
 
 }

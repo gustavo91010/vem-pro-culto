@@ -1,7 +1,9 @@
 package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
@@ -13,6 +15,7 @@ import com.ajudaqui.vem_pro_culto_api.domain.dto.RelacaoComIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuarioRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.UsuarioRepository;
+import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 
 import org.springframework.stereotype.Service;
 
@@ -116,5 +119,15 @@ public class UsuarioServiceImp implements UsuarioService {
   @Override
   public List<RelacaoComIgrejaDTO> relacaoIgreja(String authToken) {
     return igrejaUsuarioRepository.relacaoComIgrejas(fromUUID(authToken));
+  }
+
+  @Override
+  public UsuarioResponse me(String authToken) {
+    Set<Long> relacao = relacaoIgreja(authToken).stream()
+        .filter(r -> r.getPapel().equals(EPapel.FAVORITO.name()))
+        .map(RelacaoComIgrejaDTO::getIgrejaId)
+        .collect(Collectors.toSet());
+
+    return new UsuarioResponse(findByAuthToken(authToken), relacao);
   }
 }

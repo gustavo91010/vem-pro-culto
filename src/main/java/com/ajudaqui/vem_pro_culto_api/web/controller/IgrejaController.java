@@ -53,9 +53,12 @@ public class IgrejaController {
 
   @GetMapping("/razao-social/{razaoSocial}")
   public ResponseEntity<?> buscarPorRazaoSocial(
-      @PathVariable String razaoSocial) {
+      @PathVariable String razaoSocial,
+      @RequestHeader(value = "Authorization", required = false) String jwtToken) {
 
-    Igreja igreja = igrejaService.buscarPorRazaoSocial(razaoSocial);
+    if (!jwtToken.isBlank())
+      jwtToken = jwtUtils.getAccessToken(jwtToken);
+    Igreja igreja = igrejaService.buscarPorRazaoSocial(razaoSocial, jwtToken);
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
 
@@ -76,13 +79,13 @@ public class IgrejaController {
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
 
-  @PostMapping("/vincular/{igrejaId}")
+  @PostMapping("/atualizar-vinculo/{igrejaId}")
   public ResponseEntity<?> vincular(
       @RequestHeader("Authorization") String authToken,
       @PathVariable Long igrejaId) {
     authToken = jwtUtils.getAccessToken(authToken);
-    igrejaService.vincularUsuario(authToken, igrejaId);
-    return ResponseEntity.ok().build();
+    Boolean status = igrejaService.vincularUsuario(authToken, igrejaId);
+    return ResponseEntity.ok(status);
   }
 
   @PutMapping("/atualizar/{igrejaId}")
