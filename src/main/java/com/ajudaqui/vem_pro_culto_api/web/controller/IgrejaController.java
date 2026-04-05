@@ -46,9 +46,8 @@ public class IgrejaController {
 
   @GetMapping("/todos")
   public ResponseEntity<IgrejaServiceList> buscarTodos(
-      @ModelAttribute FiltroBuscaIgrejaDTO dto,
-      @RequestParam(required = false) Boolean ativo) {
-    var igrejas = igrejaService.buscarTodas(dto, ativo);
+      @ModelAttribute FiltroBuscaIgrejaDTO dto) {
+    var igrejas = igrejaService.buscarTodas(dto);
     return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
 
@@ -81,7 +80,6 @@ public class IgrejaController {
   public ResponseEntity<?> vincular(
       @RequestHeader("Authorization") String authToken,
       @PathVariable Long igrejaId) {
-
     authToken = jwtUtils.getAccessToken(authToken);
     igrejaService.vincularUsuario(authToken, igrejaId);
     return ResponseEntity.ok().build();

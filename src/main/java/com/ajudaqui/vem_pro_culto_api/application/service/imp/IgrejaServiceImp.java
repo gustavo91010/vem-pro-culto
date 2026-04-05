@@ -54,15 +54,9 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto, Boolean isActive) {
+  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
 
     List<Igreja> igrejas = repository.buscarTodas(dto);
-
-    if (isActive != null)
-      return igrejas.stream()
-          .filter(i -> i.getAtivo().equals(isActive))
-          .toList();
-
     return igrejas;
   }
 
@@ -170,4 +164,5 @@ public class IgrejaServiceImp implements IgrejaService {
 
     igrejaUsuarioRepository.save(new IgrejaUsuario(igreja, usuario, EPapel.FAVORITO));
   }
+
 }
