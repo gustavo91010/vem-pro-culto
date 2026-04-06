@@ -58,7 +58,9 @@ public class IgrejaServiceImp implements IgrejaService {
   @Override
   public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
 
-    List<Igreja> igrejas = repository.buscarTodas(dto);
+    //TODO depois mudar para o paginado
+    //TODO Criar o endpoitn search para fazer os filtros especificos...
+    List<Igreja> igrejas = repository.buscarTodas();
     return igrejas;
   }
 
