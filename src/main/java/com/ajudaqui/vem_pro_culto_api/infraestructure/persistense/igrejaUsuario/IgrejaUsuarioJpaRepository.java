@@ -32,8 +32,9 @@ public interface IgrejaUsuarioJpaRepository extends JpaRepository<IgrejaUsuarioE
   @Query(value = """
       DELETE FROM igreja_usuario
       WHERE igreja_id = :igrejaId
-      AND usuario_id = :usuarioId
+      AND usuario_id = (
+        SELECT usuario FROM usuario WHERE auth_token= :authToken)
       AND papel = :papel
         """, nativeQuery = true)
-  public int removerVinculo(Long usuarioId, Long igrejaId, String papel);
+  public int removerVinculo(UUID authToken, Long igrejaId, String papel);
 }

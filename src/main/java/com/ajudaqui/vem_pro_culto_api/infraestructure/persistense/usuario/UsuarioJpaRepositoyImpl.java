@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.*;
 
 import org.springframework.stereotype.Component;
@@ -51,11 +52,10 @@ public class UsuarioJpaRepositoyImpl implements UsuarioRepository {
   }
 
   @Override
-  public Usuario update(Long usuarioId, Usuario usuario) {
-    UsuarioEntity user = repository.findById(usuarioId)
+  public Usuario update(String authToken, UsuarioUpdate usuario) {
+    UsuarioEntity user = repository.findByAuthToken(UUID.fromString(authToken))
         .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
-    user.setAtivo(usuario.getAtivo());
-    user.setAuthToken(usuario.getAuthToken());
+
     // user.setTelefone(usuario.getTelefone());
     // user.setEndereco(usuario.getEndereco());
     // user.setRedesSociais(usuario.getRedesSociais());

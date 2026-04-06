@@ -27,7 +27,6 @@ public class UsuarioMapper {
             .collect(Collectors.toSet());
 
     return UsuarioEntity.builder()
-        .id(model.getId())
         .authToken(model.getAuthToken())
         .ativo(model.getAtivo())
         .igrejas(igrejas)
@@ -54,7 +53,6 @@ public class UsuarioMapper {
             .collect(Collectors.toSet());
 
     return Usuario.builder()
-        .id(entity.getId())
         .authToken(entity.getAuthToken())
         .ativo(entity.getAtivo())
         .igrejas(igrejas)

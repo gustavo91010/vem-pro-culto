@@ -1,19 +1,14 @@
 package com.ajudaqui.vem_pro_culto_api.domain.entity.usuario;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.UsuarioDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -21,9 +16,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Usuario {
 
-  private Long id;
-  private Boolean ativo;
   private UUID authToken;
+  private Boolean ativo;
   private LocalDateTime atualizadoEm;
   private LocalDateTime registradoEm;
   private Endereco endereco;

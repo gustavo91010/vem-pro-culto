@@ -23,7 +23,6 @@ public class UsuarioResponse {
   private Set<Long> igrejasFavoritas;
 
   public UsuarioResponse(Usuario usuario) {
-    this.id = usuario.getId();
     this.authToken = usuario.getAuthToken();
     this.ativo = usuario.getAtivo();
     this.endereco = usuario.getEndereco();
@@ -32,7 +31,6 @@ public class UsuarioResponse {
   }
 
   public UsuarioResponse(Usuario usuario, Set<Long> igrejasFavoritas) {
-    this.id = usuario.getId();
     this.authToken = usuario.getAuthToken();
     this.ativo = usuario.getAtivo();
     this.endereco = usuario.getEndereco();

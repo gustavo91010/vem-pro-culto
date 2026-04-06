@@ -71,7 +71,9 @@ public class UsuarioServiceImp implements UsuarioService {
   @Override
   public StatusResponse alternarStatus(String authToken) {
 
-    Usuario usuario = getByToken(authToken);
+    Usuario usuario = usuarioRepository.findByAuthToken(fromUUID(authToken))
+        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
+
     boolean newStatus = !usuario.getAtivo();
     usuario.setAtivo(newStatus);
     usuarioRepository.save(usuario);
@@ -80,18 +82,13 @@ public class UsuarioServiceImp implements UsuarioService {
 
   @Override
   public UsuarioResponse update(String authToken, UsuarioUpdate usuario) {
-    Usuario user = getByToken(authToken);
     // user.setTelefone(usuario.getTelefone());
     // user.setEndereco(usuario.getEndereco());
     // user.setRedesSociais(usuario.getRedesSociais());
 
-    return new UsuarioResponse(usuarioRepository.update(user.getId(), user));
+    return new UsuarioResponse(usuarioRepository.update(authToken, usuario));
   }
 
-  private Usuario getByToken(String authToken) {
-    return usuarioRepository.findByAuthToken(fromUUID(authToken))
-        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
-  }
 
   private UUID fromUUID(String text) {
     if (text == null)

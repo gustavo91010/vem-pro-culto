@@ -11,5 +11,5 @@ public interface IgrejaUsuarioRepository {
 
   public List<RelacaoComIgrejaDTO> relacaoComIgrejas(UUID authToken);
 
-  public int removerVinculo(Long usuarioId, Long igrejaId, String papel);
+  public int removerVinculo(UUID authToken, Long igrejaId, String papel);
 }
