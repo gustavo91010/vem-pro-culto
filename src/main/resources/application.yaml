@@ -1,7 +1,7 @@
 spring:
   application:
     name: vem-pro-culto-api
-    auth_app: a8FjK2mPq9ZxL0vTnY3sWcR5uB7eH1dQ4kG6Jr8pXw2VtUoMzAqL9C0bNfE3hY7sWcR5uB7eH1dQ4kG6Jr8pXw2V
+    auth_app: GmL3M1KJFVi7JSHxtrxDKKSNRjjw0NBWHJ3uys6qlxENlCZURgNNxDsN//yGY2die+CnV7MmgeqgzfPKFoo9Gg==
 
   datasource:
     # url: jdbc:postgresql://127.0.0.1:5432/vem_pro_culto

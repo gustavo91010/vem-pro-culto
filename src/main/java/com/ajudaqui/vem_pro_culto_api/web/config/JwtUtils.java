@@ -37,20 +37,18 @@ public class JwtUtils {
 
   @SuppressWarnings("deprecation")
   private Claims getSecretKeyByJwt(String jwtToken) {
+    jwtToken = jwtToken.replace("Bearer ", "").trim();
     try {
-
       byte[] keyBytes = Decoders.BASE64.decode(secret);
-      jwtToken = jwtToken.replace("Bearer ", "").trim();
       return Jwts.parser()
-          .setSigningKey(hmacShaKeyFor(keyBytes))
+          .verifyWith(hmacShaKeyFor(keyBytes))
           .build()
-          .parseClaimsJws(jwtToken)
-          .getBody();
+          .parseSignedClaims(jwtToken)
+          .getPayload();
     } catch (Exception e) {
-      e.printStackTrace();
-      throw new BadRequestException("Não autorizado!");
+      System.out.println("Erro ao validar token: " + e.getMessage());
+      throw new BadRequestException("Não autorizado! Detalhe: " + e.getMessage());
     }
-
   }
 
   public String getEmail(String jwtToken) {
