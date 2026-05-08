@@ -19,7 +19,7 @@ public class IgrejaUsuarioMapper {
     return new IgrejaUsuarioEntity(
         model.getId(),
         IgrejaEntity.builder().id(model.getIgreja().getId()).build(),
-        UsuarioEntity.builder().authToken(model.getUsuario().getAuthToken()).build(),
+        UsuarioEntity.builder().id(model.getUsuario().getId()).authToken(model.getUsuario().getAuthToken()).build(),
         model.getPapel());
   }
 
@@ -27,7 +27,7 @@ public class IgrejaUsuarioMapper {
     return new IgrejaUsuario(
         entity.getId(),
         Igreja.builder().id(entity.getIgreja().getId()).build(),
-        Usuario.builder().authToken(entity.getUsuario().getAuthToken()).build(),
+        Usuario.builder().id(entity.getUsuario().getId()).authToken(entity.getUsuario().getAuthToken()).build(),
         entity.getPapel());
   }
 

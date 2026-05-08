@@ -3,8 +3,9 @@ package com.ajudaqui.vem_pro_culto_api.web.exception;
 import java.util.Arrays;
 import java.util.List;
 
+import com.ajudaqui.vem_pro_culto_api.application.exception.*;
+
 import org.apache.coyote.BadRequestException;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -25,6 +26,15 @@ public class GlobalExceptionHandler {
     return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
   }
 
+  @ExceptionHandler(UnauthorizedException.class)
+  public final ResponseEntity<ErrorDetails> unauthorizedException(UnauthorizedException ex) {
+
+    infoTrace(ex);
+    ErrorDetails errorDetails = new ErrorDetails(ex, 401);
+
+    return new ResponseEntity<>(errorDetails, HttpStatus.UNAUTHORIZED);
+  }
+
   @ExceptionHandler(NotFoundException.class)
   public final ResponseEntity<ErrorDetails> notFoundException(NotFoundException ex) {
 
@@ -43,22 +53,11 @@ public class GlobalExceptionHandler {
     return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
   }
 
-  // private void infoTrace(Exception exception) {
-  // StackTraceElement element = exception.getStackTrace()[0];
-  // StackTraceElement callElement = exception.getStackTrace()[1];
-
-  // log.error("Exception occurred at: [{}] {}, line: {} with error Details: [{}]
-  // {}, line: {} | {}",
-  // callElement.getFileName(), callElement.getMethodName(),
-  // callElement.getLineNumber(), element.getFileName(), element.getMethodName(),
-  // element.getLineNumber(), exception.getMessage());
-  // }
-
   private void infoTrace(Exception exception) {
     StackTraceElement[] fullTrace = exception.getStackTrace();
 
     List<StackTraceElement> projectTrace = Arrays.stream(fullTrace)
-        .filter(e -> e.getClassName().startsWith("br.com.gif"))
+        .filter(e -> e.getClassName().startsWith("com.ajudaqui.vem_pro_culto_api"))
         .toList();
 
     StringBuilder sb = new StringBuilder("Project stack trace:\n");

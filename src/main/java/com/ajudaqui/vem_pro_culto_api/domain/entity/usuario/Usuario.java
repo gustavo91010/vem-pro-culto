@@ -16,6 +16,7 @@ import lombok.*;
 @AllArgsConstructor
 public class Usuario {
 
+  private Long id;
   private UUID authToken;
   private Boolean ativo;
   private LocalDateTime atualizadoEm;

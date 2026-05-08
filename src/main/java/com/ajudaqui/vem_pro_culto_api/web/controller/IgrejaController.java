@@ -24,7 +24,7 @@ public class IgrejaController {
   private final IgrejaService igrejaService;
   private final JwtUtils jwtUtils;
 
-  @PostMapping
+  @PostMapping()
   public ResponseEntity<?> registro(
       @RequestHeader("Authorization") String jwtToken,
       @RequestBody IgrejaRequest request) {

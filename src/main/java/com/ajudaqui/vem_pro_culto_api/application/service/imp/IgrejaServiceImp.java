@@ -4,14 +4,14 @@ import static com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel.FAVORITO;
 
 import java.util.*;
 
-import com.ajudaqui.vem_pro_culto_api.application.exception.NotFoundException;
-import com.ajudaqui.vem_pro_culto_api.application.exception.UnauthorizedException;
+import com.ajudaqui.vem_pro_culto_api.application.exception.*;
 import com.ajudaqui.vem_pro_culto_api.application.service.IgrejaService;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.RelacaoComIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.IgrejaRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
@@ -58,8 +58,8 @@ public class IgrejaServiceImp implements IgrejaService {
   @Override
   public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
 
-    //TODO depois mudar para o paginado
-    //TODO Criar o endpoitn search para fazer os filtros especificos...
+    // TODO depois mudar para o paginado
+    // TODO Criar o endpoitn search para fazer os filtros especificos...
     List<Igreja> igrejas = repository.buscarTodas();
     return igrejas;
   }
@@ -155,6 +155,12 @@ public class IgrejaServiceImp implements IgrejaService {
   public StatusResponse alternarStatus(String authToken, Long igrejaId) {
     var igreja = repository.buscarPorIr(igrejaId)
         .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
+    List<RelacaoComIgrejaDTO> response = igrejaUsuarioRepository.relacaoComIgrejas(UUID.fromString(authToken));
+
+    boolean isOwner = response.stream()
+        .anyMatch(r -> r.getIgrejaId().equals(igrejaId) && EPapel.DONO.name().equals(r.getPapel()));
+    if (!isOwner)
+      throw new UnauthorizedException("Solicitação não autorizada");
 
     boolean newStatus = !igreja.getAtivo();
     igreja.setAtivo(newStatus);

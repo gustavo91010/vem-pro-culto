@@ -25,7 +25,6 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
     if (handler instanceof HandlerMethod) {
 
       String authHeader = "";
-
       if (request.getHeader("Authorization") != null) {
         String token = request.getHeader("Authorization");
         if (token.length() > 120)
