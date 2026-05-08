@@ -28,9 +28,10 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
 
       if (request.getHeader("Authorization") != null) {
         String token = request.getHeader("Authorization");
-
-        // authHeader = "| token: " + (token.contains("Bearer") ? "JWT" : token);
-        authHeader =" | Email: "+ (token.contains("Bearer") ? jwtUtils.getEmail(token): "secret token");;
+        if (token.length() > 120)
+          return true;
+        authHeader = " | Email: " + (token.contains("Bearer") ? jwtUtils.getEmail(token) : "secret token");
+        ;
       }
 
       HandlerMethod method = (HandlerMethod) handler;
