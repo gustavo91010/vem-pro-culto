@@ -1,10 +1,12 @@
 package com.ajudaqui.vem_pro_culto_api.infraestructure.cliente;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.ajudaqui.vem_pro_culto_api.application.exception.NotFoundException;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.CoordenadasApi;
 import com.ajudaqui.vem_pro_culto_api.domain.dto.CoordenadaDTO;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.LocalizacaoDTO;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.gateway.CoordenadaFeing;
 
 import org.springframework.stereotype.Component;
@@ -20,17 +22,20 @@ public class CoordenadaApiImp implements CoordenadasApi {
   final String FORMAT = "json";
 
   @Override
-  public CoordenadaDTO buscarCep(String cep) {
-    List<CoordenadaDTO> coordenadas = coordenadaFeing.buscarCep(APPLICATION, cep, FORMAT);
+  public CoordenadaDTO buscarCordenadas(String cep) {
+    List<LocalizacaoDTO> coordenadas = coordenadaFeing.buscarCordenadas(APPLICATION, cep, FORMAT);
 
     if (coordenadas.isEmpty())
       throw new NotFoundException(String.format("Cep: %s não localizado", cep));
-    return coordenadas.get(0);
+    LocalizacaoDTO localizacaoDTO = coordenadas.get(0);
+    return new CoordenadaDTO(
+        localizacaoDTO.getLatitude(), localizacaoDTO.getLongitude());
   }
 
   @Override
-  public CoordenadaDTO buscarCordenadas(String latitude, String longitude) {
-    return coordenadaFeing.buscarCordenadas(APPLICATION, latitude, longitude, FORMAT);
+  public String buscarCep(String latitude, String longitude) {
+    LocalizacaoDTO coordenada = coordenadaFeing.buscarCep(APPLICATION, latitude, longitude, FORMAT);
+    return coordenada.getEndereco().getCep();
   }
 
 }

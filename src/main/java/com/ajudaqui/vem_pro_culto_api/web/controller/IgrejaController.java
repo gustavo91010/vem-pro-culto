@@ -8,8 +8,6 @@ import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.IgrejaResponse;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.IgrejaServiceList;
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.CoordenadasApi;
-import com.ajudaqui.vem_pro_culto_api.domain.dto.CoordenadaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
 import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 
@@ -23,19 +21,8 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/igreja")
 public class IgrejaController {
 
-  private final CoordenadasApi coordenadasApi;
   private final IgrejaService igrejaService;
   private final JwtUtils jwtUtils;
-
-  @GetMapping("/cep/{cep}")
-  public CoordenadaDTO buscaPorCep(@PathVariable String cep) {
-    return coordenadasApi.buscarCep(cep);
-  }
-
-  @GetMapping("/coordenada/{latitude}/{longitude}")
-  public CoordenadaDTO buscaPorCoordenadas(@PathVariable String longitude, @PathVariable String latitude) {
-    return coordenadasApi.buscarCordenadas(latitude, longitude);
-  }
 
   @PostMapping()
   public ResponseEntity<?> registro(
