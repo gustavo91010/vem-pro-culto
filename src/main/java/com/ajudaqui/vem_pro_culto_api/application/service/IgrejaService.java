@@ -12,7 +12,7 @@ public interface IgrejaService {
 
   public Igreja registro(String requestedToken, IgrejaRequest igreja);
 
-  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto);
+  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto, Boolean ativo);
 
   public List<Igreja> buscarPorNomeFantasia(String nomeFantasia);
 

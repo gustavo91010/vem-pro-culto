@@ -81,12 +81,15 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
+  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto, Boolean ativo) {
 
     // TODO depois mudar para o paginado
     // TODO Criar o endpoitn search para fazer os filtros especificos...
     List<Igreja> igrejas = repository.buscarTodas();
-    return igrejas;
+
+    return igrejas.stream()
+        .filter(i -> i.getAtivo().equals(ativo))
+        .toList();
   }
 
   @Override
@@ -182,10 +185,11 @@ public class IgrejaServiceImp implements IgrejaService {
         .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
     List<RelacaoComIgrejaDTO> response = igrejaUsuarioRepository.relacaoComIgrejas(UUID.fromString(authToken));
 
-    boolean isOwner = response.stream()
-        .anyMatch(r -> r.getIgrejaId().equals(igrejaId) && EPapel.DONO.name().equals(r.getPapel()));
-    if (!isOwner)
-      throw new UnauthorizedException("Solicitação não autorizada");
+    // boolean isOwner = response.stream()
+    // .anyMatch(r -> r.getIgrejaId().equals(igrejaId) &&
+    // EPapel.DONO.name().equals(r.getPapel()));
+    // if (!isOwner)
+    // throw new UnauthorizedException("Solicitação não autorizada");
 
     boolean newStatus = !igreja.getAtivo();
     igreja.setAtivo(newStatus);

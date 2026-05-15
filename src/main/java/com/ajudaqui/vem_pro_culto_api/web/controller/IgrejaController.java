@@ -46,8 +46,9 @@ public class IgrejaController {
 
   @GetMapping("/todos")
   public ResponseEntity<IgrejaServiceList> buscarTodos(
+      @RequestParam Boolean ativo,
       @ModelAttribute FiltroBuscaIgrejaDTO dto) {
-    var igrejas = igrejaService.buscarTodas(dto);
+    var igrejas = igrejaService.buscarTodas(dto, ativo);
     return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
 
