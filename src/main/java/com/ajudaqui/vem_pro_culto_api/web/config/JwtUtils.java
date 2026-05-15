@@ -20,6 +20,10 @@ public class JwtUtils {
   @Value("${spring.application.auth_app}")
   private String secret;
 
+  public boolean isAdmin(String jwtToken) {
+    return getRoles(jwtToken).contains(EPapel.ROLE_ADMIN.name());
+  }
+
   public boolean isModerador(String jwtToken) {
     return getRoles(jwtToken).contains(EPapel.ROLE_MODERATOR.name());
   }

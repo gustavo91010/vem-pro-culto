@@ -101,9 +101,7 @@ public class IgrejaServiceImp implements IgrejaService {
   public Igreja buscarPorId(Long id, Boolean isActive) {
     return repository.buscarPorIr(id)
         .filter(i -> i.getAtivo().equals(isActive))
-
         .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
-
   }
 
   @Override
@@ -180,16 +178,13 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public StatusResponse alternarStatus(String authToken, Long igrejaId) {
+  public StatusResponse alternarStatus(Boolean isAdmin, Long igrejaId) {
+
+    if (!isAdmin)
+      throw new UnauthorizedException("Solicitação não autorizada");
+
     var igreja = repository.buscarPorIr(igrejaId)
         .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
-    List<RelacaoComIgrejaDTO> response = igrejaUsuarioRepository.relacaoComIgrejas(UUID.fromString(authToken));
-
-    // boolean isOwner = response.stream()
-    // .anyMatch(r -> r.getIgrejaId().equals(igrejaId) &&
-    // EPapel.DONO.name().equals(r.getPapel()));
-    // if (!isOwner)
-    // throw new UnauthorizedException("Solicitação não autorizada");
 
     boolean newStatus = !igreja.getAtivo();
     igreja.setAtivo(newStatus);

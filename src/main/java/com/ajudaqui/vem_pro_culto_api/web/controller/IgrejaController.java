@@ -2,6 +2,7 @@ package com.ajudaqui.vem_pro_culto_api.web.controller;
 
 import java.util.List;
 
+import com.ajudaqui.vem_pro_culto_api.application.exception.UnauthorizedException;
 import com.ajudaqui.vem_pro_culto_api.application.service.IgrejaService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
@@ -104,7 +105,7 @@ public class IgrejaController {
       @RequestHeader("Authorization") String jwtToken,
       @PathVariable("igrejaId") Long igrejaId) {
 
-    String authToken = jwtUtils.getAccessToken(jwtToken);
-    return ResponseEntity.ok(igrejaService.alternarStatus(authToken, igrejaId));
+
+    return ResponseEntity.ok(igrejaService.alternarStatus(jwtUtils.isAdmin(jwtToken), igrejaId));
   }
 }
