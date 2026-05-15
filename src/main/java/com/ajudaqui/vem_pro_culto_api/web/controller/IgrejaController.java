@@ -47,9 +47,10 @@ public class IgrejaController {
 
   @GetMapping("/todos")
   public ResponseEntity<IgrejaServiceList> buscarTodos(
+      @RequestHeader(value = "Authorization", required = false) String jwtToken,
       @RequestParam Boolean ativo,
       @ModelAttribute FiltroBuscaIgrejaDTO dto) {
-    var igrejas = igrejaService.buscarTodas(dto, ativo);
+    var igrejas = igrejaService.buscarTodas(jwtUtils.isAdmin(jwtToken), dto, ativo);
     return ResponseEntity.ok(new IgrejaServiceList(igrejas));
   }
 
@@ -104,7 +105,6 @@ public class IgrejaController {
   public ResponseEntity<?> alternarStatus(
       @RequestHeader("Authorization") String jwtToken,
       @PathVariable("igrejaId") Long igrejaId) {
-
 
     return ResponseEntity.ok(igrejaService.alternarStatus(jwtUtils.isAdmin(jwtToken), igrejaId));
   }

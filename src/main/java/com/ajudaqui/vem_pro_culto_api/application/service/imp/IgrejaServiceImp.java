@@ -81,7 +81,10 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto, Boolean ativo) {
+  public List<Igreja> buscarTodas(Boolean isAdmin, FiltroBuscaIgrejaDTO dto, Boolean ativo) {
+
+    if (!ativo && !Boolean.TRUE.equals(isAdmin))
+      throw new UnauthorizedException("Solicitação não autorizada");
 
     // TODO depois mudar para o paginado
     // TODO Criar o endpoitn search para fazer os filtros especificos...
