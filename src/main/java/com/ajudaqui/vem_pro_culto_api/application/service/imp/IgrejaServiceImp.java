@@ -11,6 +11,9 @@ import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaD
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Endereco;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.CoordenadaDTO;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.CoordenadaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.dto.RelacaoComIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.IgrejaRepository;
@@ -18,6 +21,7 @@ import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuarioRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
+import com.ajudaqui.vem_pro_culto_api.infraestructure.cliente.CoordenadaApiImp;
 
 import org.springframework.stereotype.Service;
 
@@ -29,6 +33,7 @@ public class IgrejaServiceImp implements IgrejaService {
   private final IgrejaRepository repository;
   private final UsuarioService usuarioService;
   private final IgrejaUsuarioRepository igrejaUsuarioRepository;
+  private final CoordenadaApiImp coordenadaApi;
 
   @Override
   public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {
@@ -38,13 +43,33 @@ public class IgrejaServiceImp implements IgrejaService {
 
     if (findByEmail(igrejaRequest.getEmail()).isPresent())
       throw new IllegalArgumentException("Email já registrado");
-
+    alimentandoCoordenada(igrejaRequest);
     Usuario usuario = usuarioService.findByAuthToken(requestedToken);
     var igreja = repository.save(new Igreja(igrejaRequest));
 
     var igrejaUsuario = new IgrejaUsuario(igreja, usuario, EPapel.DONO);
     igrejaUsuarioRepository.save(igrejaUsuario);
     return igreja;
+  }
+
+  private void alimentandoCoordenada(IgrejaRequest igrejaRequest) {
+    Endereco endereco = igrejaRequest.getEndereco();
+
+    if (endereco == null)
+      throw new BadRequestException("O endereço é obrigatório.");
+
+    String cep = endereco.getCep();
+    if (cep == null || cep.isBlank())
+      throw new BadRequestException("O CEP deve ser preencido");
+
+    CoordenadaDTO coordenada = coordenadaApi.buscarCordenadas(cep);
+
+    if (coordenada == null)
+      throw new BadRequestException("Não foi possível localizar coordenadas para o CEP informado.");
+
+    endereco.setLatitude(coordenada.latitude());
+    endereco.setLongitude(coordenada.longitude());
+    // igrejaRequest.setEndereco(endereco);
   }
 
   @Override

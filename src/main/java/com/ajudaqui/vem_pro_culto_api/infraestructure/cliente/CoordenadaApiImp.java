@@ -33,8 +33,12 @@ public class CoordenadaApiImp implements CoordenadasApi {
   }
 
   @Override
-  public String buscarCep(String latitude, String longitude) {
-    LocalizacaoDTO coordenada = coordenadaFeing.buscarCep(APPLICATION, latitude, longitude, FORMAT);
+  public String buscarCep(BigDecimal latitude, BigDecimal longitude) {
+    LocalizacaoDTO coordenada = coordenadaFeing.buscarCep(
+        APPLICATION,
+        latitude.toString(),
+        longitude.toString(),
+        FORMAT);
     return coordenada.getEndereco().getCep();
   }
 
