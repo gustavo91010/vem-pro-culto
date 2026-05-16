@@ -3,15 +3,17 @@ version: '3.8'
 services:
   vem-pro-culto-api:
     build: .
+    image: vpc-api:${APP_VERSION}
     container_name: vpc-api
     mem_limit: 640m
     ports:
       - '8084:8084'
     environment:
+      - APP_VERSION=${APP_VERSION}
       - JAVA_TOOL_OPTIONS=-Xms256m -Xmx512m -XX:+UseSerialGC -XX:+ShrinkHeapInSteps
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/vpc_db
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+      - SPRING_DATASOURCE_USERNAME${DB_USER}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     restart: always
