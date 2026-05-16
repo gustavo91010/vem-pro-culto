@@ -5,23 +5,18 @@ import static com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel.FAVORITO;
 import java.util.*;
 
 import com.ajudaqui.vem_pro_culto_api.application.exception.*;
-import com.ajudaqui.vem_pro_culto_api.application.service.IgrejaService;
-import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
-import com.ajudaqui.vem_pro_culto_api.application.service.dto.FiltroBuscaIgrejaDTO;
-import com.ajudaqui.vem_pro_culto_api.application.service.dto.IgrejaUpdate;
+import com.ajudaqui.vem_pro_culto_api.application.service.*;
+import com.ajudaqui.vem_pro_culto_api.application.service.dto.*;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Endereco;
-import com.ajudaqui.vem_pro_culto_api.domain.dto.CoordenadaDTO;
-import com.ajudaqui.vem_pro_culto_api.domain.dto.CoordenadaDTO;
-import com.ajudaqui.vem_pro_culto_api.domain.dto.RelacaoComIgrejaDTO;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.Igreja;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.IgrejaRepository;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
-import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuarioRepository;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.*;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.*;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.cliente.CoordenadaApiImp;
+import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 
 import org.springframework.stereotype.Service;
 
@@ -34,6 +29,7 @@ public class IgrejaServiceImp implements IgrejaService {
   private final UsuarioService usuarioService;
   private final IgrejaUsuarioRepository igrejaUsuarioRepository;
   private final CoordenadaApiImp coordenadaApi;
+  private final JwtUtils jwtUtils;
 
   @Override
   public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {
@@ -151,17 +147,29 @@ public class IgrejaServiceImp implements IgrejaService {
   @Override
   public Igreja buscarPorRazaoSocial(String razaoSocial, String jwtToken) {
 
-    // if (jwtToken != null && !jwtToken.isBlank()) {
-    // System.out.println("entroi num foi??? "+jwtToken);
-    // return repository.listarIgrejasDoUsuario(UUID.fromString(jwtToken)).stream()
-    // .filter(i -> razaoSocial.equals(i.getRazaoSocial()))
-    // .findFirst()
-    // .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
-
-    // }
-    return findByRazaoSocial(razaoSocial)
-        .filter(Igreja::getAtivo)
+    var igreja = findByRazaoSocial(razaoSocial)
         .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
+
+    if (!igreja.getAtivo()) {
+
+      if (jwtToken == null || jwtToken.isBlank())
+        throw new NotFoundException("Igreja não localizada.");
+
+      if (jwtUtils.isAdmin(jwtToken))
+        return igreja;
+
+      List<RelacaoComIgrejaDTO> relacoes = igrejaUsuarioRepository
+          .relacaoComIgrejas(UUID.fromString(jwtUtils.getAccessToken(jwtToken)));
+      boolean isOwner = relacoes.stream()
+          .anyMatch(r -> r.getIgrejaId().equals(igreja.getId())
+              && r.getPapel().equals(EPapel.DONO.name()));
+
+      if (isOwner)
+        return igreja;
+
+      throw new NotFoundException("Igreja não localizada.");
+    }
+    return igreja;
   }
 
   private Optional<Igreja> findByRazaoSocial(String razaoSocial) {

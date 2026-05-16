@@ -21,10 +21,14 @@ public class JwtUtils {
   private String secret;
 
   public boolean isAdmin(String jwtToken) {
+    if (jwtToken == null)
+      return false;
     return getRoles(jwtToken).contains(EPapel.ROLE_ADMIN.name());
   }
 
   public boolean isModerador(String jwtToken) {
+    if (jwtToken == null)
+      return false;
     return getRoles(jwtToken).contains(EPapel.ROLE_MODERATOR.name());
   }
 

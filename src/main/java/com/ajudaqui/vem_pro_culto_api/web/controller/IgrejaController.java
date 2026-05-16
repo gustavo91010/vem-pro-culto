@@ -59,8 +59,6 @@ public class IgrejaController {
       @PathVariable String razaoSocial,
       @RequestHeader(value = "Authorization", required = false) String jwtToken) {
 
-    if (jwtToken != null && !jwtToken.isBlank())
-      jwtToken = jwtUtils.getAccessToken(jwtToken);
     Igreja igreja = igrejaService.buscarPorRazaoSocial(razaoSocial, jwtToken);
     return ResponseEntity.ok(new IgrejaResponse(igreja));
   }
