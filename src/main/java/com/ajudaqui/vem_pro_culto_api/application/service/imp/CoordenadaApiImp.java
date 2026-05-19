@@ -1,13 +1,13 @@
-package com.ajudaqui.vem_pro_culto_api.infraestructure.cliente;
+package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.ajudaqui.vem_pro_culto_api.application.CoordenadasApi;
 import com.ajudaqui.vem_pro_culto_api.application.exception.NotFoundException;
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.CoordenadasApi;
 import com.ajudaqui.vem_pro_culto_api.domain.dto.CoordenadaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.dto.LocalizacaoDTO;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.gateway.CoordenadaFeing;
+import com.ajudaqui.vem_pro_culto_api.domain.gateway.CoordenadaGateway;
 
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CoordenadaApiImp implements CoordenadasApi {
 
-  private final CoordenadaFeing coordenadaFeing;
+  private final CoordenadaGateway coordenadaFeing;
   final String APPLICATION = "vem-pro-culto";
   final String FORMAT = "json";
 

@@ -15,7 +15,6 @@ import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.cliente.CoordenadaApiImp;
 import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 
 import org.springframework.stereotype.Service;

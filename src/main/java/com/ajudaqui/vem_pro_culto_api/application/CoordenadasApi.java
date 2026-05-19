@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.domain.compartilhado;
+package com.ajudaqui.vem_pro_culto_api.application;
 
 import java.math.BigDecimal;
 
