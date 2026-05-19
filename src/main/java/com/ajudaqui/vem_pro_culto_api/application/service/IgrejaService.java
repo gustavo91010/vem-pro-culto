@@ -12,17 +12,21 @@ public interface IgrejaService {
 
   public Igreja registro(String requestedToken, IgrejaRequest igreja);
 
-  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto);
+  public List<Igreja> buscarTodas(Boolean isAdmin, FiltroBuscaIgrejaDTO dto, Boolean ativo);
 
   public List<Igreja> buscarPorNomeFantasia(String nomeFantasia);
 
-  public Igreja buscarPorRazaoSocial(String razaoSocial);
+  public Igreja buscarPorRazaoSocial(String razaoSocial, String jwtToken);
 
   public Igreja buscarPorEmail(String email);
 
-  public Igreja buscarPorId(Long igrejaId);
+  public Igreja buscarPorId(Long igrejaId, Boolean isActive);
 
   public Igreja atualizarIgreja(String authToken, Long igrejaId, IgrejaUpdate igrejaDTO);
 
-  StatusResponse alternarStatus(String authToken, Long igrejaId);
+  StatusResponse alternarStatus(Boolean isAdmin, Long igrejaId);
+
+  List<Igreja> listarIgrejasDoUsuario(String authToken, boolean isModerador);
+
+  public Boolean vincularUsuario(String authToken, Long igrejaId);
 }

@@ -1,4 +1,4 @@
-CREATE TABLE igreja_usuario (
+CREATE TABLE IF NOT EXISTS igreja_usuario (
     igreja_usuario_id BIGSERIAL PRIMARY KEY,
 
     igreja_id BIGINT NOT NULL,

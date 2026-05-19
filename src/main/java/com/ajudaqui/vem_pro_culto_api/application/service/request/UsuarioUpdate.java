@@ -13,8 +13,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class UsuarioUpdate {
 
-  
-  private String nome;
   private Endereco endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;

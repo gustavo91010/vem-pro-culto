@@ -6,11 +6,12 @@ import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.RelacaoComIgrejaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 
 public interface UsuarioService {
 
-  public UsuarioResponse registro(String authApp, UsuarioRequest request);
+  public UsuarioResponse registro( UsuarioRequest request);
 
   List<UsuarioResponse> buscarTodos();
 
@@ -22,6 +23,8 @@ public interface UsuarioService {
 
   public StatusResponse alternarStatus(String authToken);
 
-  public Usuario findByEmail(String email);
+  public List<RelacaoComIgrejaDTO> relacaoIgreja(String authToken);
+
+  public UsuarioResponse me(String authToken);
 
 }

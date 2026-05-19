@@ -1,0 +1,13 @@
+
+
+GET http://localhost:8084/igreja/cep/51340722
+GET http://localhost:8084/igreja/cep/09987622
+
+
+
+
+# Teste buscar igreja por coordenada
+
+GET http://localhost:8084/igreja/coordenada/-8.1649116/-35.0034444
+
+GET http://localhost:8084/igreja/coordenada/-23.550520/-46.633308

@@ -64,6 +64,13 @@ public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
   }
 
   @Override
+  public List<Igreja> buscarTodas() {
+    return repository.findAll().stream()
+        .map(mapper::toModel)
+        .toList();
+  }
+
+  @Override
   public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
 
     Map<String, String> filters = dto.toFilterMap();
@@ -82,6 +89,7 @@ public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
           case "nomeFantasia":
             return criteriaBuilder.like(root.get("nomeFantasia"), "%" + value + "%");
           case "logradouro":
+          case "rua":
             return criteriaBuilder.like(
                 root.get("endereco").get("logradouro"),
                 "%" + value + "%");
@@ -102,6 +110,10 @@ public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
             return criteriaBuilder.like(
                 root.get("endereco").get("cep"),
                 "%" + value + "%");
+          case "usuarioId":
+            return criteriaBuilder.equal(
+                root.join("usuarios").get("usuario").get("id"),
+                Long.parseLong(value));
           default:
             throw new IllegalArgumentException("Campo de filtro inválido: " + key);
         }
@@ -109,6 +121,12 @@ public class IgrejaJpaRepositoryImpl implements IgrejaRepository {
     }
 
     return repository.findAll(specification).stream().map(mapper::toModel).toList();
+  }
+
+  @Override
+  public List<Igreja> listarIgrejasDoUsuario(UUID authToken) {
+    return repository.listarIgrejasDoUsuario(authToken).stream()
+        .map(mapper::toModel).toList();
   }
 
 }

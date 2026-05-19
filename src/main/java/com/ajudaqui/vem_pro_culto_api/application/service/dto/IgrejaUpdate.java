@@ -14,6 +14,8 @@ public class IgrejaUpdate {
   private String nomeFantasia;
   private String email;
   private String cnpj;
+  private String descricao;
+  private String imagemUrl;
   private Endereco endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;

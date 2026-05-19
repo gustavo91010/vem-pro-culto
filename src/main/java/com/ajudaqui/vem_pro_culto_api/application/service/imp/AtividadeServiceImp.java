@@ -9,10 +9,11 @@ import com.ajudaqui.vem_pro_culto_api.application.exception.UnauthorizedExceptio
 import com.ajudaqui.vem_pro_culto_api.application.service.AtividadeService;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.AtividadeDTO;
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.Atividade;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.atividade.AtividadeRepository;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.IgrejaRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuario;
+import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class AtividadeServiceImp implements AtividadeService {
   private final AtividadeRepository repository;
   private final UsuarioService usuarioService;
+  private final IgrejaRepository igrejaRepository;
 
   @Override
   public Atividade registro(String authToken, AtividadeDTO dto) {
@@ -42,12 +44,12 @@ public class AtividadeServiceImp implements AtividadeService {
   }
 
   @Override
-  public List<Atividade> buscarAtividades(Long igrejaId, LocalDate dataInicio, LocalDate dataFim) {
+  public List<Atividade> buscarAtividades(Long igrejaId, String dataInicio, String dataFim) {
     if (dataFim == null)
       dataFim = dataInicio;
 
-    List<Atividade> buscarAtividades = repository.buscarAtividades(igrejaId, dataInicio,
-        dataFim);
+    List<Atividade> buscarAtividades =
+        repository.buscarAtividades(igrejaId, LocalDate.parse(dataInicio), LocalDate.parse(dataFim));
     if (buscarAtividades.isEmpty())
       throw new NotFoundException("Atividade não localizada.");
     return buscarAtividades;
@@ -68,13 +70,18 @@ public class AtividadeServiceImp implements AtividadeService {
     repository.delete(atividadeId);
   }
 
+  @Override
+  public List<Atividade> listarTodas() {
+    return repository.buscarAtividadesComIgrejaAtiva();
+  }
+
   private Atividade save(Atividade model) {
     return repository.save(model);
   }
 
   private boolean isOwner(Set<IgrejaUsuario> igrejas, Long igrejaId) {
     return igrejas.stream()
-        .anyMatch(i -> i.getId().equals(igrejaId)
+        .anyMatch(i -> i.getIgreja().getId().equals(igrejaId)
             && i.getPapel().equals(EPapel.DONO));
   }
 

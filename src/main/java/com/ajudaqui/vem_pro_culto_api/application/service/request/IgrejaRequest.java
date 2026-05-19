@@ -15,6 +15,8 @@ public class IgrejaRequest {
   private String razaoSocial;
   private String email;
   private String cnpj;
+  private String descricao;
+  private String imagemUrl;
   private Endereco endereco;
   private List<Telefone> telefone;
   private List<RedeSocial> redesSociais;

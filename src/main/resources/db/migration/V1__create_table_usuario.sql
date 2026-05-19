@@ -1,8 +1,5 @@
-CREATE TABLE usuario (
+CREATE TABLE IF NOT EXISTS usuario (
     usuario BIGSERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(50) NOT NULL,
     ativo BOOLEAN,
     auth_token UUID NOT NULL,
     atualizado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -22,7 +19,7 @@ CREATE TABLE usuario (
 );
 
 -- Telefones (ElementCollection)
-CREATE TABLE usuario_telefone (
+CREATE TABLE IF NOT EXISTS usuario_telefone (
     usuario_id BIGINT NOT NULL,
     numero VARCHAR(50),
     tipo VARCHAR(50),
@@ -34,7 +31,7 @@ CREATE TABLE usuario_telefone (
 );
 
 -- Redes Sociais (ElementCollection)
-CREATE TABLE usuario_rede_social (
+CREATE TABLE IF NOT EXISTS usuario_rede_social (
     usuario_id BIGINT NOT NULL,
     url VARCHAR(255),
     tipo VARCHAR(100),

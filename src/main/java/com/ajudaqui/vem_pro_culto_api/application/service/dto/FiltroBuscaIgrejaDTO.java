@@ -18,6 +18,7 @@ public class FiltroBuscaIgrejaDTO {
   private String estado;
   private String cep;
   private String cidade;
+  private Long usuarioId;
 
   public Map<String, String> toFilterMap() {
 
@@ -41,6 +42,8 @@ public class FiltroBuscaIgrejaDTO {
       filters.put("cep", cep);
     if (cidade != null)
       filters.put("cidade", cidade);
+    if (usuarioId != null)
+      filters.put("usuarioId", usuarioId.toString());
 
     return filters;
   }

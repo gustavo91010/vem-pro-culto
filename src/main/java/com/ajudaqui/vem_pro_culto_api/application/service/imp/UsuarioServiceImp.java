@@ -1,17 +1,22 @@
 package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
+import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 import com.ajudaqui.vem_pro_culto_api.application.service.UsuarioService;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.UsuarioUpdate;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.UsuarioResponse;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.RelacaoComIgrejaDTO;
+import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.IgrejaUsuarioRepository;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.UsuarioRepository;
+import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -19,26 +24,21 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class UsuarioServiceImp implements UsuarioService {
-  private final UsuarioRepository usuarioRepository;
 
-  @Value("${spring.application.auth_app}")
-  private String authInternal;
+  private final IgrejaUsuarioRepository igrejaUsuarioRepository;
+  private final UsuarioRepository usuarioRepository;
+  private final JwtUtils jwtUtils;
 
   @Override
-  public UsuarioResponse registro(String authApp, UsuarioRequest request) {
-    if (!authInternal.equals(authApp))
-      throw new IllegalArgumentException("Solicitação não autorizada!");
+  public UsuarioResponse registro(UsuarioRequest request) {
 
-    if (usuarioRepository.findByEmail(request.getEmail()).isPresent()) {
-      throw new IllegalArgumentException("Email já registrado");
-    }
+    UUID authToken = fromUUID(request.getAuthToken());
+
+    if (usuarioRepository.isRegistered(authToken))
+      throw new IllegalArgumentException("Usuario já registrado");
 
     Usuario usuario = Usuario.builder()
-        .nome(request.getNome())
-        .email(request.getEmail())
-        // .senha(request.getSenha())
-        .senha("")
-        .authToken(UUID.fromString(request.getAuthToken()))
+        .authToken(authToken)
         .ativo(true)
         .telefone(request.getTelefone())
         .endereco(request.getEndereco())
@@ -53,12 +53,6 @@ public class UsuarioServiceImp implements UsuarioService {
     return usuarioRepository.buscarTodos().stream()
         .map(UsuarioResponse::new)
         .toList();
-  }
-
-  @Override
-  public Usuario findByEmail(String email) {
-    return usuarioRepository.findByEmail(email)
-        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
   }
 
   @Override
@@ -77,7 +71,9 @@ public class UsuarioServiceImp implements UsuarioService {
   @Override
   public StatusResponse alternarStatus(String authToken) {
 
-    Usuario usuario = getByToken(authToken);
+    Usuario usuario = usuarioRepository.findByAuthToken(fromUUID(authToken))
+        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
+
     boolean newStatus = !usuario.getAtivo();
     usuario.setAtivo(newStatus);
     usuarioRepository.save(usuario);
@@ -86,27 +82,49 @@ public class UsuarioServiceImp implements UsuarioService {
 
   @Override
   public UsuarioResponse update(String authToken, UsuarioUpdate usuario) {
-    Usuario user = getByToken(authToken);
-    user.setNome(usuario.getNome());
     // user.setTelefone(usuario.getTelefone());
     // user.setEndereco(usuario.getEndereco());
     // user.setRedesSociais(usuario.getRedesSociais());
-    // user.setAtualizadoEm(LocalDateTime.now());
-    // Será queprecisa mesmo ou aquela anotação resolve??
 
-    return new UsuarioResponse(usuarioRepository.update(user.getId(), user));
+    return new UsuarioResponse(usuarioRepository.update(authToken, usuario));
   }
 
-  private Usuario getByToken(String authToken) {
-    return usuarioRepository.findByAuthToken(fromUUID(authToken))
-        .orElseThrow(() -> new RuntimeException("Usuário não localizado."));
-  }
 
   private UUID fromUUID(String text) {
+    if (text == null)
+      return null;
+    if (text.startsWith("Bearer ")) {
+      text = text.substring(7);
+    }
+
+    // Se contiver pontos, provavelmente é um JWT da Auth
+    if (text.contains(".")) {
+      try {
+        text = jwtUtils.getAccessToken(text);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+
     try {
       return UUID.fromString(text);
     } catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException("AuthToken inválido.");
+      throw new IllegalArgumentException("AuthToken inválido: '" + text + "'. O sistema espera um UUID ou JWT válido.");
     }
+  }
+
+  @Override
+  public List<RelacaoComIgrejaDTO> relacaoIgreja(String authToken) {
+    return igrejaUsuarioRepository.relacaoComIgrejas(fromUUID(authToken));
+  }
+
+  @Override
+  public UsuarioResponse me(String authToken) {
+    Set<Long> relacao = relacaoIgreja(authToken).stream()
+        .filter(r -> r.getPapel().equals(EPapel.FAVORITO.name()))
+        .map(RelacaoComIgrejaDTO::getIgrejaId)
+        .collect(Collectors.toSet());
+
+    return new UsuarioResponse(findByAuthToken(authToken), relacao);
   }
 }

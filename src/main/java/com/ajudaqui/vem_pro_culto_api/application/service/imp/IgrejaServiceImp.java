@@ -1,5 +1,7 @@
 package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 
+import static com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel.FAVORITO;
+
 import java.util.*;
 
 import com.ajudaqui.vem_pro_culto_api.application.exception.*;
@@ -7,10 +9,14 @@ import com.ajudaqui.vem_pro_culto_api.application.service.*;
 import com.ajudaqui.vem_pro_culto_api.application.service.dto.*;
 import com.ajudaqui.vem_pro_culto_api.application.service.request.IgrejaRequest;
 import com.ajudaqui.vem_pro_culto_api.application.service.response.StatusResponse;
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
+import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.Endereco;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
+import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
+import com.ajudaqui.vem_pro_culto_api.infraestructure.cliente.CoordenadaApiImp;
+import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 
 import org.springframework.stereotype.Service;
 
@@ -22,6 +28,8 @@ public class IgrejaServiceImp implements IgrejaService {
   private final IgrejaRepository repository;
   private final UsuarioService usuarioService;
   private final IgrejaUsuarioRepository igrejaUsuarioRepository;
+  private final CoordenadaApiImp coordenadaApi;
+  private final JwtUtils jwtUtils;
 
   @Override
   public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {
@@ -31,7 +39,7 @@ public class IgrejaServiceImp implements IgrejaService {
 
     if (findByEmail(igrejaRequest.getEmail()).isPresent())
       throw new IllegalArgumentException("Email já registrado");
-
+    alimentandoCoordenada(igrejaRequest);
     Usuario usuario = usuarioService.findByAuthToken(requestedToken);
     var igreja = repository.save(new Igreja(igrejaRequest));
 
@@ -40,10 +48,47 @@ public class IgrejaServiceImp implements IgrejaService {
     return igreja;
   }
 
-  @Override
-  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {
+  private void alimentandoCoordenada(IgrejaRequest igrejaRequest) {
+    Endereco endereco = igrejaRequest.getEndereco();
 
-    return repository.buscarTodas(dto);
+    if (endereco == null)
+      throw new BadRequestException("O endereço é obrigatório.");
+
+    String cep = endereco.getCep();
+    if (cep == null || cep.isBlank())
+      throw new BadRequestException("O CEP deve ser preencido");
+
+    CoordenadaDTO coordenada = coordenadaApi.buscarCordenadas(cep);
+
+    if (coordenada == null)
+      throw new BadRequestException("Não foi possível localizar coordenadas para o CEP informado.");
+
+    endereco.setLatitude(coordenada.latitude());
+    endereco.setLongitude(coordenada.longitude());
+    // igrejaRequest.setEndereco(endereco);
+  }
+
+  @Override
+  public List<Igreja> listarIgrejasDoUsuario(String authToken, boolean isModerador) {
+
+    if (isModerador)
+      return repository.buscarTodas();
+    return repository.listarIgrejasDoUsuario(UUID.fromString(authToken));
+  }
+
+  @Override
+  public List<Igreja> buscarTodas(Boolean isAdmin, FiltroBuscaIgrejaDTO dto, Boolean ativo) {
+
+    if (!ativo && !Boolean.TRUE.equals(isAdmin))
+      throw new UnauthorizedException("Solicitação não autorizada");
+
+    // TODO depois mudar para o paginado
+    // TODO Criar o endpoitn search para fazer os filtros especificos...
+    List<Igreja> igrejas = repository.buscarTodas();
+
+    return igrejas.stream()
+        .filter(i -> i.getAtivo().equals(ativo))
+        .toList();
   }
 
   @Override
@@ -52,10 +97,10 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public Igreja buscarPorId(Long id) {
+  public Igreja buscarPorId(Long id, Boolean isActive) {
     return repository.buscarPorIr(id)
-        .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
-
+        .filter(i -> i.getAtivo().equals(isActive))
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
   }
 
   @Override
@@ -64,7 +109,7 @@ public class IgrejaServiceImp implements IgrejaService {
 
     if (!temPermissao(requested.getIgrejas(), igrejaId, EPapel.DONO))
       throw new UnauthorizedException("Solicitação não autorizada");
-    Igreja igreja = buscarPorId(igrejaId);
+    Igreja igreja = buscarPorId(igrejaId, true);
 
     if (dto.getNomeFantasia() != null && !dto.getNomeFantasia().isBlank())
       igreja.setNomeFantasia(dto.getNomeFantasia());
@@ -84,6 +129,12 @@ public class IgrejaServiceImp implements IgrejaService {
     if (dto.getRedesSociais() != null && !dto.getRedesSociais().isEmpty())
       igreja.setRedesSociais(dto.getRedesSociais());
 
+    if (dto.getDescricao() != null && !dto.getDescricao().isBlank())
+      igreja.setDescricao(dto.getDescricao());
+
+    if (dto.getImagemUrl() != null && !dto.getImagemUrl().isBlank())
+      igreja.setImagemUrl(dto.getImagemUrl());
+
     return repository.save(igreja);
   }
 
@@ -94,9 +145,31 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public Igreja buscarPorRazaoSocial(String razaoSocial) {
-    return findByRazaoSocial(razaoSocial)
-        .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
+  public Igreja buscarPorRazaoSocial(String razaoSocial, String jwtToken) {
+
+    var igreja = findByRazaoSocial(razaoSocial)
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
+
+    if (!igreja.getAtivo()) {
+
+      if (jwtToken == null || jwtToken.isBlank())
+        throw new NotFoundException("Igreja não localizada.");
+
+      if (jwtUtils.isAdmin(jwtToken))
+        return igreja;
+
+      List<RelacaoComIgrejaDTO> relacoes = igrejaUsuarioRepository
+          .relacaoComIgrejas(UUID.fromString(jwtUtils.getAccessToken(jwtToken)));
+      boolean isOwner = relacoes.stream()
+          .anyMatch(r -> r.getIgrejaId().equals(igreja.getId())
+              && r.getPapel().equals(EPapel.DONO.name()));
+
+      if (isOwner)
+        return igreja;
+
+      throw new NotFoundException("Igreja não localizada.");
+    }
+    return igreja;
   }
 
   private Optional<Igreja> findByRazaoSocial(String razaoSocial) {
@@ -106,7 +179,9 @@ public class IgrejaServiceImp implements IgrejaService {
   @Override
   public Igreja buscarPorEmail(String email) {
     return findByEmail(email)
-        .orElseThrow(() -> new NotFoundException("Usuário não localizado."));
+
+        .filter(Igreja::getAtivo)
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
   }
 
   private Optional<Igreja> findByEmail(String email) {
@@ -114,12 +189,45 @@ public class IgrejaServiceImp implements IgrejaService {
   }
 
   @Override
-  public StatusResponse alternarStatus(String authToken, Long igrejaId) {
-    var igreja = buscarPorId(igrejaId);
+  public StatusResponse alternarStatus(Boolean isAdmin, Long igrejaId) {
+
+    if (!isAdmin)
+      throw new UnauthorizedException("Solicitação não autorizada");
+
+    var igreja = repository.buscarPorIr(igrejaId)
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
 
     boolean newStatus = !igreja.getAtivo();
     igreja.setAtivo(newStatus);
     repository.save(igreja);
     return new StatusResponse(newStatus, "Mudança de status realizda com sucesso.");
   }
+
+  @Override
+  public Boolean vincularUsuario(String authToken, Long igrejaId) {
+    boolean jaExiste = usuarioService.relacaoIgreja(authToken).stream()
+        .filter(i -> i.getIgrejaId().equals(igrejaId)
+            && i.getPapel().equals(FAVORITO.name()))
+        .findFirst()
+        .isPresent();
+
+    Usuario usuario = usuarioService.findByAuthToken(authToken);
+
+    if (jaExiste) {
+      removerVinculo(usuario.getAuthToken(), igrejaId, FAVORITO.name());
+      return false;
+    }
+
+    Igreja igreja = repository.buscarPorIr(igrejaId)
+        .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
+    igrejaUsuarioRepository.save(new IgrejaUsuario(igreja, usuario,
+        FAVORITO));
+
+    return true;
+  }
+
+  private int removerVinculo(UUID authToken, Long igrejaId, String papel) {
+    return igrejaUsuarioRepository.removerVinculo(authToken, igrejaId, papel);
+  }
+
 }

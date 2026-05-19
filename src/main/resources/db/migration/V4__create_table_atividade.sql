@@ -1,4 +1,4 @@
-CREATE TABLE atividade (
+CREATE TABLE IF NOT EXISTS atividade (
     id BIGSERIAL PRIMARY KEY,
 
     igreja_id BIGINT NOT NULL,

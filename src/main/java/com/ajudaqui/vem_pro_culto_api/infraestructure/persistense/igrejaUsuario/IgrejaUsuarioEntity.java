@@ -1,6 +1,6 @@
 package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario;
 
-import com.ajudaqui.vem_pro_culto_api.domain.compartilhado.EPapel;
+import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja.IgrejaEntity;
 import com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario.UsuarioEntity;
 

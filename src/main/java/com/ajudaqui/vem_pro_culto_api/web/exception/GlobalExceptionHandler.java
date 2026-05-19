@@ -1,7 +1,11 @@
 package com.ajudaqui.vem_pro_culto_api.web.exception;
 
+import java.util.Arrays;
+import java.util.List;
+
+import com.ajudaqui.vem_pro_culto_api.application.exception.*;
+
 import org.apache.coyote.BadRequestException;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,6 +24,15 @@ public class GlobalExceptionHandler {
     ErrorDetails errorDetails = new ErrorDetails(ex, HttpStatus.BAD_REQUEST.value());
 
     return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler(UnauthorizedException.class)
+  public final ResponseEntity<ErrorDetails> unauthorizedException(UnauthorizedException ex) {
+
+    infoTrace(ex);
+    ErrorDetails errorDetails = new ErrorDetails(ex, 401);
+
+    return new ResponseEntity<>(errorDetails, HttpStatus.UNAUTHORIZED);
   }
 
   @ExceptionHandler(NotFoundException.class)
@@ -41,12 +54,21 @@ public class GlobalExceptionHandler {
   }
 
   private void infoTrace(Exception exception) {
-    StackTraceElement element = exception.getStackTrace()[0];
-    StackTraceElement callElement = exception.getStackTrace()[1];
+    StackTraceElement[] fullTrace = exception.getStackTrace();
 
-    log.error("Exception occurred at: [{}] {}, line: {} with error Details: [{}] {}, line: {} | {}",
-        callElement.getFileName(), callElement.getMethodName(),
-        callElement.getLineNumber(), element.getFileName(), element.getMethodName(),
-        element.getLineNumber(), exception.getMessage());
+    List<StackTraceElement> projectTrace = Arrays.stream(fullTrace)
+        .filter(e -> e.getClassName().startsWith("com.ajudaqui.vem_pro_culto_api"))
+        .toList();
+
+    StringBuilder sb = new StringBuilder("Project stack trace:\n");
+    for (int i = 0; i < projectTrace.size(); i++) {
+      StackTraceElement e = projectTrace.get(i);
+      sb.append(String.format("  [%d] %s.%s (line %d)%n",
+          i, e.getFileName(), e.getMethodName(), e.getLineNumber()));
+    }
+    sb.append("Message: ").append(exception.getMessage());
+
+    log.error(sb.toString());
   }
+
 }

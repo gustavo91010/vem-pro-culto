@@ -50,6 +50,12 @@ public class IgrejaEntity {
   @Column(name = "cnpj", nullable = true, length = 14)
   private String cnpj;
 
+  @Column(name = "descricao", nullable = true, length = 500)
+  private String descricao;
+
+  @Column(name = "imagem_url", nullable = true, length = 255)
+  private String imagemUrl;
+
   @UpdateTimestamp
   @Column(name = "atualizado_em", nullable = false)
   private LocalDateTime atualizadoEm;

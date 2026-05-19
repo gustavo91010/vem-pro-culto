@@ -24,8 +24,18 @@ public class ErrorDetails {
   public ErrorDetails(Exception ex, int status) {
     this.status = status;
     this.timestamp = LocalDateTime.now();
-    this.message = ex.getMessage();
-    this.details = ex.getLocalizedMessage();
+
+    String fullMessage = ex.getMessage() != null ? ex.getMessage() : "";
+
+    if (fullMessage.contains("Detalhe")) {
+      String[] parts = fullMessage.split("Detalhe");
+      this.message = parts[0].replace(":", "").trim();
+      this.details = parts.length > 1 ? parts[1].replace(":", "").trim() : "";
+    } else {
+      this.message = fullMessage;
+      this.details = "Sem detalhes adicionais.";
+    }
+
     this.developerMessage = Arrays.asList(ex.getClass().getName(), ex.toString());
   }
 
