@@ -28,7 +28,9 @@ public class IgrejaServiceImp implements IgrejaService {
   private final UsuarioService usuarioService;
   private final IgrejaUsuarioRepository igrejaUsuarioRepository;
   private final CoordenadaApiImp coordenadaApi;
+  private final EmailServiceImp emailServiceImp;
   private final JwtUtils jwtUtils;
+  private final String EMAIL_ADMIN = "ajudaqui.com.o@gmail.com";
 
   @Override
   public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {
@@ -43,8 +45,25 @@ public class IgrejaServiceImp implements IgrejaService {
     var igreja = repository.save(new Igreja(igrejaRequest));
 
     var igrejaUsuario = new IgrejaUsuario(igreja, usuario, EPapel.DONO);
-    igrejaUsuarioRepository.save(igrejaUsuario);
+    IgrejaUsuario novaIgreja = igrejaUsuarioRepository.save(igrejaUsuario);
+
+    notificandoAdmin(novaIgreja);
     return igreja;
+  }
+
+  private void notificandoAdmin(IgrejaUsuario novaIgreja) {
+    Usuario usuario = novaIgreja.getUsuario();
+    Igreja igreja = novaIgreja.getIgreja();
+
+    NotificacaoAdmin notificacaoAdmin = new NotificacaoAdmin(
+        usuario.getAuthToken(),
+        usuario.getTelefone(),
+        igreja.getEmail(),
+        igreja.getNomeFantasia(),
+        igreja.getTelefone());
+
+    emailServiceImp.send(EMAIL_ADMIN,
+        "Nova Igreja: " + igreja.getNomeFantasia(), notificacaoAdmin.toString());
   }
 
   private void alimentandoCoordenada(IgrejaRequest igrejaRequest) {

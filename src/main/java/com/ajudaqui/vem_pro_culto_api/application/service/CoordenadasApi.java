@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.application;
+package com.ajudaqui.vem_pro_culto_api.application.service;
 
 import java.math.BigDecimal;
 

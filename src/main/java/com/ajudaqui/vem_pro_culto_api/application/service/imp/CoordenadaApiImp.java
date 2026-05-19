@@ -3,8 +3,8 @@ package com.ajudaqui.vem_pro_culto_api.application.service.imp;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.ajudaqui.vem_pro_culto_api.application.CoordenadasApi;
 import com.ajudaqui.vem_pro_culto_api.application.exception.NotFoundException;
+import com.ajudaqui.vem_pro_culto_api.application.service.CoordenadasApi;
 import com.ajudaqui.vem_pro_culto_api.domain.dto.CoordenadaDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.dto.LocalizacaoDTO;
 import com.ajudaqui.vem_pro_culto_api.domain.gateway.CoordenadaGateway;
