@@ -222,10 +222,22 @@ public class IgrejaServiceImp implements IgrejaService {
 
     var igreja = repository.buscarPorIr(igrejaId)
         .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
-// se igreja atualizacao for igual a igreja registro, pode enviar o email assim que mudar aprimeira vez
+
+    boolean primeiraAlteracao = igreja.getAtualizadoEm().equals(igreja.getRegistradoEm());
     boolean newStatus = !igreja.getAtivo();
+
     igreja.setAtivo(newStatus);
     repository.save(igreja);
+
+    if (primeiraAlteracao && newStatus) {
+
+      emailServiceImp.send(
+          igreja.getEmail(),
+          "Cadastro aprovado",
+          String.format(
+              "Olá! Seu cadastro foi aprovado e a igreja %s já pode utilizar os serviços da plataforma Vem Pro Culto. Seja bem-vindo!",
+              igreja.getRazaoSocial()));
+    }
     return new StatusResponse(newStatus, "Mudança de status realizda com sucesso.");
   }
 
