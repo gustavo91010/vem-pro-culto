@@ -18,6 +18,21 @@ public interface CoordenadaGateway {
       @RequestParam("q") String cep,
       @RequestParam("format") String format);
 
+  @GetMapping("/search")
+  public List<String> buscarCordenadas2(
+      @RequestHeader("User-Agent") String userAgent,
+      @RequestParam("street") String rua,
+      @RequestParam("state") String estado,
+      @RequestParam("country") String pais,
+      @RequestParam("format") String format);
+  @GetMapping("/search")
+  public List<LocalizacaoDTO> buscarCordenadas(
+      @RequestHeader("User-Agent") String userAgent,
+      @RequestParam("street") String rua,
+      @RequestParam("state") String estado,
+      @RequestParam("country") String pais,
+      @RequestParam("format") String format);
+
   @GetMapping("/reverse")
   public LocalizacaoDTO buscarCep(
       @RequestHeader("User-Agent") String userAgent,

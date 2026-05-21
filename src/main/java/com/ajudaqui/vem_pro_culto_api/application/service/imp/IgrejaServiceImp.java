@@ -20,8 +20,10 @@ import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 
 @Service
+@Log
 @RequiredArgsConstructor
 public class IgrejaServiceImp implements IgrejaService {
   private final IgrejaRepository repository;
@@ -30,7 +32,7 @@ public class IgrejaServiceImp implements IgrejaService {
   private final CoordenadaApiImp coordenadaApi;
   private final EmailServiceImp emailServiceImp;
   private final JwtUtils jwtUtils;
-  private final String EMAIL_ADMIN = "ajudaqui.com.o@gmail.com";
+  private final String EMAIL_ADMIN = "contato.vemproculto@gmail.com";
 
   @Override
   public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {
@@ -62,21 +64,27 @@ public class IgrejaServiceImp implements IgrejaService {
         igreja.getNomeFantasia(),
         igreja.getTelefone());
 
-    emailServiceImp.send(EMAIL_ADMIN,
-        "Nova Igreja: " + igreja.getNomeFantasia(), notificacaoAdmin.toString());
+    try {
+      emailServiceImp.send(EMAIL_ADMIN,
+          "Nova Igreja: " + igreja.getNomeFantasia(), notificacaoAdmin.toString());
+    } catch (Exception e) {
+      log.warning(String.format("Email para endereço %s não foi enviado.", EMAIL_ADMIN));
+    }
   }
 
   private void alimentandoCoordenada(IgrejaRequest igrejaRequest) {
-    Endereco endereco = igrejaRequest.getEndereco();
 
-    if (endereco == null)
+    if (igrejaRequest.getEndereco() == null)
       throw new BadRequestException("O endereço é obrigatório.");
+
+    Endereco endereco = igrejaRequest.getEndereco();
 
     String cep = endereco.getCep();
     if (cep == null || cep.isBlank())
       throw new BadRequestException("O CEP deve ser preencido");
 
-    CoordenadaDTO coordenada = coordenadaApi.buscarCordenadas(cep);
+    CoordenadaDTO coordenada = coordenadaApi.buscarCordenadas(
+        cep, endereco.getLogradouro(), endereco.getEstado());
 
     if (coordenada == null)
       throw new BadRequestException("Não foi possível localizar coordenadas para o CEP informado.");
@@ -214,7 +222,7 @@ public class IgrejaServiceImp implements IgrejaService {
 
     var igreja = repository.buscarPorIr(igrejaId)
         .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
-
+// se igreja atualizacao for igual a igreja registro, pode enviar o email assim que mudar aprimeira vez
     boolean newStatus = !igreja.getAtivo();
     igreja.setAtivo(newStatus);
     repository.save(igreja);
