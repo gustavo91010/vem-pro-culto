@@ -34,6 +34,10 @@ public class IgrejaServiceImp implements IgrejaService {
   private final JwtUtils jwtUtils;
   private final String EMAIL_ADMIN = "contato.vemproculto@gmail.com";
 
+  String test() {
+    return "ok";
+  }
+
   @Override
   public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {
 
