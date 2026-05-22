@@ -10,7 +10,7 @@ public interface AtividadeService {
 
     Atividade registro(String authToken, AtividadeDTO dto);
 
-    List<Atividade> buscarAtividades(Long igrejaId, LocalDate dataInicio, LocalDate dataFim);
+    List<Atividade> buscarAtividades(Long igrejaId, String dataInicio, String dataFim);
 
     void excluir(String authToken, Long igrejaId, Long atividadeId);
 

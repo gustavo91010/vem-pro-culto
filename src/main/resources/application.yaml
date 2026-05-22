@@ -2,6 +2,18 @@ spring:
   application:
     name: vem-pro-culto-api
     auth_app: GmL3M1KJFVi7JSHxtrxDKKSNRjjw0NBWHJ3uys6qlxENlCZURgNNxDsN//yGY2die+CnV7MmgeqgzfPKFoo9Gg==
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ajudaqui.com.o@gmail.com
+    password: curyjocegdhqtswd
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
   datasource:
     # url: jdbc:postgresql://127.0.0.1:5432/vem_pro_culto

@@ -1,0 +1,44 @@
+package com.ajudaqui.vem_pro_culto_api.application.service.imp;
+
+import com.ajudaqui.vem_pro_culto_api.application.exception.NotFoundException;
+import com.ajudaqui.vem_pro_culto_api.application.service.CoordenadasApi;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.CoordenadaDTO;
+import com.ajudaqui.vem_pro_culto_api.domain.dto.LocalizacaoDTO;
+import com.ajudaqui.vem_pro_culto_api.domain.gateway.CoordenadaGateway;
+import java.math.BigDecimal;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@RequiredArgsConstructor
+public class CoordenadaApiImp implements CoordenadasApi {
+
+  private final CoordenadaGateway coordenadaFeing;
+  private final String APPLICATION = "vem-pro-culto";
+  private final String PAIS = "Brazil";
+  private final String FORMAT = "json";
+
+  @Override
+  public CoordenadaDTO buscarCordenadas(String cep, String rua, String estado) {
+    List<LocalizacaoDTO> coordenadas = coordenadaFeing.buscarCordenadas(APPLICATION, cep, FORMAT);
+
+    if (coordenadas.isEmpty()) {
+      coordenadas = coordenadaFeing.buscarCordenadas(APPLICATION, rua, estado, PAIS,
+          FORMAT);
+
+      if (coordenadas.isEmpty())
+        throw new NotFoundException(String.format("Cep: %s não localizado", cep));
+    }
+
+    LocalizacaoDTO localizacaoDTO = coordenadas.get(0);
+    return new CoordenadaDTO(localizacaoDTO.getLatitude(), localizacaoDTO.getLongitude());
+  }
+
+  @Override
+  public String buscarCep(BigDecimal latitude, BigDecimal longitude) {
+    LocalizacaoDTO coordenada = coordenadaFeing.buscarCep(APPLICATION, latitude.toString(), longitude.toString(),
+        FORMAT);
+    return coordenada.getEndereco().getCep();
+  }
+}

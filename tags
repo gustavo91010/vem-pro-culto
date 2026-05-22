@@ -1,0 +1,761 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/gustavo/projetos/vem-pro-culto/api/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+ACAO_SOCIAL	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EAtividadeTipo.java	/^  CULTO, ATIVIDADE, EVANGELISMO, ACAO_SOCIAL, EBD;$/;"	e	enum:EAtividadeTipo	file:
+APPLICATION	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/CoordenadaApiImp.java	/^  private final String APPLICATION = "vem-pro-culto";$/;"	f	class:CoordenadaApiImp	file:
+APP_BASE_NAME	gradlew.bat	/^set APP_BASE_NAME=%~n0$/;"	v
+APP_HOME	gradlew.bat	/^for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi$/;"	v
+APP_HOME	gradlew.bat	/^set APP_HOME=%DIRNAME%$/;"	v
+ATIVIDADE	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EAtividadeTipo.java	/^  CULTO, ATIVIDADE, EVANGELISMO, ACAO_SOCIAL, EBD;$/;"	e	enum:EAtividadeTipo	file:
+Address	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/LocalizacaoDTO.java	/^  public static class Address {$/;"	c	class:LocalizacaoDTO
+Arquitetura	GEMINI.md	/^## Arquitetura$/;"	s	chapter:Vem Pro Culto API - Contexto
+Atividade	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/Atividade.java	/^public class Atividade {$/;"	c
+AtividadeController	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AtividadeController.java	/^public class AtividadeController {$/;"	c
+AtividadeDTO	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeDTO.java	/^  public AtividadeDTO(Long igrejaId, String tipo, String descricao, LocalDateTime horario) {$/;"	m	class:AtividadeDTO
+AtividadeDTO	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeDTO.java	/^public class AtividadeDTO {$/;"	c
+AtividadeEntity	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeEntity.java	/^public class AtividadeEntity {$/;"	c
+AtividadeMapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeMapper.java	/^public class AtividadeMapper {$/;"	c
+AtividadeRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/AtividadeRepository.java	/^public interface AtividadeRepository {$/;"	i
+AtividadeResponse	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponse.java	/^  public AtividadeResponse(Atividade atividade) {$/;"	m	class:AtividadeResponse
+AtividadeResponse	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponse.java	/^public class AtividadeResponse {$/;"	c
+AtividadeResponseList	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponseList.java	/^  public AtividadeResponseList(List<Atividade> atividade) {$/;"	m	class:AtividadeResponseList
+AtividadeResponseList	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponseList.java	/^public class AtividadeResponseList {$/;"	c
+AtividadeService	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AtividadeService.java	/^public interface AtividadeService {$/;"	i
+AtividadeServiceImp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^public class AtividadeServiceImp implements AtividadeService {$/;"	c
+AtividadeView	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeView.java	/^public interface AtividadeView {$/;"	i
+AtividaeJpaRepositoryImpl	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^public class AtividaeJpaRepositoryImpl implements AtividadeRepository {$/;"	c
+AtividaeSpringDataRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeSpringDataRepository.java	/^public interface AtividaeSpringDataRepository extends JpaRepository<AtividadeEntity, Long> {$/;"	i
+AuthController	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AuthController.java	/^public class AuthController {$/;"	c
+AuthService	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AuthService.java	/^public interface AuthService {$/;"	i
+AuthServiceImp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AuthServiceImp.java	/^public class AuthServiceImp implements AuthService {$/;"	c
+BadRequestException	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/BadRequestException.java	/^  public BadRequestException(String mensagem) {$/;"	m	class:BadRequestException
+BadRequestException	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/BadRequestException.java	/^public class BadRequestException extends RuntimeException {$/;"	c
+CELULAR	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoTelefone.java	/^  CELULAR, WHATSAPP, FIXO;$/;"	e	enum:ETipoTelefone	file:
+CULTO	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EAtividadeTipo.java	/^  CULTO, ATIVIDADE, EVANGELISMO, ACAO_SOCIAL, EBD;$/;"	e	enum:EAtividadeTipo	file:
+Como Rodar	GEMINI.md	/^## Como Rodar$/;"	s	chapter:Vem Pro Culto API - Contexto
+CoordenadaApiImp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/CoordenadaApiImp.java	/^public class CoordenadaApiImp implements CoordenadasApi {$/;"	c
+CoordenadaDTO	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/CoordenadaDTO.java	/^public record CoordenadaDTO($/;"	m
+CoordenadaGateway	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/gateway/CoordenadaGateway.java	/^public interface CoordenadaGateway {$/;"	i
+CoordenadasApi	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/CoordenadasApi.java	/^public interface CoordenadasApi {$/;"	i
+DEFAULT_JVM_OPTS	gradlew.bat	/^set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"$/;"	v
+DIRNAME	gradlew.bat	/^if "%DIRNAME%"=="" set DIRNAME=.$/;"	v
+DIRNAME	gradlew.bat	/^set DIRNAME=%~dp0$/;"	v
+DONO	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EPapel.java	/^  DONO,$/;"	e	enum:EPapel	file:
+EAtividadeTipo	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EAtividadeTipo.java	/^public enum EAtividadeTipo {$/;"	g
+EBD	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EAtividadeTipo.java	/^  CULTO, ATIVIDADE, EVANGELISMO, ACAO_SOCIAL, EBD;$/;"	e	enum:EAtividadeTipo	file:
+EMAIL_ADMIN	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private final String EMAIL_ADMIN = "contato.vemproculto@gmail.com";$/;"	f	class:IgrejaServiceImp	file:
+EPapel	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EPapel.java	/^public enum EPapel {$/;"	g
+ETipoRedeSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoRedeSocial.java	/^public enum ETipoRedeSocial {$/;"	g
+ETipoTelefone	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoTelefone.java	/^public enum ETipoTelefone {$/;"	g
+EVANGELISMO	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EAtividadeTipo.java	/^  CULTO, ATIVIDADE, EVANGELISMO, ACAO_SOCIAL, EBD;$/;"	e	enum:EAtividadeTipo	file:
+EXIT_CODE	gradlew.bat	/^if %EXIT_CODE% equ 0 set EXIT_CODE=1$/;"	v
+EXIT_CODE	gradlew.bat	/^set EXIT_CODE=%ERRORLEVEL%$/;"	v
+EmailGateway	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/gateway/EmailGateway.java	/^public class EmailGateway {$/;"	c
+EmailService	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/EmailService.java	/^public interface EmailService {$/;"	i
+EmailServiceImp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/EmailServiceImp.java	/^public class EmailServiceImp implements EmailService {$/;"	c
+Endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^public class Endereco {$/;"	c
+Entidades Principais	GEMINI.md	/^## Entidades Principais$/;"	s	chapter:Vem Pro Culto API - Contexto
+ErrorDetails	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/ErrorDetails.java	/^  public ErrorDetails(Exception ex, int status) {$/;"	m	class:ErrorDetails
+ErrorDetails	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/ErrorDetails.java	/^public class ErrorDetails {$/;"	c
+FACEBOOK	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoRedeSocial.java	/^  SITE, YOUTUBE, INSTAGRAM, FACEBOOK, TWITTER, TIKTOK;$/;"	e	enum:ETipoRedeSocial	file:
+FAVORITO	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EPapel.java	/^  FAVORITO,$/;"	e	enum:EPapel	file:
+FIXO	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoTelefone.java	/^  CELULAR, WHATSAPP, FIXO;$/;"	e	enum:ETipoTelefone	file:
+FORMAT	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/CoordenadaApiImp.java	/^  private final String FORMAT = "json";$/;"	f	class:CoordenadaApiImp	file:
+FiltroBuscaIgrejaDTO	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^public class FiltroBuscaIgrejaDTO {$/;"	c
+GlobalExceptionHandler	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/GlobalExceptionHandler.java	/^public class GlobalExceptionHandler {$/;"	c
+INSTAGRAM	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoRedeSocial.java	/^  SITE, YOUTUBE, INSTAGRAM, FACEBOOK, TWITTER, TIKTOK;$/;"	e	enum:ETipoRedeSocial	file:
+Igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  public Igreja() {$/;"	m	class:Igreja
+Igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  public Igreja(IgrejaRequest request) {$/;"	m	class:Igreja
+Igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^public class Igreja {$/;"	c
+IgrejaController	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^public class IgrejaController {$/;"	c
+IgrejaEntity	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^public class IgrejaEntity {$/;"	c
+IgrejaJpaRepositoryImpl	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^public class IgrejaJpaRepositoryImpl implements IgrejaRepository {$/;"	c
+IgrejaMapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaMapper.java	/^public class IgrejaMapper {$/;"	c
+IgrejaRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^public interface IgrejaRepository {$/;"	i
+IgrejaRequest	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^public class IgrejaRequest {$/;"	c
+IgrejaResponse	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  public IgrejaResponse(Igreja igreja) {$/;"	m	class:IgrejaResponse
+IgrejaResponse	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^public class IgrejaResponse {$/;"	c
+IgrejaService	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^public interface IgrejaService {$/;"	i
+IgrejaServiceImp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^public class IgrejaServiceImp implements IgrejaService {$/;"	c
+IgrejaServiceList	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaServiceList.java	/^  public IgrejaServiceList(List<Igreja> igrejas) {$/;"	m	class:IgrejaServiceList
+IgrejaServiceList	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaServiceList.java	/^public class IgrejaServiceList {$/;"	c
+IgrejaSpringDataRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaSpringDataRepository.java	/^public interface IgrejaSpringDataRepository$/;"	i
+IgrejaUpdate	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^public class IgrejaUpdate {$/;"	c
+IgrejaUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuario.java	/^  public IgrejaUsuario(Igreja igreja, Usuario usuario, EPapel papel) {$/;"	m	class:IgrejaUsuario
+IgrejaUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuario.java	/^public class IgrejaUsuario {$/;"	c
+IgrejaUsuarioEntity	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioEntity.java	/^public class IgrejaUsuarioEntity {$/;"	c
+IgrejaUsuarioJpaRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepository.java	/^public interface IgrejaUsuarioJpaRepository extends JpaRepository<IgrejaUsuarioEntity, Long> {$/;"	i
+IgrejaUsuarioJpaRepositoryImp	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepositoryImp.java	/^public class IgrejaUsuarioJpaRepositoryImp implements IgrejaUsuarioRepository {$/;"	c
+IgrejaUsuarioMapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioMapper.java	/^public class IgrejaUsuarioMapper {$/;"	c
+IgrejaUsuarioRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuarioRepository.java	/^public interface IgrejaUsuarioRepository {$/;"	i
+JAVA_EXE	gradlew.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
+JAVA_EXE	gradlew.bat	/^set JAVA_EXE=java.exe$/;"	v
+JAVA_HOME	gradlew.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
+JwtUtils	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/JwtUtils.java	/^public class JwtUtils {$/;"	c
+LocalizacaoDTO	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/LocalizacaoDTO.java	/^public class LocalizacaoDTO {$/;"	c
+MEMBRO	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EPapel.java	/^  MEMBRO,$/;"	e	enum:EPapel	file:
+NotFoundException	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/NotFoundException.java	/^  public NotFoundException(String mensagem) {$/;"	m	class:NotFoundException
+NotFoundException	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/NotFoundException.java	/^public class NotFoundException extends RuntimeException {$/;"	c
+NotificacaoAdmin	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/NotificacaoAdmin.java	/^public record NotificacaoAdmin($/;"	m
+Objetivo	GEMINI.md	/^## Objetivo$/;"	s	chapter:Vem Pro Culto API - Contexto
+PAIS	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/CoordenadaApiImp.java	/^  private final String PAIS = "Brazil";$/;"	f	class:CoordenadaApiImp	file:
+ROLE_ADMIN	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EPapel.java	/^  ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN$/;"	e	enum:EPapel	file:
+ROLE_MODERATOR	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EPapel.java	/^  ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN$/;"	e	enum:EPapel	file:
+ROLE_USER	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EPapel.java	/^  ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN$/;"	e	enum:EPapel	file:
+RedeSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/RedeSocial.java	/^public class RedeSocial {$/;"	c
+RelacaoComIgrejaDTO	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/RelacaoComIgrejaDTO.java	/^public interface RelacaoComIgrejaDTO {$/;"	i
+RequestLoggingInterceptor	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/RequestLoggingInterceptor.java	/^  public RequestLoggingInterceptor(JwtUtils jwtUtils) {$/;"	m	class:RequestLoggingInterceptor
+RequestLoggingInterceptor	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/RequestLoggingInterceptor.java	/^public class RequestLoggingInterceptor implements HandlerInterceptor {$/;"	c
+ResponseMessage	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/ResponseMessage.java	/^  public ResponseMessage(String mensagem) {$/;"	m	class:ResponseMessage
+ResponseMessage	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/ResponseMessage.java	/^public class ResponseMessage {$/;"	c
+SITE	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoRedeSocial.java	/^  SITE, YOUTUBE, INSTAGRAM, FACEBOOK, TWITTER, TIKTOK;$/;"	e	enum:ETipoRedeSocial	file:
+StatusResponse	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/StatusResponse.java	/^  public StatusResponse(Boolean ativo,String mensagem) {$/;"	m	class:StatusResponse
+StatusResponse	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/StatusResponse.java	/^public class StatusResponse {$/;"	c
+TIKTOK	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoRedeSocial.java	/^  SITE, YOUTUBE, INSTAGRAM, FACEBOOK, TWITTER, TIKTOK;$/;"	e	enum:ETipoRedeSocial	file:
+TWITTER	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoRedeSocial.java	/^  SITE, YOUTUBE, INSTAGRAM, FACEBOOK, TWITTER, TIKTOK;$/;"	e	enum:ETipoRedeSocial	file:
+Tecnologias	GEMINI.md	/^## Tecnologias$/;"	s	chapter:Vem Pro Culto API - Contexto
+Telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Telefone.java	/^public class Telefone {$/;"	c
+TipoInvalidoExceptione	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/TipoInvalidoExceptione.java	/^  public TipoInvalidoExceptione(String mensagem) {$/;"	m	class:TipoInvalidoExceptione
+TipoInvalidoExceptione	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/TipoInvalidoExceptione.java	/^public class TipoInvalidoExceptione extends RuntimeException {$/;"	c
+UnauthorizedException	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/UnauthorizedException.java	/^  public UnauthorizedException(String mensagem) {$/;"	m	class:UnauthorizedException
+UnauthorizedException	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/UnauthorizedException.java	/^public class UnauthorizedException extends RuntimeException {$/;"	c
+Usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  public Usuario(String authToken) {$/;"	m	class:Usuario
+Usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  public Usuario(UsuarioDTO dto) {$/;"	m	class:Usuario
+Usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^public class Usuario {$/;"	c
+UsuarioController	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^public class UsuarioController {$/;"	c
+UsuarioDTO	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/UsuarioDTO.java	/^public class UsuarioDTO {$/;"	c
+UsuarioEntity	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^public class UsuarioEntity {$/;"	c
+UsuarioJpaRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepository.java	/^public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long> {$/;"	i
+UsuarioJpaRepositoyImpl	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^public class UsuarioJpaRepositoyImpl implements UsuarioRepository {$/;"	c
+UsuarioMapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioMapper.java	/^public class UsuarioMapper {$/;"	c
+UsuarioRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/UsuarioRepository.java	/^public interface UsuarioRepository {$/;"	i
+UsuarioRequest	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioRequest.java	/^  public UsuarioRequest(String authToken, Endereco endereco,$/;"	m	class:UsuarioRequest
+UsuarioRequest	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioRequest.java	/^public class UsuarioRequest {$/;"	c
+UsuarioResponse	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^  public UsuarioResponse(Usuario usuario) {$/;"	m	class:UsuarioResponse
+UsuarioResponse	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^  public UsuarioResponse(Usuario usuario, Set<Long> igrejasFavoritas) {$/;"	m	class:UsuarioResponse
+UsuarioResponse	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^public class UsuarioResponse {$/;"	c
+UsuarioService	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^public interface UsuarioService {$/;"	i
+UsuarioServiceImp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^public class UsuarioServiceImp implements UsuarioService {$/;"	c
+UsuarioUpdate	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioUpdate.java	/^public class UsuarioUpdate {$/;"	c
+Vem Pro Culto API - Contexto	GEMINI.md	/^# Vem Pro Culto API - Contexto$/;"	c
+VemProCultoApiApplication	src/main/java/com/ajudaqui/vem_pro_culto_api/VemProCultoApiApplication.java	/^public class VemProCultoApiApplication {$/;"	c
+VemProCultoApiApplicationTests	src/test/java/com/ajudaqui/vem_pro_culto_api/VemProCultoApiApplicationTests.java	/^class VemProCultoApiApplicationTests {$/;"	c
+WHATSAPP	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoTelefone.java	/^  CELULAR, WHATSAPP, FIXO;$/;"	e	enum:ETipoTelefone	file:
+WebConfig	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/WebConfig.java	/^  public WebConfig(RequestLoggingInterceptor requestLoggingInterceptor) {$/;"	m	class:WebConfig
+WebConfig	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/WebConfig.java	/^public class WebConfig implements WebMvcConfigurer {$/;"	c
+YOUTUBE	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoRedeSocial.java	/^  SITE, YOUTUBE, INSTAGRAM, FACEBOOK, TWITTER, TIKTOK;$/;"	e	enum:ETipoRedeSocial	file:
+addInterceptors	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/WebConfig.java	/^  public void addInterceptors(InterceptorRegistry registry) {$/;"	m	class:WebConfig
+alimentandoCoordenada	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private void alimentandoCoordenada(IgrejaRequest igrejaRequest) {$/;"	m	class:IgrejaServiceImp	file:
+alternarStatus	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  StatusResponse alternarStatus(Boolean isAdmin, Long igrejaId);$/;"	m	interface:IgrejaService
+alternarStatus	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^  public StatusResponse alternarStatus(String authToken);$/;"	m	interface:UsuarioService
+alternarStatus	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public StatusResponse alternarStatus(Boolean isAdmin, Long igrejaId) {$/;"	m	class:IgrejaServiceImp
+alternarStatus	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  public StatusResponse alternarStatus(String authToken) {$/;"	m	class:UsuarioServiceImp
+alternarStatus	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  public ResponseEntity<?> alternarStatus($/;"	m	class:IgrejaController
+atividade	bin/main/db/migration/V4__create_table_atividade.sql	/^CREATE TABLE IF NOT EXISTS atividade ($/;"	t
+atividade	src/main/resources/db/migration/V4__create_table_atividade.sql	/^CREATE TABLE IF NOT EXISTS atividade ($/;"	t
+atividadeService	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AtividadeController.java	/^  private final AtividadeService atividadeService;$/;"	f	class:AtividadeController	file:
+atividades	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponseList.java	/^  private List<AtividadeResponse> atividades;$/;"	f	class:AtividadeResponseList	file:
+ativo	bin/main/db/migration/V1__create_table_usuario.sql	/^    ativo BOOLEAN,$/;"	E	table:usuario
+ativo	bin/main/db/migration/V2__create_table_igreja.sql	/^    ativo BOOLEAN,$/;"	E	table:igreja
+ativo	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private boolean ativo;$/;"	f	class:IgrejaResponse	file:
+ativo	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/StatusResponse.java	/^  private Boolean ativo;$/;"	f	class:StatusResponse	file:
+ativo	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^  private Boolean ativo;$/;"	f	class:UsuarioResponse	file:
+ativo	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private Boolean ativo;$/;"	f	class:Igreja	file:
+ativo	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  private Boolean ativo;$/;"	f	class:Usuario	file:
+ativo	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private Boolean ativo;$/;"	f	class:IgrejaEntity	file:
+ativo	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^  private Boolean ativo;$/;"	f	class:UsuarioEntity	file:
+ativo	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    ativo BOOLEAN,$/;"	E	table:usuario
+ativo	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    ativo BOOLEAN,$/;"	E	table:igreja
+atualizadoEm	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private LocalDateTime atualizadoEm;$/;"	f	class:Igreja	file:
+atualizadoEm	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  private LocalDateTime atualizadoEm;$/;"	f	class:Usuario	file:
+atualizadoEm	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private LocalDateTime atualizadoEm;$/;"	f	class:IgrejaEntity	file:
+atualizadoEm	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^  private LocalDateTime atualizadoEm;$/;"	f	class:UsuarioEntity	file:
+atualizado_em	bin/main/db/migration/V1__create_table_usuario.sql	/^    atualizado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,$/;"	E	table:usuario
+atualizado_em	bin/main/db/migration/V2__create_table_igreja.sql	/^    atualizado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,$/;"	E	table:igreja
+atualizado_em	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    atualizado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,$/;"	E	table:usuario
+atualizado_em	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    atualizado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,$/;"	E	table:igreja
+atualizar	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^  public ResponseEntity<ResponseMessage> atualizar($/;"	m	class:UsuarioController
+atualizarIgreja	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  public Igreja atualizarIgreja(String authToken, Long igrejaId, IgrejaUpdate igrejaDTO);$/;"	m	interface:IgrejaService
+atualizarIgreja	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public Igreja atualizarIgreja(String authToken, Long igrejaId, IgrejaUpdate dto) {$/;"	m	class:IgrejaServiceImp
+atualizarIgreja	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  public ResponseEntity<?> atualizarIgreja($/;"	m	class:IgrejaController
+authInternal	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AuthServiceImp.java	/^  private String authInternal;$/;"	f	class:AuthServiceImp	file:
+authService	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AuthController.java	/^  private final AuthService authService;$/;"	f	class:AuthController	file:
+authToken	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/UsuarioDTO.java	/^  private String authToken;$/;"	f	class:UsuarioDTO	file:
+authToken	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioRequest.java	/^  private String authToken;$/;"	f	class:UsuarioRequest	file:
+authToken	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^  private UUID authToken;$/;"	f	class:UsuarioResponse	file:
+authToken	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  private UUID authToken;$/;"	f	class:Usuario	file:
+authToken	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^  private UUID authToken;$/;"	f	class:UsuarioEntity	file:
+auth_token	bin/main/db/migration/V1__create_table_usuario.sql	/^    auth_token UUID NOT NULL,$/;"	E	table:usuario
+auth_token	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    auth_token UUID NOT NULL,$/;"	E	table:usuario
+badRequestException	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/GlobalExceptionHandler.java	/^  public final ResponseEntity<ErrorDetails> badRequestException(BadRequestException ex) {$/;"	m	class:GlobalExceptionHandler
+bairro	bin/main/db/migration/V1__create_table_usuario.sql	/^    bairro VARCHAR(255),$/;"	E	table:usuario
+bairro	bin/main/db/migration/V2__create_table_igreja.sql	/^    bairro VARCHAR(255),$/;"	E	table:igreja
+bairro	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private String bairro;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+bairro	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private String bairro;$/;"	f	class:Endereco	file:
+bairro	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    bairro VARCHAR(255),$/;"	E	table:usuario
+bairro	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    bairro VARCHAR(255),$/;"	E	table:igreja
+buscarAtividades	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AtividadeService.java	/^    List<Atividade> buscarAtividades(Long igrejaId, String dataInicio, String dataFim);$/;"	m	interface:AtividadeService
+buscarAtividades	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  public List<Atividade> buscarAtividades(Long igrejaId, String dataInicio, String dataFim) {$/;"	m	class:AtividadeServiceImp
+buscarAtividades	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/AtividadeRepository.java	/^  List<Atividade> buscarAtividades(Long igrejaId, LocalDate localDate, LocalDate localDate2);$/;"	m	interface:AtividadeRepository
+buscarAtividades	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^  public List<Atividade> buscarAtividades(Long igrejaId, LocalDate dataInicio, LocalDate dataFim/;"	m	class:AtividaeJpaRepositoryImpl
+buscarAtividades	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeSpringDataRepository.java	/^  List<AtividadeEntity> buscarAtividades($/;"	m	interface:AtividaeSpringDataRepository
+buscarAtividadesComIgrejaAtiva	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/AtividadeRepository.java	/^  List<Atividade> buscarAtividadesComIgrejaAtiva();$/;"	m	interface:AtividadeRepository
+buscarAtividadesComIgrejaAtiva	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^  public List<Atividade> buscarAtividadesComIgrejaAtiva() {$/;"	m	class:AtividaeJpaRepositoryImpl
+buscarAtividadesComIgrejaAtiva	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeSpringDataRepository.java	/^  List<AtividadeView> buscarAtividadesComIgrejaAtiva();$/;"	m	interface:AtividaeSpringDataRepository
+buscarCep	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/CoordenadasApi.java	/^  public String buscarCep(BigDecimal latitude, BigDecimal longitude);$/;"	m	interface:CoordenadasApi
+buscarCep	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/CoordenadaApiImp.java	/^  public String buscarCep(BigDecimal latitude, BigDecimal longitude) {$/;"	m	class:CoordenadaApiImp
+buscarCep	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/gateway/CoordenadaGateway.java	/^  public LocalizacaoDTO buscarCep($/;"	m	interface:CoordenadaGateway
+buscarCordenadas	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/CoordenadasApi.java	/^  public CoordenadaDTO buscarCordenadas(String cep, String rua, String estado);$/;"	m	interface:CoordenadasApi
+buscarCordenadas	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/CoordenadaApiImp.java	/^  public CoordenadaDTO buscarCordenadas(String cep, String rua, String estado) {$/;"	m	class:CoordenadaApiImp
+buscarCordenadas	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/gateway/CoordenadaGateway.java	/^  public List<LocalizacaoDTO> buscarCordenadas($/;"	m	interface:CoordenadaGateway
+buscarCordenadas2	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/gateway/CoordenadaGateway.java	/^  public List<String> buscarCordenadas2($/;"	m	interface:CoordenadaGateway
+buscarPorEmail	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  public Igreja buscarPorEmail(String email);$/;"	m	interface:IgrejaService
+buscarPorEmail	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public Igreja buscarPorEmail(String email) {$/;"	m	class:IgrejaServiceImp
+buscarPorEmail	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  public ResponseEntity<?> buscarPorEmail($/;"	m	class:IgrejaController
+buscarPorId	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AtividadeService.java	/^    Atividade buscarPorId(Long atividadeId);$/;"	m	interface:AtividadeService
+buscarPorId	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  public Igreja buscarPorId(Long igrejaId, Boolean isActive);$/;"	m	interface:IgrejaService
+buscarPorId	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  public Atividade buscarPorId(Long atividadeId) {$/;"	m	class:AtividadeServiceImp
+buscarPorId	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public Igreja buscarPorId(Long id, Boolean isActive) {$/;"	m	class:IgrejaServiceImp
+buscarPorId	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AtividadeController.java	/^  public ResponseEntity<AtividadeResponse> buscarPorId($/;"	m	class:AtividadeController
+buscarPorId	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  public ResponseEntity<?> buscarPorId($/;"	m	class:IgrejaController
+buscarPorIr	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^    Optional<Igreja> buscarPorIr(Long id);$/;"	m	interface:IgrejaRepository
+buscarPorIr	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  public Optional<Igreja> buscarPorIr(Long id) {$/;"	m	class:IgrejaJpaRepositoryImpl
+buscarPorNomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  public List<Igreja> buscarPorNomeFantasia(String nomeFantasia);$/;"	m	interface:IgrejaService
+buscarPorNomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public List<Igreja> buscarPorNomeFantasia(String nomeFantasia) {$/;"	m	class:IgrejaServiceImp
+buscarPorNomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^    List<Igreja> buscarPorNomeFantasia(String nomeFantasia);$/;"	m	interface:IgrejaRepository
+buscarPorNomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  public List<Igreja> buscarPorNomeFantasia(String nomeFantasia) {$/;"	m	class:IgrejaJpaRepositoryImpl
+buscarPorRazaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  public Igreja buscarPorRazaoSocial(String razaoSocial, String jwtToken);$/;"	m	interface:IgrejaService
+buscarPorRazaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public Igreja buscarPorRazaoSocial(String razaoSocial, String jwtToken) {$/;"	m	class:IgrejaServiceImp
+buscarPorRazaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  public ResponseEntity<?> buscarPorRazaoSocial($/;"	m	class:IgrejaController
+buscarTodas	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  public List<Igreja> buscarTodas(Boolean isAdmin, FiltroBuscaIgrejaDTO dto, Boolean ativo);$/;"	m	interface:IgrejaService
+buscarTodas	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public List<Igreja> buscarTodas(Boolean isAdmin, FiltroBuscaIgrejaDTO dto, Boolean ativo) {$/;"	m	class:IgrejaServiceImp
+buscarTodas	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^    List<Igreja> buscarTodas();$/;"	m	interface:IgrejaRepository
+buscarTodas	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^    List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto );$/;"	m	interface:IgrejaRepository
+buscarTodas	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  public List<Igreja> buscarTodas() {$/;"	m	class:IgrejaJpaRepositoryImpl
+buscarTodas	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  public List<Igreja> buscarTodas(FiltroBuscaIgrejaDTO dto) {$/;"	m	class:IgrejaJpaRepositoryImpl
+buscarTodos	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^  List<UsuarioResponse> buscarTodos();$/;"	m	interface:UsuarioService
+buscarTodos	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  public List<UsuarioResponse> buscarTodos() {$/;"	m	class:UsuarioServiceImp
+buscarTodos	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/UsuarioRepository.java	/^  public List<Usuario> buscarTodos();$/;"	m	interface:UsuarioRepository
+buscarTodos	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^  public List<Usuario> buscarTodos() {$/;"	m	class:UsuarioJpaRepositoyImpl
+buscarTodos	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AtividadeController.java	/^  public ResponseEntity<AtividadeResponseList> buscarTodos($/;"	m	class:AtividadeController
+buscarTodos	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  public ResponseEntity<IgrejaServiceList> buscarTodos($/;"	m	class:IgrejaController
+buscarTodos	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^  public ResponseEntity<List<UsuarioResponse>> buscarTodos() {$/;"	m	class:UsuarioController
+cep	bin/main/db/migration/V1__create_table_usuario.sql	/^    cep VARCHAR(20),$/;"	E	table:usuario
+cep	bin/main/db/migration/V2__create_table_igreja.sql	/^    cep VARCHAR(20),$/;"	E	table:igreja
+cep	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private String cep;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+cep	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private String cep;$/;"	f	class:Endereco	file:
+cep	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/LocalizacaoDTO.java	/^    private String cep;$/;"	f	class:LocalizacaoDTO.Address	file:
+cep	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/LocalizacaoDTO.java	/^  private String cep;$/;"	f	class:LocalizacaoDTO	file:
+cep	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    cep VARCHAR(20),$/;"	E	table:usuario
+cep	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    cep VARCHAR(20),$/;"	E	table:igreja
+cidade	bin/main/db/migration/V1__create_table_usuario.sql	/^    cidade VARCHAR(255),$/;"	E	table:usuario
+cidade	bin/main/db/migration/V2__create_table_igreja.sql	/^    cidade VARCHAR(255),$/;"	E	table:igreja
+cidade	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private String cidade;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+cidade	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private String cidade;$/;"	f	class:Endereco	file:
+cidade	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    cidade VARCHAR(255),$/;"	E	table:usuario
+cidade	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    cidade VARCHAR(255),$/;"	E	table:igreja
+cnpj	bin/main/db/migration/V2__create_table_igreja.sql	/^    cnpj VARCHAR(14),$/;"	E	table:igreja
+cnpj	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private String cnpj;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+cnpj	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^  private String cnpj;$/;"	f	class:IgrejaUpdate	file:
+cnpj	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^  private String cnpj;$/;"	f	class:IgrejaRequest	file:
+cnpj	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private String cnpj;$/;"	f	class:IgrejaResponse	file:
+cnpj	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private String cnpj;$/;"	f	class:Igreja	file:
+cnpj	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private String cnpj;$/;"	f	class:IgrejaEntity	file:
+cnpj	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    cnpj VARCHAR(14),$/;"	E	table:igreja
+com.ajudaqui.vem_pro_culto_api	src/main/java/com/ajudaqui/vem_pro_culto_api/VemProCultoApiApplication.java	/^package com.ajudaqui.vem_pro_culto_api;$/;"	p
+com.ajudaqui.vem_pro_culto_api	src/test/java/com/ajudaqui/vem_pro_culto_api/VemProCultoApiApplicationTests.java	/^package com.ajudaqui.vem_pro_culto_api;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.exception	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/BadRequestException.java	/^package com.ajudaqui.vem_pro_culto_api.application.exception;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.exception	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/NotFoundException.java	/^package com.ajudaqui.vem_pro_culto_api.application.exception;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.exception	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/TipoInvalidoExceptione.java	/^package com.ajudaqui.vem_pro_culto_api.application.exception;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.exception	src/main/java/com/ajudaqui/vem_pro_culto_api/application/exception/UnauthorizedException.java	/^package com.ajudaqui.vem_pro_culto_api.application.exception;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AtividadeService.java	/^package com.ajudaqui.vem_pro_culto_api.application.service;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AuthService.java	/^package com.ajudaqui.vem_pro_culto_api.application.service;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/CoordenadasApi.java	/^package com.ajudaqui.vem_pro_culto_api.application.service;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/EmailService.java	/^package com.ajudaqui.vem_pro_culto_api.application.service;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^package com.ajudaqui.vem_pro_culto_api.application.service;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^package com.ajudaqui.vem_pro_culto_api.application.service;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.dto	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeDTO.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.dto;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.dto	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeView.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.dto;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.dto	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.dto;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.dto	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.dto;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.dto	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/UsuarioDTO.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.dto;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.imp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.imp;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.imp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AuthServiceImp.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.imp;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.imp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/CoordenadaApiImp.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.imp;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.imp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/EmailServiceImp.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.imp;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.imp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.imp;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.imp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/NotificacaoAdmin.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.imp;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.imp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.imp;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.request	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.request;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.request	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioRequest.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.request;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.request	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioUpdate.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.request;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.response	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponse.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.response;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.response	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponseList.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.response;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.response	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.response;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.response	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaServiceList.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.response;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.response	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/ResponseMessage.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.response;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.response	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/StatusResponse.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.response;$/;"	p
+com.ajudaqui.vem_pro_culto_api.application.service.response	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^package com.ajudaqui.vem_pro_culto_api.application.service.response;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.compartilhado	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^package com.ajudaqui.vem_pro_culto_api.domain.compartilhado;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.compartilhado	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/RedeSocial.java	/^package com.ajudaqui.vem_pro_culto_api.domain.compartilhado;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.compartilhado	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Telefone.java	/^package com.ajudaqui.vem_pro_culto_api.domain.compartilhado;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.dto	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/CoordenadaDTO.java	/^package com.ajudaqui.vem_pro_culto_api.domain.dto;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.dto	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/LocalizacaoDTO.java	/^package com.ajudaqui.vem_pro_culto_api.domain.dto;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.dto	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/RelacaoComIgrejaDTO.java	/^package com.ajudaqui.vem_pro_culto_api.domain.dto;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.entity.atividade	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/Atividade.java	/^package com.ajudaqui.vem_pro_culto_api.domain.entity.atividade;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.entity.atividade	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/AtividadeRepository.java	/^package com.ajudaqui.vem_pro_culto_api.domain.entity.atividade;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.entity.igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^package com.ajudaqui.vem_pro_culto_api.domain.entity.igreja;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.entity.igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^package com.ajudaqui.vem_pro_culto_api.domain.entity.igreja;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuario.java	/^package com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuarioRepository.java	/^package com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.entity.usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^package com.ajudaqui.vem_pro_culto_api.domain.entity.usuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.entity.usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/UsuarioRepository.java	/^package com.ajudaqui.vem_pro_culto_api.domain.entity.usuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.enums	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EAtividadeTipo.java	/^package com.ajudaqui.vem_pro_culto_api.domain.enums;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.enums	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EPapel.java	/^package com.ajudaqui.vem_pro_culto_api.domain.enums;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.enums	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoRedeSocial.java	/^package com.ajudaqui.vem_pro_culto_api.domain.enums;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.enums	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoTelefone.java	/^package com.ajudaqui.vem_pro_culto_api.domain.enums;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.gateway	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/gateway/CoordenadaGateway.java	/^package com.ajudaqui.vem_pro_culto_api.domain.gateway;$/;"	p
+com.ajudaqui.vem_pro_culto_api.domain.gateway	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/gateway/EmailGateway.java	/^package com.ajudaqui.vem_pro_culto_api.domain.gateway;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.atividade	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeEntity.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.atividade;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.atividade	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeMapper.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.atividade;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.atividade	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.atividade;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.atividade	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeSpringDataRepository.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.atividade;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaMapper.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaSpringDataRepository.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igreja;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioEntity.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepository.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepositoryImp.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioMapper.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.igrejaUsuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepository.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioMapper.java	/^package com.ajudaqui.vem_pro_culto_api.infraestructure.persistense.usuario;$/;"	p
+com.ajudaqui.vem_pro_culto_api.web.config	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/JwtUtils.java	/^package com.ajudaqui.vem_pro_culto_api.web.config;$/;"	p
+com.ajudaqui.vem_pro_culto_api.web.config	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/RequestLoggingInterceptor.java	/^package com.ajudaqui.vem_pro_culto_api.web.config;$/;"	p
+com.ajudaqui.vem_pro_culto_api.web.config	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/WebConfig.java	/^package com.ajudaqui.vem_pro_culto_api.web.config;$/;"	p
+com.ajudaqui.vem_pro_culto_api.web.controller	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AtividadeController.java	/^package com.ajudaqui.vem_pro_culto_api.web.controller;$/;"	p
+com.ajudaqui.vem_pro_culto_api.web.controller	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AuthController.java	/^package com.ajudaqui.vem_pro_culto_api.web.controller;$/;"	p
+com.ajudaqui.vem_pro_culto_api.web.controller	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^package com.ajudaqui.vem_pro_culto_api.web.controller;$/;"	p
+com.ajudaqui.vem_pro_culto_api.web.controller	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^package com.ajudaqui.vem_pro_culto_api.web.controller;$/;"	p
+com.ajudaqui.vem_pro_culto_api.web.exception	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/ErrorDetails.java	/^package com.ajudaqui.vem_pro_culto_api.web.exception;$/;"	p
+com.ajudaqui.vem_pro_culto_api.web.exception	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/GlobalExceptionHandler.java	/^package com.ajudaqui.vem_pro_culto_api.web.exception;$/;"	p
+complemento	bin/main/db/migration/V1__create_table_usuario.sql	/^    complemento VARCHAR(255),$/;"	E	table:usuario
+complemento	bin/main/db/migration/V2__create_table_igreja.sql	/^    complemento VARCHAR(255),$/;"	E	table:igreja
+complemento	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private String complemento;$/;"	f	class:Endereco	file:
+complemento	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    complemento VARCHAR(255),$/;"	E	table:usuario
+complemento	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    complemento VARCHAR(255),$/;"	E	table:igreja
+contextLoads	src/test/java/com/ajudaqui/vem_pro_culto_api/VemProCultoApiApplicationTests.java	/^	void contextLoads() {$/;"	m	class:VemProCultoApiApplicationTests
+coordenadaApi	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private final CoordenadaApiImp coordenadaApi;$/;"	f	class:IgrejaServiceImp	file:
+coordenadaFeing	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/CoordenadaApiImp.java	/^  private final CoordenadaGateway coordenadaFeing;$/;"	f	class:CoordenadaApiImp	file:
+delete	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/AtividadeRepository.java	/^  void delete(Long atividadeId);$/;"	m	interface:AtividadeRepository
+delete	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^  public void delete(Long atividadeId) {$/;"	m	class:AtividaeJpaRepositoryImpl
+desativarConta	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^  public ResponseEntity<ResponseMessage> desativarConta($/;"	m	class:UsuarioController
+descricao	bin/main/db/migration/V4__create_table_atividade.sql	/^    descricao VARCHAR(200),$/;"	E	table:atividade
+descricao	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeDTO.java	/^  private String descricao;$/;"	f	class:AtividadeDTO	file:
+descricao	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^  private String descricao;$/;"	f	class:IgrejaUpdate	file:
+descricao	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^  private String descricao;$/;"	f	class:IgrejaRequest	file:
+descricao	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponse.java	/^  private String descricao;$/;"	f	class:AtividadeResponse	file:
+descricao	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private String descricao;$/;"	f	class:IgrejaResponse	file:
+descricao	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/Atividade.java	/^  private String descricao;$/;"	f	class:Atividade	file:
+descricao	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private String descricao;$/;"	f	class:Igreja	file:
+descricao	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeEntity.java	/^  private String descricao;$/;"	f	class:AtividadeEntity	file:
+descricao	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private String descricao;$/;"	f	class:IgrejaEntity	file:
+descricao	src/main/resources/db/migration/V4__create_table_atividade.sql	/^    descricao VARCHAR(200),$/;"	E	table:atividade
+details	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/ErrorDetails.java	/^  private String details;$/;"	f	class:ErrorDetails	file:
+developerMessage	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/ErrorDetails.java	/^  private List<String> developerMessage;$/;"	f	class:ErrorDetails	file:
+die	gradlew	/^die () {$/;"	f
+distributionBase	gradle/wrapper/gradle-wrapper.properties	/^distributionBase=GRADLE_USER_HOME$/;"	k
+distributionPath	gradle/wrapper/gradle-wrapper.properties	/^distributionPath=wrapper\/dists$/;"	k
+distributionUrl	gradle/wrapper/gradle-wrapper.properties	/^distributionUrl=https\\:\/\/services.gradle.org\/distributions\/gradle-9.3.0-bin.zip$/;"	k
+email	bin/main/db/migration/V2__create_table_igreja.sql	/^    email VARCHAR(100) NOT NULL UNIQUE,$/;"	E	table:igreja
+email	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^  private String email;$/;"	f	class:IgrejaUpdate	file:
+email	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^  private String email;$/;"	f	class:IgrejaRequest	file:
+email	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private String email;$/;"	f	class:IgrejaResponse	file:
+email	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private String email;$/;"	f	class:Igreja	file:
+email	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private String email;$/;"	f	class:IgrejaEntity	file:
+email	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    email VARCHAR(100) NOT NULL UNIQUE,$/;"	E	table:igreja
+emailGateway	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/EmailServiceImp.java	/^  private final EmailGateway emailGateway;$/;"	f	class:EmailServiceImp	file:
+emailServiceImp	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private final EmailServiceImp emailServiceImp;$/;"	f	class:IgrejaServiceImp	file:
+end	gradlew.bat	/^:end$/;"	l
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^  private Endereco endereco;$/;"	f	class:IgrejaUpdate	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^  private Endereco endereco;$/;"	f	class:IgrejaRequest	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioRequest.java	/^  private Endereco endereco;$/;"	f	class:UsuarioRequest	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioUpdate.java	/^  private Endereco endereco;$/;"	f	class:UsuarioUpdate	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private Endereco endereco;$/;"	f	class:IgrejaResponse	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^  private Endereco endereco;$/;"	f	class:UsuarioResponse	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/LocalizacaoDTO.java	/^  private Address endereco;$/;"	f	class:LocalizacaoDTO	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private Endereco endereco;$/;"	f	class:Igreja	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  private Endereco endereco;$/;"	f	class:Usuario	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private Endereco endereco;$/;"	f	class:IgrejaEntity	file:
+endereco	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^  private Endereco endereco;$/;"	f	class:UsuarioEntity	file:
+errorMessage	resposta.json	/^{"errorMessage": "Unable to import module 'lambda_function': No module named 'lambda_function'",/;"	s
+errorType	resposta.json	/^{"errorMessage": "Unable to import module 'lambda_function': No module named 'lambda_function'",/;"	s
+estado	bin/main/db/migration/V1__create_table_usuario.sql	/^    estado VARCHAR(100),$/;"	E	table:usuario
+estado	bin/main/db/migration/V2__create_table_igreja.sql	/^    estado VARCHAR(100),$/;"	E	table:igreja
+estado	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private String estado;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+estado	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private String estado;$/;"	f	class:Endereco	file:
+estado	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    estado VARCHAR(100),$/;"	E	table:usuario
+estado	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    estado VARCHAR(100),$/;"	E	table:igreja
+exception	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/GlobalExceptionHandler.java	/^  public final ResponseEntity<ErrorDetails> exception(Exception ex) {$/;"	m	class:GlobalExceptionHandler
+excluir	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AtividadeService.java	/^    void excluir(String authToken, Long igrejaId, Long atividadeId);$/;"	m	interface:AtividadeService
+excluir	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  public void excluir(String authToken, Long igrejaId, Long atividadeId) {$/;"	m	class:AtividadeServiceImp
+excluir	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AtividadeController.java	/^  public ResponseEntity<ResponseMessage> excluir($/;"	m	class:AtividadeController
+execute	gradlew.bat	/^:execute$/;"	l
+fail	gradlew.bat	/^:fail$/;"	l
+findAll	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/AtividadeRepository.java	/^  List<Atividade> findAll();$/;"	m	interface:AtividadeRepository
+findAll	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^  public List<Atividade> findAll() {$/;"	m	class:AtividaeJpaRepositoryImpl
+findByAuthToken	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^  public Usuario findByAuthToken(String authToken);$/;"	m	interface:UsuarioService
+findByAuthToken	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  public Usuario findByAuthToken(String authToken) {$/;"	m	class:UsuarioServiceImp
+findByAuthToken	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/UsuarioRepository.java	/^  public Optional<Usuario> findByAuthToken(UUID authToken);$/;"	m	interface:UsuarioRepository
+findByAuthToken	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepository.java	/^  Optional<UsuarioEntity> findByAuthToken(UUID authToken);$/;"	m	interface:UsuarioJpaRepository
+findByAuthToken	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^  public Optional<Usuario> findByAuthToken(UUID authToken) {$/;"	m	class:UsuarioJpaRepositoyImpl
+findByAuthToken	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^  public ResponseEntity<UsuarioResponse> findByAuthToken(@PathVariable String authToken) {$/;"	m	class:UsuarioController
+findByEmail	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private Optional<Igreja> findByEmail(String email) {$/;"	m	class:IgrejaServiceImp	file:
+findByEmail	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^    Optional<Igreja> findByEmail(String email);$/;"	m	interface:IgrejaRepository
+findByEmail	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  public Optional<Igreja> findByEmail(String email) {$/;"	m	class:IgrejaJpaRepositoryImpl
+findByEmail	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaSpringDataRepository.java	/^  Optional<IgrejaEntity> findByEmail(String email);$/;"	m	interface:IgrejaSpringDataRepository
+findById	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^  public Usuario findById(Long usuarioId);$/;"	m	interface:UsuarioService
+findById	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  public Usuario findById(Long usuarioId) {$/;"	m	class:UsuarioServiceImp
+findById	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/AtividadeRepository.java	/^  Optional<Atividade> findById(Long atividadeId);$/;"	m	interface:AtividadeRepository
+findById	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/UsuarioRepository.java	/^  public Optional<Usuario> findById(Long usuarioId);$/;"	m	interface:UsuarioRepository
+findById	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^  public Optional<Atividade> findById(Long atividadeId) {$/;"	m	class:AtividaeJpaRepositoryImpl
+findById	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^  public Optional<Usuario> findById(Long usuarioId) {$/;"	m	class:UsuarioJpaRepositoyImpl
+findByNomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaSpringDataRepository.java	/^  Optional<IgrejaEntity> findByNomeFantasia(String nomeFantasia);$/;"	m	interface:IgrejaSpringDataRepository
+findByRazaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private Optional<Igreja> findByRazaoSocial(String razaoSocial) {$/;"	m	class:IgrejaServiceImp	file:
+findByRazaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^    Optional<Igreja> findByRazaoSocial(String razaoSocial);$/;"	m	interface:IgrejaRepository
+findByRazaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  public Optional<Igreja> findByRazaoSocial(String razaoSocial) {$/;"	m	class:IgrejaJpaRepositoryImpl
+findByRazaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaSpringDataRepository.java	/^  Optional<IgrejaEntity> findByRazaoSocial(String razaoSocial);$/;"	m	interface:IgrejaSpringDataRepository
+findJavaFromJavaHome	gradlew.bat	/^:findJavaFromJavaHome$/;"	l
+fromUUID	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  private UUID fromUUID(String text) {$/;"	m	class:UsuarioServiceImp	file:
+fromValue	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/EAtividadeTipo.java	/^  public static EAtividadeTipo fromValue(String value) {$/;"	m	class:EAtividadeTipo
+fromValue	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoRedeSocial.java	/^  public static ETipoRedeSocial fromValue(String value) {$/;"	m	class:ETipoRedeSocial
+fromValue	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/enums/ETipoTelefone.java	/^  public static ETipoTelefone fromValue(String value) {$/;"	m	class:ETipoTelefone
+fromView	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeMapper.java	/^  public List<Atividade> fromView(List<AtividadeView> listaAtividade) {$/;"	m	class:AtividadeMapper
+getAccessToken	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/JwtUtils.java	/^  public String getAccessToken(String jwtToken) {$/;"	m	class:JwtUtils
+getDescricao	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeView.java	/^    String getDescricao();$/;"	m	interface:AtividadeView
+getEmail	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/JwtUtils.java	/^  public String getEmail(String jwtToken) {$/;"	m	class:JwtUtils
+getHorario	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeView.java	/^    LocalDateTime getHorario();$/;"	m	interface:AtividadeView
+getId	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeView.java	/^    Long getId();$/;"	m	interface:AtividadeView
+getIgrejaId	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeView.java	/^    Long getIgrejaId();$/;"	m	interface:AtividadeView
+getIgrejaId	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/RelacaoComIgrejaDTO.java	/^  Long getIgrejaId();$/;"	m	interface:RelacaoComIgrejaDTO
+getNomeIgreja	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeView.java	/^    String getNomeIgreja();$/;"	m	interface:AtividadeView
+getPapel	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/RelacaoComIgrejaDTO.java	/^  String getPapel();$/;"	m	interface:RelacaoComIgrejaDTO
+getRoles	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/JwtUtils.java	/^  private List<String> getRoles(String jwtToken) {$/;"	m	class:JwtUtils	file:
+getSecretKeyByJwt	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/JwtUtils.java	/^  private Claims getSecretKeyByJwt(String jwtToken) {$/;"	m	class:JwtUtils	file:
+getTipo	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeView.java	/^    String getTipo(); $/;"	m	interface:AtividadeView
+getUsuarioLogado	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^  public ResponseEntity<UsuarioResponse> getUsuarioLogado($/;"	m	class:UsuarioController
+gradle.version	.gradle/buildOutputCleanup/cache.properties	/^gradle.version=9.3.0$/;"	k
+horario	bin/main/db/migration/V4__create_table_atividade.sql	/^    horario TIMESTAMP NOT NULL,$/;"	E	table:atividade
+horario	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeDTO.java	/^  private LocalDateTime horario;$/;"	f	class:AtividadeDTO	file:
+horario	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponse.java	/^  private LocalDateTime horario;$/;"	f	class:AtividadeResponse	file:
+horario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/Atividade.java	/^  private LocalDateTime horario;$/;"	f	class:Atividade	file:
+horario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeEntity.java	/^  private LocalDateTime horario;$/;"	f	class:AtividadeEntity	file:
+horario	src/main/resources/db/migration/V4__create_table_atividade.sql	/^    horario TIMESTAMP NOT NULL,$/;"	E	table:atividade
+id	bin/main/db/migration/V2__create_table_igreja.sql	/^    id BIGSERIAL PRIMARY KEY,$/;"	E	table:igreja
+id	bin/main/db/migration/V4__create_table_atividade.sql	/^    id BIGSERIAL PRIMARY KEY,$/;"	E	table:atividade
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponse.java	/^  private Long id;$/;"	f	class:AtividadeResponse	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private Long id;$/;"	f	class:IgrejaResponse	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^  private Long id;$/;"	f	class:UsuarioResponse	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/Atividade.java	/^  private Long id;$/;"	f	class:Atividade	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private Long id;$/;"	f	class:Igreja	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuario.java	/^  private Long id;$/;"	f	class:IgrejaUsuario	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  private Long id;$/;"	f	class:Usuario	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeEntity.java	/^  private Long id;$/;"	f	class:AtividadeEntity	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private Long id;$/;"	f	class:IgrejaEntity	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioEntity.java	/^  private Long id;$/;"	f	class:IgrejaUsuarioEntity	file:
+id	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^  private Long id;$/;"	f	class:UsuarioEntity	file:
+id	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    id BIGSERIAL PRIMARY KEY,$/;"	E	table:igreja
+id	src/main/resources/db/migration/V4__create_table_atividade.sql	/^    id BIGSERIAL PRIMARY KEY,$/;"	E	table:atividade
+idx_usuario_auth_token	bin/main/db/migration/V7__add_unique_index_auth_token.sql	/^ CREATE UNIQUE INDEX idx_usuario_auth_token ON usuario (auth_token);$/;"	i	table:usuario
+idx_usuario_auth_token	src/main/resources/db/migration/V7__add_unique_index_auth_token.sql	/^ CREATE UNIQUE INDEX idx_usuario_auth_token ON usuario (auth_token);$/;"	i	table:usuario
+igreja	bin/main/db/migration/V2__create_table_igreja.sql	/^CREATE TABLE IF NOT EXISTS igreja ($/;"	t
+igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuario.java	/^  private Igreja igreja;$/;"	f	class:IgrejaUsuario	file:
+igreja	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioEntity.java	/^  private IgrejaEntity igreja;$/;"	f	class:IgrejaUsuarioEntity	file:
+igreja	src/main/resources/db/migration/V2__create_table_igreja.sql	/^CREATE TABLE IF NOT EXISTS igreja ($/;"	t
+igrejaId	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeDTO.java	/^  private Long igrejaId;$/;"	f	class:AtividadeDTO	file:
+igrejaId	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponse.java	/^  private Long igrejaId;$/;"	f	class:AtividadeResponse	file:
+igrejaId	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/Atividade.java	/^  private Long igrejaId;$/;"	f	class:Atividade	file:
+igrejaId	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeEntity.java	/^  private Long igrejaId;$/;"	f	class:AtividadeEntity	file:
+igrejaRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  private final IgrejaRepository igrejaRepository;$/;"	f	class:AtividadeServiceImp	file:
+igrejaService	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  private final IgrejaService igrejaService;$/;"	f	class:IgrejaController	file:
+igrejaUsuarioRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private final IgrejaUsuarioRepository igrejaUsuarioRepository;$/;"	f	class:IgrejaServiceImp	file:
+igrejaUsuarioRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  private final IgrejaUsuarioRepository igrejaUsuarioRepository;$/;"	f	class:UsuarioServiceImp	file:
+igreja_id	bin/main/db/migration/V2__create_table_igreja.sql	/^    igreja_id BIGINT NOT NULL,$/;"	E	table:igreja_rede_social
+igreja_id	bin/main/db/migration/V2__create_table_igreja.sql	/^    igreja_id BIGINT NOT NULL,$/;"	E	table:igreja_telefone
+igreja_id	bin/main/db/migration/V3__create_table_igreja_usuario.sql	/^    igreja_id BIGINT NOT NULL,$/;"	E	table:igreja_usuario
+igreja_id	bin/main/db/migration/V4__create_table_atividade.sql	/^    igreja_id BIGINT NOT NULL,$/;"	E	table:atividade
+igreja_id	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    igreja_id BIGINT NOT NULL,$/;"	E	table:igreja_rede_social
+igreja_id	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    igreja_id BIGINT NOT NULL,$/;"	E	table:igreja_telefone
+igreja_id	src/main/resources/db/migration/V3__create_table_igreja_usuario.sql	/^    igreja_id BIGINT NOT NULL,$/;"	E	table:igreja_usuario
+igreja_id	src/main/resources/db/migration/V4__create_table_atividade.sql	/^    igreja_id BIGINT NOT NULL,$/;"	E	table:atividade
+igreja_rede_social	bin/main/db/migration/V2__create_table_igreja.sql	/^CREATE TABLE IF NOT EXISTS igreja_rede_social ($/;"	t
+igreja_rede_social	src/main/resources/db/migration/V2__create_table_igreja.sql	/^CREATE TABLE IF NOT EXISTS igreja_rede_social ($/;"	t
+igreja_telefone	bin/main/db/migration/V2__create_table_igreja.sql	/^CREATE TABLE IF NOT EXISTS igreja_telefone ($/;"	t
+igreja_telefone	src/main/resources/db/migration/V2__create_table_igreja.sql	/^CREATE TABLE IF NOT EXISTS igreja_telefone ($/;"	t
+igreja_usuario	bin/main/db/migration/V3__create_table_igreja_usuario.sql	/^CREATE TABLE IF NOT EXISTS igreja_usuario ($/;"	t
+igreja_usuario	src/main/resources/db/migration/V3__create_table_igreja_usuario.sql	/^CREATE TABLE IF NOT EXISTS igreja_usuario ($/;"	t
+igreja_usuario_id	bin/main/db/migration/V3__create_table_igreja_usuario.sql	/^    igreja_usuario_id BIGSERIAL PRIMARY KEY,$/;"	E	table:igreja_usuario
+igreja_usuario_id	src/main/resources/db/migration/V3__create_table_igreja_usuario.sql	/^    igreja_usuario_id BIGSERIAL PRIMARY KEY,$/;"	E	table:igreja_usuario
+igrejas	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaServiceList.java	/^  private List<IgrejaResponse> igrejas;$/;"	f	class:IgrejaServiceList	file:
+igrejas	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  private Set<IgrejaUsuario> igrejas;$/;"	f	class:Usuario	file:
+igrejas	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^  private Set<IgrejaUsuarioEntity> igrejas;$/;"	f	class:UsuarioEntity	file:
+igrejas	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^  public ResponseEntity<?> igrejas($/;"	m	class:UsuarioController
+igrejasFavoritas	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^  private Set<Long> igrejasFavoritas;$/;"	f	class:UsuarioResponse	file:
+imagemUrl	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^  private String imagemUrl;$/;"	f	class:IgrejaUpdate	file:
+imagemUrl	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^  private String imagemUrl;$/;"	f	class:IgrejaRequest	file:
+imagemUrl	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private String imagemUrl;$/;"	f	class:IgrejaResponse	file:
+imagemUrl	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private String imagemUrl;$/;"	f	class:Igreja	file:
+imagemUrl	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private String imagemUrl;$/;"	f	class:IgrejaEntity	file:
+infoTrace	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/GlobalExceptionHandler.java	/^  private void infoTrace(Exception exception) {$/;"	m	class:GlobalExceptionHandler	file:
+isAdmin	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/JwtUtils.java	/^  public boolean isAdmin(String jwtToken) {$/;"	m	class:JwtUtils
+isModerador	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/JwtUtils.java	/^  public boolean isModerador(String jwtToken) {$/;"	m	class:JwtUtils
+isNullOrEmpty	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaMapper.java	/^  private boolean isNullOrEmpty(Set<?> usuarios) {$/;"	m	class:IgrejaMapper	file:
+isNullOrEmpty	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioMapper.java	/^  private boolean isNullOrEmpty(Set<?> igrejas) {$/;"	m	class:UsuarioMapper	file:
+isOwner	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  private boolean isOwner(Set<IgrejaUsuario> igrejas, Long igrejaId) {$/;"	m	class:AtividadeServiceImp	file:
+isRegistered	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/UsuarioRepository.java	/^  Boolean isRegistered(UUID authToken);$/;"	m	interface:UsuarioRepository
+isRegistered	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepository.java	/^  Boolean isRegistered(@Param("authToken") UUID authToken);$/;"	m	interface:UsuarioJpaRepository
+isRegistered	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^  public Boolean isRegistered(UUID authToken) {$/;"	m	class:UsuarioJpaRepositoyImpl
+jwtUtils	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private final JwtUtils jwtUtils;$/;"	f	class:IgrejaServiceImp	file:
+jwtUtils	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  private final JwtUtils jwtUtils;$/;"	f	class:UsuarioServiceImp	file:
+jwtUtils	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/RequestLoggingInterceptor.java	/^  private JwtUtils jwtUtils;$/;"	f	class:RequestLoggingInterceptor	file:
+jwtUtils	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AtividadeController.java	/^  private final JwtUtils jwtUtils;$/;"	f	class:AtividadeController	file:
+jwtUtils	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  private final JwtUtils jwtUtils;$/;"	f	class:IgrejaController	file:
+jwtUtils	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^  private final JwtUtils jwtUtils;$/;"	f	class:UsuarioController	file:
+latitude	bin/main/db/migration/V1__create_table_usuario.sql	/^    latitude NUMERIC(10,8),$/;"	E	table:usuario
+latitude	bin/main/db/migration/V2__create_table_igreja.sql	/^    latitude NUMERIC(10,8),$/;"	E	table:igreja
+latitude	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private BigDecimal latitude;$/;"	f	class:Endereco	file:
+latitude	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/LocalizacaoDTO.java	/^  private BigDecimal latitude;$/;"	f	class:LocalizacaoDTO	file:
+latitude	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    latitude NUMERIC(10,8),$/;"	E	table:usuario
+latitude	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    latitude NUMERIC(10,8),$/;"	E	table:igreja
+listarIgrejasDoUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  List<Igreja> listarIgrejasDoUsuario(String authToken, boolean isModerador);$/;"	m	interface:IgrejaService
+listarIgrejasDoUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public List<Igreja> listarIgrejasDoUsuario(String authToken, boolean isModerador) {$/;"	m	class:IgrejaServiceImp
+listarIgrejasDoUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^    List<Igreja> listarIgrejasDoUsuario(UUID fromString);$/;"	m	interface:IgrejaRepository
+listarIgrejasDoUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  public List<Igreja> listarIgrejasDoUsuario(UUID authToken) {$/;"	m	class:IgrejaJpaRepositoryImpl
+listarIgrejasDoUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaSpringDataRepository.java	/^  List<IgrejaEntity> listarIgrejasDoUsuario(UUID authToken);$/;"	m	interface:IgrejaSpringDataRepository
+listarTodas	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AtividadeService.java	/^    List<Atividade> listarTodas();$/;"	m	interface:AtividadeService
+listarTodas	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  public List<Atividade> listarTodas() {$/;"	m	class:AtividadeServiceImp
+listarTodas	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AtividadeController.java	/^  public ResponseEntity<AtividadeResponseList> listarTodas() {$/;"	m	class:AtividadeController
+logradouro	bin/main/db/migration/V1__create_table_usuario.sql	/^    logradouro VARCHAR(255),$/;"	E	table:usuario
+logradouro	bin/main/db/migration/V2__create_table_igreja.sql	/^    logradouro VARCHAR(255),$/;"	E	table:igreja
+logradouro	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private String logradouro;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+logradouro	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private String logradouro;$/;"	f	class:Endereco	file:
+logradouro	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    logradouro VARCHAR(255),$/;"	E	table:usuario
+logradouro	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    logradouro VARCHAR(255),$/;"	E	table:igreja
+longitude	bin/main/db/migration/V1__create_table_usuario.sql	/^    longitude NUMERIC(11,8)$/;"	E	table:usuario
+longitude	bin/main/db/migration/V2__create_table_igreja.sql	/^    longitude NUMERIC(11,8)$/;"	E	table:igreja
+longitude	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private BigDecimal longitude;$/;"	f	class:Endereco	file:
+longitude	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/LocalizacaoDTO.java	/^  private BigDecimal longitude;$/;"	f	class:LocalizacaoDTO	file:
+longitude	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    longitude NUMERIC(11,8)$/;"	E	table:usuario
+longitude	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    longitude NUMERIC(11,8)$/;"	E	table:igreja
+mailSender	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/gateway/EmailGateway.java	/^  private final JavaMailSender mailSender;$/;"	f	class:EmailGateway	file:
+main	src/main/java/com/ajudaqui/vem_pro_culto_api/VemProCultoApiApplication.java	/^	public static void main(String[] args) {$/;"	m	class:VemProCultoApiApplication
+mainEnd	gradlew.bat	/^:mainEnd$/;"	l
+mapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^  private final AtividadeMapper mapper;$/;"	f	class:AtividaeJpaRepositoryImpl	file:
+mapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  private IgrejaMapper mapper;$/;"	f	class:IgrejaJpaRepositoryImpl	file:
+mapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaMapper.java	/^  private final IgrejaUsuarioMapper mapper;$/;"	f	class:IgrejaMapper	file:
+mapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepositoryImp.java	/^  private final IgrejaUsuarioMapper mapper;$/;"	f	class:IgrejaUsuarioJpaRepositoryImp	file:
+mapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^  private final UsuarioMapper mapper;$/;"	f	class:UsuarioJpaRepositoyImpl	file:
+mapper	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioMapper.java	/^  private final IgrejaUsuarioMapper mapper;$/;"	f	class:UsuarioMapper	file:
+me	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^  public UsuarioResponse me(String authToken);$/;"	m	interface:UsuarioService
+me	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  public UsuarioResponse me(String authToken) {$/;"	m	class:UsuarioServiceImp
+mensagem	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/ResponseMessage.java	/^  private String mensagem;$/;"	f	class:ResponseMessage	file:
+mensagem	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/StatusResponse.java	/^  private String mensagem;$/;"	f	class:StatusResponse	file:
+message	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/ErrorDetails.java	/^  private String message;$/;"	f	class:ErrorDetails	file:
+minhas	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  public ResponseEntity<IgrejaServiceList> minhas($/;"	m	class:IgrejaController
+networkTimeout	gradle/wrapper/gradle-wrapper.properties	/^networkTimeout=10000$/;"	k
+nomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private String nomeFantasia;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+nomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^  private String nomeFantasia;$/;"	f	class:IgrejaUpdate	file:
+nomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^  private String nomeFantasia;$/;"	f	class:IgrejaRequest	file:
+nomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private String nomeFantasia;$/;"	f	class:IgrejaResponse	file:
+nomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private String nomeFantasia;$/;"	f	class:Igreja	file:
+nomeFantasia	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private String nomeFantasia;$/;"	f	class:IgrejaEntity	file:
+nomeIgreja	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponse.java	/^  private String nomeIgreja;$/;"	f	class:AtividadeResponse	file:
+nomeIgreja	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/Atividade.java	/^  private String nomeIgreja;$/;"	f	class:Atividade	file:
+nome_fantasia	bin/main/db/migration/V2__create_table_igreja.sql	/^    nome_fantasia VARCHAR(100),$/;"	E	table:igreja
+nome_fantasia	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    nome_fantasia VARCHAR(100),$/;"	E	table:igreja
+notFoundException	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/GlobalExceptionHandler.java	/^  public final ResponseEntity<ErrorDetails> notFoundException(NotFoundException ex) {$/;"	m	class:GlobalExceptionHandler
+notificandoAdmin	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private void notificandoAdmin(IgrejaUsuario novaIgreja) {$/;"	m	class:IgrejaServiceImp	file:
+numero	bin/main/db/migration/V1__create_table_usuario.sql	/^    numero VARCHAR(50),$/;"	E	table:usuario
+numero	bin/main/db/migration/V1__create_table_usuario.sql	/^    numero VARCHAR(50),$/;"	E	table:usuario_telefone
+numero	bin/main/db/migration/V2__create_table_igreja.sql	/^    numero VARCHAR(50),$/;"	E	table:igreja
+numero	bin/main/db/migration/V2__create_table_igreja.sql	/^    numero VARCHAR(50),$/;"	E	table:igreja_telefone
+numero	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private String numero;$/;"	f	class:Endereco	file:
+numero	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Telefone.java	/^  private String numero;$/;"	f	class:Telefone	file:
+numero	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    numero VARCHAR(50),$/;"	E	table:usuario
+numero	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    numero VARCHAR(50),$/;"	E	table:usuario_telefone
+numero	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    numero VARCHAR(50),$/;"	E	table:igreja
+numero	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    numero VARCHAR(50),$/;"	E	table:igreja_telefone
+omega	gradlew.bat	/^:omega$/;"	l
+pais	bin/main/db/migration/V1__create_table_usuario.sql	/^    pais VARCHAR(100),$/;"	E	table:usuario
+pais	bin/main/db/migration/V2__create_table_igreja.sql	/^    pais VARCHAR(100),$/;"	E	table:igreja
+pais	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Endereco.java	/^  private String pais;$/;"	f	class:Endereco	file:
+pais	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    pais VARCHAR(100),$/;"	E	table:usuario
+pais	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    pais VARCHAR(100),$/;"	E	table:igreja
+papel	bin/main/db/migration/V3__create_table_igreja_usuario.sql	/^    papel VARCHAR(50) NOT NULL,$/;"	E	table:igreja_usuario
+papel	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuario.java	/^  private EPapel papel;$/;"	f	class:IgrejaUsuario	file:
+papel	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioEntity.java	/^  private EPapel papel;$/;"	f	class:IgrejaUsuarioEntity	file:
+papel	src/main/resources/db/migration/V3__create_table_igreja_usuario.sql	/^    papel VARCHAR(50) NOT NULL,$/;"	E	table:igreja_usuario
+postcode	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/dto/LocalizacaoDTO.java	/^  private String postcode;$/;"	f	class:LocalizacaoDTO	file:
+preHandle	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/RequestLoggingInterceptor.java	/^  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object hand/;"	m	class:RequestLoggingInterceptor
+razaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private String razaoSocial;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+razaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^  private String razaoSocial;$/;"	f	class:IgrejaRequest	file:
+razaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private String razaoSocial;$/;"	f	class:IgrejaResponse	file:
+razaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private String razaoSocial;$/;"	f	class:Igreja	file:
+razaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private String razaoSocial;$/;"	f	class:IgrejaEntity	file:
+razao_social	bin/main/db/migration/V2__create_table_igreja.sql	/^    razao_social VARCHAR(100) NOT NULL UNIQUE,$/;"	E	table:igreja
+razao_social	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    razao_social VARCHAR(100) NOT NULL UNIQUE,$/;"	E	table:igreja
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:IgrejaUpdate	file:
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:IgrejaRequest	file:
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioRequest.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:UsuarioRequest	file:
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioUpdate.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:UsuarioUpdate	file:
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:IgrejaResponse	file:
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:UsuarioResponse	file:
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:Igreja	file:
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:Usuario	file:
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:IgrejaEntity	file:
+redesSociais	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^  private List<RedeSocial> redesSociais;$/;"	f	class:UsuarioEntity	file:
+register	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AuthService.java	/^    UsuarioResponse register(String authApp, UsuarioRequest dto);$/;"	m	interface:AuthService
+register	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AuthServiceImp.java	/^  public UsuarioResponse register(String authApp, UsuarioRequest dto) {$/;"	m	class:AuthServiceImp
+register	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AuthController.java	/^  public ResponseEntity<UsuarioResponse> register($/;"	m	class:AuthController
+registradoEm	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private LocalDateTime registradoEm;$/;"	f	class:Igreja	file:
+registradoEm	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  private LocalDateTime registradoEm;$/;"	f	class:Usuario	file:
+registradoEm	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private LocalDateTime registradoEm;$/;"	f	class:IgrejaEntity	file:
+registradoEm	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^  private LocalDateTime registradoEm;$/;"	f	class:UsuarioEntity	file:
+registrado_em	bin/main/db/migration/V1__create_table_usuario.sql	/^    registrado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,$/;"	E	table:usuario
+registrado_em	bin/main/db/migration/V2__create_table_igreja.sql	/^    registrado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,$/;"	E	table:igreja
+registrado_em	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    registrado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,$/;"	E	table:usuario
+registrado_em	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    registrado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,$/;"	E	table:igreja
+registro	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/AtividadeService.java	/^    Atividade registro(String authToken, AtividadeDTO dto);$/;"	m	interface:AtividadeService
+registro	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  public Igreja registro(String requestedToken, IgrejaRequest igreja);$/;"	m	interface:IgrejaService
+registro	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^  public UsuarioResponse registro( UsuarioRequest request);$/;"	m	interface:UsuarioService
+registro	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  public Atividade registro(String authToken, AtividadeDTO dto) {$/;"	m	class:AtividadeServiceImp
+registro	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {$/;"	m	class:IgrejaServiceImp
+registro	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  public UsuarioResponse registro(UsuarioRequest request) {$/;"	m	class:UsuarioServiceImp
+registro	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/AtividadeController.java	/^  public ResponseEntity<AtividadeResponse> registro($/;"	m	class:AtividadeController
+registro	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  public ResponseEntity<?> registro($/;"	m	class:IgrejaController
+registro	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^  public ResponseEntity<UsuarioResponse> registro($/;"	m	class:UsuarioController
+relacaoComIgrejas	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuarioRepository.java	/^  public List<RelacaoComIgrejaDTO> relacaoComIgrejas(UUID authToken);$/;"	m	interface:IgrejaUsuarioRepository
+relacaoComIgrejas	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepository.java	/^  public List<RelacaoComIgrejaDTO> relacaoComIgrejas(@Param("authToken") UUID authToken);$/;"	m	interface:IgrejaUsuarioJpaRepository
+relacaoComIgrejas	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepositoryImp.java	/^  public List<RelacaoComIgrejaDTO> relacaoComIgrejas(UUID authToken) {$/;"	m	class:IgrejaUsuarioJpaRepositoryImp
+relacaoIgreja	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^  public List<RelacaoComIgrejaDTO> relacaoIgreja(String authToken);$/;"	m	interface:UsuarioService
+relacaoIgreja	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  public List<RelacaoComIgrejaDTO> relacaoIgreja(String authToken) {$/;"	m	class:UsuarioServiceImp
+removerVinculo	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private int removerVinculo(UUID authToken, Long igrejaId, String papel) {$/;"	m	class:IgrejaServiceImp	file:
+removerVinculo	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuarioRepository.java	/^  public int removerVinculo(UUID authToken, Long igrejaId, String papel);$/;"	m	interface:IgrejaUsuarioRepository
+removerVinculo	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepository.java	/^  public int removerVinculo(UUID authToken, Long igrejaId, String papel);$/;"	m	interface:IgrejaUsuarioJpaRepository
+removerVinculo	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepositoryImp.java	/^  public int removerVinculo(UUID authToken, Long igrejaId, String papel) {$/;"	m	class:IgrejaUsuarioJpaRepositoryImp
+repository	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  private final AtividadeRepository repository;$/;"	f	class:AtividadeServiceImp	file:
+repository	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private final IgrejaRepository repository;$/;"	f	class:IgrejaServiceImp	file:
+repository	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^  private final AtividaeSpringDataRepository repository;$/;"	f	class:AtividaeJpaRepositoryImpl	file:
+repository	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  private IgrejaSpringDataRepository repository;$/;"	f	class:IgrejaJpaRepositoryImpl	file:
+repository	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepositoryImp.java	/^  private final IgrejaUsuarioJpaRepository repository;$/;"	f	class:IgrejaUsuarioJpaRepositoryImp	file:
+repository	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^  private final UsuarioJpaRepository repository;$/;"	f	class:UsuarioJpaRepositoyImpl	file:
+requestId	resposta.json	/^{"errorMessage": "Unable to import module 'lambda_function': No module named 'lambda_function'",/;"	s
+requestLoggingInterceptor	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/WebConfig.java	/^  private RequestLoggingInterceptor requestLoggingInterceptor;$/;"	f	class:WebConfig	file:
+rua	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private String rua;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+save	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  private Atividade save(Atividade model) {$/;"	m	class:AtividadeServiceImp	file:
+save	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/AtividadeRepository.java	/^  Atividade save(Atividade model);$/;"	m	interface:AtividadeRepository
+save	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/IgrejaRepository.java	/^    Igreja save(Igreja model);$/;"	m	interface:IgrejaRepository
+save	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuarioRepository.java	/^  public IgrejaUsuario save(IgrejaUsuario igrejaUsuario);$/;"	m	interface:IgrejaUsuarioRepository
+save	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/UsuarioRepository.java	/^  public Usuario save(Usuario usuario);$/;"	m	interface:UsuarioRepository
+save	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividaeJpaRepositoryImpl.java	/^  public Atividade save(Atividade model) {$/;"	m	class:AtividaeJpaRepositoryImpl
+save	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaJpaRepositoryImpl.java	/^  public Igreja save(Igreja model) {$/;"	m	class:IgrejaJpaRepositoryImpl
+save	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioJpaRepositoryImp.java	/^  public IgrejaUsuario save(IgrejaUsuario model) {$/;"	m	class:IgrejaUsuarioJpaRepositoryImp
+save	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^  public Usuario save(Usuario usuario) {$/;"	m	class:UsuarioJpaRepositoyImpl
+secret	src/main/java/com/ajudaqui/vem_pro_culto_api/web/config/JwtUtils.java	/^  private String secret;$/;"	f	class:JwtUtils	file:
+send	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/EmailService.java	/^  void send(String to, String subject, String body);$/;"	m	interface:EmailService
+send	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/EmailServiceImp.java	/^  public void send(String to, String subject, String body) {$/;"	m	class:EmailServiceImp
+send	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/gateway/EmailGateway.java	/^  public void send(String to, String subject, String body) {$/;"	m	class:EmailGateway
+setAuthToken	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  public void setAuthToken(String authToken) {$/;"	m	class:Usuario
+setRazaoSocial	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  public void setRazaoSocial(String razaoSocial) {$/;"	m	class:Igreja
+stackTrace	resposta.json	/^{"errorMessage": "Unable to import module 'lambda_function': No module named 'lambda_function'",/;"	a
+status	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/ErrorDetails.java	/^  private int status;$/;"	f	class:ErrorDetails	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/IgrejaUpdate.java	/^  private List<Telefone> telefone;$/;"	f	class:IgrejaUpdate	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/IgrejaRequest.java	/^  private List<Telefone> telefone;$/;"	f	class:IgrejaRequest	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioRequest.java	/^  private List<Telefone> telefone;$/;"	f	class:UsuarioRequest	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/request/UsuarioUpdate.java	/^  private List<Telefone> telefone;$/;"	f	class:UsuarioUpdate	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaResponse.java	/^  private List<Telefone> telefone;$/;"	f	class:IgrejaResponse	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/UsuarioResponse.java	/^  private List<Telefone> telefone;$/;"	f	class:UsuarioResponse	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private List<Telefone> telefone;$/;"	f	class:Igreja	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/Usuario.java	/^  private List<Telefone> telefone;$/;"	f	class:Usuario	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private List<Telefone> telefone;$/;"	f	class:IgrejaEntity	file:
+telefone	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioEntity.java	/^  private List<Telefone> telefone;$/;"	f	class:UsuarioEntity	file:
+temPermissao	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private boolean temPermissao(Set<IgrejaUsuario> usuarios, Long igrejaId, EPapel papel) {$/;"	m	class:IgrejaServiceImp	file:
+timestamp	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/ErrorDetails.java	/^  private LocalDateTime timestamp;$/;"	f	class:ErrorDetails	file:
+tipo	bin/main/db/migration/V1__create_table_usuario.sql	/^    tipo VARCHAR(100),$/;"	E	table:usuario_rede_social
+tipo	bin/main/db/migration/V1__create_table_usuario.sql	/^    tipo VARCHAR(50),$/;"	E	table:usuario_telefone
+tipo	bin/main/db/migration/V2__create_table_igreja.sql	/^    tipo VARCHAR(100),$/;"	E	table:igreja_rede_social
+tipo	bin/main/db/migration/V2__create_table_igreja.sql	/^    tipo VARCHAR(50),$/;"	E	table:igreja_telefone
+tipo	bin/main/db/migration/V4__create_table_atividade.sql	/^    tipo VARCHAR(30) NOT NULL,$/;"	E	table:atividade
+tipo	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeDTO.java	/^  private EAtividadeTipo tipo;$/;"	f	class:AtividadeDTO	file:
+tipo	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/AtividadeResponse.java	/^  private EAtividadeTipo tipo;$/;"	f	class:AtividadeResponse	file:
+tipo	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/RedeSocial.java	/^  private ETipoRedeSocial tipo;$/;"	f	class:RedeSocial	file:
+tipo	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/Telefone.java	/^  private ETipoTelefone tipo;$/;"	f	class:Telefone	file:
+tipo	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/atividade/Atividade.java	/^  private EAtividadeTipo tipo;$/;"	f	class:Atividade	file:
+tipo	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeEntity.java	/^  private EAtividadeTipo tipo;$/;"	f	class:AtividadeEntity	file:
+tipo	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    tipo VARCHAR(100),$/;"	E	table:usuario_rede_social
+tipo	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    tipo VARCHAR(50),$/;"	E	table:usuario_telefone
+tipo	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    tipo VARCHAR(100),$/;"	E	table:igreja_rede_social
+tipo	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    tipo VARCHAR(50),$/;"	E	table:igreja_telefone
+tipo	src/main/resources/db/migration/V4__create_table_atividade.sql	/^    tipo VARCHAR(30) NOT NULL,$/;"	E	table:atividade
+toEntity	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeMapper.java	/^  public AtividadeEntity toEntity(Atividade model) {$/;"	m	class:AtividadeMapper
+toEntity	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaMapper.java	/^  public IgrejaEntity toEntity(Igreja igreja) {$/;"	m	class:IgrejaMapper
+toEntity	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioMapper.java	/^  public IgrejaUsuarioEntity toEntity(IgrejaUsuario model) {$/;"	m	class:IgrejaUsuarioMapper
+toEntity	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioMapper.java	/^  public UsuarioEntity toEntity(Usuario model) {$/;"	m	class:UsuarioMapper
+toFilterMap	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  public Map<String, String> toFilterMap() {$/;"	m	class:FiltroBuscaIgrejaDTO
+toModel	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/AtividadeDTO.java	/^  public Atividade toModel() {$/;"	m	class:AtividadeDTO
+toModel	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/atividade/AtividadeMapper.java	/^  public Atividade toModel(AtividadeEntity entity) {$/;"	m	class:AtividadeMapper
+toModel	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaMapper.java	/^  public Igreja toModel(IgrejaEntity entity) {$/;"	m	class:IgrejaMapper
+toModel	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioMapper.java	/^  public IgrejaUsuario toModel(IgrejaUsuarioEntity entity) {$/;"	m	class:IgrejaUsuarioMapper
+toModel	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioMapper.java	/^  public Usuario toModel(UsuarioEntity entity) {$/;"	m	class:UsuarioMapper
+total	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/response/IgrejaServiceList.java	/^  private long total;$/;"	f	class:IgrejaServiceList	file:
+unauthorizedException	src/main/java/com/ajudaqui/vem_pro_culto_api/web/exception/GlobalExceptionHandler.java	/^  public final ResponseEntity<ErrorDetails> unauthorizedException(UnauthorizedException ex) {$/;"	m	class:GlobalExceptionHandler
+update	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/UsuarioService.java	/^  public UsuarioResponse update(String authToken, UsuarioUpdate usuario);$/;"	m	interface:UsuarioService
+update	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  public UsuarioResponse update(String authToken, UsuarioUpdate usuario) {$/;"	m	class:UsuarioServiceImp
+update	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/usuario/UsuarioRepository.java	/^  public Usuario update(String authToken, UsuarioUpdate usuario);$/;"	m	interface:UsuarioRepository
+update	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/usuario/UsuarioJpaRepositoyImpl.java	/^  public Usuario update(String authToken, UsuarioUpdate usuario) {$/;"	m	class:UsuarioJpaRepositoyImpl
+url	bin/main/db/migration/V1__create_table_usuario.sql	/^    url VARCHAR(255),$/;"	E	table:usuario_rede_social
+url	bin/main/db/migration/V2__create_table_igreja.sql	/^    url VARCHAR(255),$/;"	E	table:igreja_rede_social
+url	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/compartilhado/RedeSocial.java	/^  private String url;$/;"	f	class:RedeSocial	file:
+url	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    url VARCHAR(255),$/;"	E	table:usuario_rede_social
+url	src/main/resources/db/migration/V2__create_table_igreja.sql	/^    url VARCHAR(255),$/;"	E	table:igreja_rede_social
+usuario	bin/main/db/migration/V1__create_table_usuario.sql	/^    usuario BIGSERIAL PRIMARY KEY,$/;"	E	table:usuario
+usuario	bin/main/db/migration/V1__create_table_usuario.sql	/^CREATE TABLE IF NOT EXISTS usuario ($/;"	t
+usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igrejaUsuario/IgrejaUsuario.java	/^  private Usuario usuario;$/;"	f	class:IgrejaUsuario	file:
+usuario	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igrejaUsuario/IgrejaUsuarioEntity.java	/^  private UsuarioEntity usuario;$/;"	f	class:IgrejaUsuarioEntity	file:
+usuario	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    usuario BIGSERIAL PRIMARY KEY,$/;"	E	table:usuario
+usuario	src/main/resources/db/migration/V1__create_table_usuario.sql	/^CREATE TABLE IF NOT EXISTS usuario ($/;"	t
+usuarioId	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/dto/FiltroBuscaIgrejaDTO.java	/^  private Long usuarioId;$/;"	f	class:FiltroBuscaIgrejaDTO	file:
+usuarioRepository	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/UsuarioServiceImp.java	/^  private final UsuarioRepository usuarioRepository;$/;"	f	class:UsuarioServiceImp	file:
+usuarioService	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AtividadeServiceImp.java	/^  private final UsuarioService usuarioService;$/;"	f	class:AtividadeServiceImp	file:
+usuarioService	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/AuthServiceImp.java	/^  private final UsuarioService usuarioService;$/;"	f	class:AuthServiceImp	file:
+usuarioService	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  private final UsuarioService usuarioService;$/;"	f	class:IgrejaServiceImp	file:
+usuarioService	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/UsuarioController.java	/^  private final UsuarioService usuarioService;$/;"	f	class:UsuarioController	file:
+usuario_id	bin/main/db/migration/V1__create_table_usuario.sql	/^    usuario_id BIGINT NOT NULL,$/;"	E	table:usuario_rede_social
+usuario_id	bin/main/db/migration/V1__create_table_usuario.sql	/^    usuario_id BIGINT NOT NULL,$/;"	E	table:usuario_telefone
+usuario_id	bin/main/db/migration/V3__create_table_igreja_usuario.sql	/^    usuario_id BIGINT NOT NULL,$/;"	E	table:igreja_usuario
+usuario_id	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    usuario_id BIGINT NOT NULL,$/;"	E	table:usuario_rede_social
+usuario_id	src/main/resources/db/migration/V1__create_table_usuario.sql	/^    usuario_id BIGINT NOT NULL,$/;"	E	table:usuario_telefone
+usuario_id	src/main/resources/db/migration/V3__create_table_igreja_usuario.sql	/^    usuario_id BIGINT NOT NULL,$/;"	E	table:igreja_usuario
+usuario_rede_social	bin/main/db/migration/V1__create_table_usuario.sql	/^CREATE TABLE IF NOT EXISTS usuario_rede_social ($/;"	t
+usuario_rede_social	src/main/resources/db/migration/V1__create_table_usuario.sql	/^CREATE TABLE IF NOT EXISTS usuario_rede_social ($/;"	t
+usuario_telefone	bin/main/db/migration/V1__create_table_usuario.sql	/^CREATE TABLE IF NOT EXISTS usuario_telefone ($/;"	t
+usuario_telefone	src/main/resources/db/migration/V1__create_table_usuario.sql	/^CREATE TABLE IF NOT EXISTS usuario_telefone ($/;"	t
+usuarios	src/main/java/com/ajudaqui/vem_pro_culto_api/domain/entity/igreja/Igreja.java	/^  private Set<IgrejaUsuario> usuarios;$/;"	f	class:Igreja	file:
+usuarios	src/main/java/com/ajudaqui/vem_pro_culto_api/infraestructure/persistense/igreja/IgrejaEntity.java	/^  private Set<IgrejaUsuarioEntity> usuarios; \/\/ @ManyToOne$/;"	f	class:IgrejaEntity	file:
+validateDistributionUrl	gradle/wrapper/gradle-wrapper.properties	/^validateDistributionUrl=true$/;"	k
+vincular	src/main/java/com/ajudaqui/vem_pro_culto_api/web/controller/IgrejaController.java	/^  public ResponseEntity<?> vincular($/;"	m	class:IgrejaController
+vincularUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/IgrejaService.java	/^  public Boolean vincularUsuario(String authToken, Long igrejaId);$/;"	m	interface:IgrejaService
+vincularUsuario	src/main/java/com/ajudaqui/vem_pro_culto_api/application/service/imp/IgrejaServiceImp.java	/^  public Boolean vincularUsuario(String authToken, Long igrejaId) {$/;"	m	class:IgrejaServiceImp
+warn	gradlew	/^warn () {$/;"	f
+zipStoreBase	gradle/wrapper/gradle-wrapper.properties	/^zipStoreBase=GRADLE_USER_HOME$/;"	k
+zipStorePath	gradle/wrapper/gradle-wrapper.properties	/^zipStorePath=wrapper\/dists$/;"	k

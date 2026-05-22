@@ -1,4 +1,4 @@
-package com.ajudaqui.vem_pro_culto_api.infraestructure.gateway;
+package com.ajudaqui.vem_pro_culto_api.domain.gateway;
 
 import java.util.List;
 
@@ -10,12 +10,27 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "nominatim.org", url = "https://nominatim.openstreetmap.org")
-public interface CoordenadaFeing {
+public interface CoordenadaGateway {
 
   @GetMapping("/search")
   public List<LocalizacaoDTO> buscarCordenadas(
       @RequestHeader("User-Agent") String userAgent,
       @RequestParam("q") String cep,
+      @RequestParam("format") String format);
+
+  @GetMapping("/search")
+  public List<String> buscarCordenadas2(
+      @RequestHeader("User-Agent") String userAgent,
+      @RequestParam("street") String rua,
+      @RequestParam("state") String estado,
+      @RequestParam("country") String pais,
+      @RequestParam("format") String format);
+  @GetMapping("/search")
+  public List<LocalizacaoDTO> buscarCordenadas(
+      @RequestHeader("User-Agent") String userAgent,
+      @RequestParam("street") String rua,
+      @RequestParam("state") String estado,
+      @RequestParam("country") String pais,
       @RequestParam("format") String format);
 
   @GetMapping("/reverse")

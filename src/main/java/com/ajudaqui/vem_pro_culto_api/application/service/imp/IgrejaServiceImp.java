@@ -15,21 +15,24 @@ import com.ajudaqui.vem_pro_culto_api.domain.entity.igreja.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.igrejaUsuario.*;
 import com.ajudaqui.vem_pro_culto_api.domain.entity.usuario.Usuario;
 import com.ajudaqui.vem_pro_culto_api.domain.enums.EPapel;
-import com.ajudaqui.vem_pro_culto_api.infraestructure.cliente.CoordenadaApiImp;
 import com.ajudaqui.vem_pro_culto_api.web.config.JwtUtils;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 
 @Service
+@Log
 @RequiredArgsConstructor
 public class IgrejaServiceImp implements IgrejaService {
   private final IgrejaRepository repository;
   private final UsuarioService usuarioService;
   private final IgrejaUsuarioRepository igrejaUsuarioRepository;
   private final CoordenadaApiImp coordenadaApi;
+  private final EmailServiceImp emailServiceImp;
   private final JwtUtils jwtUtils;
+  private final String EMAIL_ADMIN = "contato.vemproculto@gmail.com";
 
   @Override
   public Igreja registro(String requestedToken, IgrejaRequest igrejaRequest) {
@@ -44,21 +47,44 @@ public class IgrejaServiceImp implements IgrejaService {
     var igreja = repository.save(new Igreja(igrejaRequest));
 
     var igrejaUsuario = new IgrejaUsuario(igreja, usuario, EPapel.DONO);
-    igrejaUsuarioRepository.save(igrejaUsuario);
+    IgrejaUsuario novaIgreja = igrejaUsuarioRepository.save(igrejaUsuario);
+
+    notificandoAdmin(novaIgreja);
     return igreja;
   }
 
-  private void alimentandoCoordenada(IgrejaRequest igrejaRequest) {
-    Endereco endereco = igrejaRequest.getEndereco();
+  private void notificandoAdmin(IgrejaUsuario novaIgreja) {
+    Usuario usuario = novaIgreja.getUsuario();
+    Igreja igreja = novaIgreja.getIgreja();
 
-    if (endereco == null)
+    NotificacaoAdmin notificacaoAdmin = new NotificacaoAdmin(
+        usuario.getAuthToken(),
+        usuario.getTelefone(),
+        igreja.getEmail(),
+        igreja.getNomeFantasia(),
+        igreja.getTelefone());
+
+    try {
+      emailServiceImp.send(EMAIL_ADMIN,
+          "Nova Igreja: " + igreja.getNomeFantasia(), notificacaoAdmin.toString());
+    } catch (Exception e) {
+      log.warning(String.format("Email para endereço %s não foi enviado.", EMAIL_ADMIN));
+    }
+  }
+
+  private void alimentandoCoordenada(IgrejaRequest igrejaRequest) {
+
+    if (igrejaRequest.getEndereco() == null)
       throw new BadRequestException("O endereço é obrigatório.");
+
+    Endereco endereco = igrejaRequest.getEndereco();
 
     String cep = endereco.getCep();
     if (cep == null || cep.isBlank())
       throw new BadRequestException("O CEP deve ser preencido");
 
-    CoordenadaDTO coordenada = coordenadaApi.buscarCordenadas(cep);
+    CoordenadaDTO coordenada = coordenadaApi.buscarCordenadas(
+        cep, endereco.getLogradouro(), endereco.getEstado());
 
     if (coordenada == null)
       throw new BadRequestException("Não foi possível localizar coordenadas para o CEP informado.");
@@ -197,9 +223,21 @@ public class IgrejaServiceImp implements IgrejaService {
     var igreja = repository.buscarPorIr(igrejaId)
         .orElseThrow(() -> new NotFoundException("Igreja não localizada."));
 
+    boolean primeiraAlteracao = igreja.getAtualizadoEm().equals(igreja.getRegistradoEm());
     boolean newStatus = !igreja.getAtivo();
+
     igreja.setAtivo(newStatus);
     repository.save(igreja);
+
+    if (primeiraAlteracao && newStatus) {
+
+      emailServiceImp.send(
+          igreja.getEmail(),
+          "Cadastro aprovado",
+          String.format(
+              "Olá! Seu cadastro foi aprovado e a igreja %s já pode utilizar os serviços da plataforma Vem Pro Culto. Seja bem-vindo!",
+              igreja.getRazaoSocial()));
+    }
     return new StatusResponse(newStatus, "Mudança de status realizda com sucesso.");
   }
 
